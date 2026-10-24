@@ -85,7 +85,7 @@ def prepare():
     meta = inspect_package(package)
     notes = json.loads((BASE / 'release-notes.json').read_text(encoding='utf-8'))
     for key in ('notes', 'notes_ar'):
-        if not isinstance(notes.get(key), list) or not all(isinstance(x, str) for x in notes[key]):
+        if not isinstance(notes.get(key), list) or not notes[key] or not all(isinstance(x, str) and x.strip() for x in notes[key]):
             raise ValueError('Missing release notes: ' + key)
         meta[key] = notes[key]
     destination = BASE / 'dist'
