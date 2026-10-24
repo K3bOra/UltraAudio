@@ -53,10 +53,10 @@ def inspect_package(path):
     if field('Package') != PACKAGE_NAME or field('Architecture') != 'all':
         raise ValueError('Wrong plugin or architecture')
     installed_version = field('Version')
-    if not re.fullmatch(r'\d+\.\d+\.\d+-finalv1', installed_version):
+    if not re.fullmatch(r'\d+\.\d+\.\d+', installed_version):
         raise ValueError('Expected a stable Final V1 version')
-    version = installed_version.split('-')[0]
-    if path.name != 'UltraAudio_Final_V1_Python3_v' + version + '.ipk':
+    version = installed_version
+    if path.name != 'Ultra_Audio_Final_Version_' + version.split('.')[0] + '_V' + version.split('.')[0] + '.ipk':
         raise ValueError('Filename does not match package version')
     count = 0
     with tarfile.open(fileobj=io.BytesIO(parts['data.tar.gz']), mode='r:gz') as archive:
@@ -94,9 +94,11 @@ def prepare():
         old.unlink()
     shutil.copyfile(str(package), str(destination / package.name))
     (destination / 'update.json').write_text(json.dumps(meta, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
-    (destination / 'SHA256SUMS').write_text(meta['sha256'] + '  ' + package.name + '\n', encoding='utf-8')
-    (destination / 'release-info.json').write_text(json.dumps({'tag': 'v' + meta['version'], 'version': meta['version']}) + '\n')
-    (destination / 'notes.md').write_text('UltraAudio ' + meta['version'] + ' — Python 3 only\n\n' + '\n'.join('- ' + x for x in meta['notes']) + '\n\n' + '\n'.join('- ' + x for x in meta['notes_ar']) + '\n', encoding='utf-8')
+    shutil.copyfile(str(BASE / 'install.sh'), str(destination / 'install.sh'))
+    installer_hash = hashlib.sha256((destination / 'install.sh').read_bytes()).hexdigest()
+    (destination / 'SHA256SUMS').write_text(meta['sha256'] + '  ' + package.name + '\n' + installer_hash + '  install.sh\n', encoding='utf-8')
+    (destination / 'release-info.json').write_text(json.dumps({'tag': 'v' + meta['version'], 'version': meta['version'], 'title': 'Ultra Audio Final Version ' + meta['version'].split('.')[0] + ' V' + meta['version'].split('.')[0]}) + '\n')
+    (destination / 'notes.md').write_text('Ultra Audio Final Version ' + meta['version'].split('.')[0] + ' V' + meta['version'].split('.')[0] + ' — Python 3 only\n\n' + '\n'.join('- ' + x for x in meta['notes']) + '\n\n' + '\n'.join('- ' + x for x in meta['notes_ar']) + '\n', encoding='utf-8')
     print('Prepared v' + meta['version'] + ': ' + meta['sha256'])
 
 
@@ -106,6 +108,8 @@ def verify(directory):
         raise ValueError('Published release must contain one IPK')
     expected = json.loads((BASE / 'dist/update.json').read_text(encoding='utf-8'))
     actual = json.loads((directory / 'update.json').read_text(encoding='utf-8'))
+    if (directory / 'install.sh').read_bytes() != (BASE / 'install.sh').read_bytes():
+        raise ValueError('Downloaded installer differs from prepared installer')
     if actual != expected:
         raise ValueError('Downloaded manifest differs from prepared manifest')
     info = inspect_package(packages[0])
