@@ -4,6 +4,7 @@
     "Returning to a stopped channel no longer automatically restarts commentary or restores its old delay.",
     "Channel memory still works when changing channels without pressing Stop.",
     "Remove the temporary Preview Update Card option and its sample details.",
+    "Settings shows Online Update only; the official update source is configured internally.",
     "Telnet installer displays download progress and checks incomplete downloads.",
     "Display name remains Ultra Audio Final V1; internal package version is 1.0.1."
   ],
@@ -12,6 +13,7 @@
     "الرجوع للقناة بعد Stop لا يعيد تشغيل الصوتية أو استعادة التأخير القديم تلقائيًا.",
     "حفظ حالة القنوات يظل متاحًا عند التنقل العادي بدون الضغط على Stop.",
     "إزالة اختيار Preview Update Card التجريبي وبيانات المعاينة من الإعدادات.",
+    "إزالة حقل GitHub repository من الإعدادات، مع ضبط مصدر التحديث الرسمي داخليًا.",
     "عرض نسبة التحميل في مُثبّت التلنت والتحقق من التحميل غير المكتمل.",
     "الاسم الظاهر يظل Ultra Audio Final V1 ورقم الحزمة الداخلي 1.0.1."
   ]
