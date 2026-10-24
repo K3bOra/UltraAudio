@@ -1,0 +1,22 @@
+{
+  "version": "1.0.0",
+  "url": "https://github.com/K3bOra/UltraAudio/releases/download/v1.0.0/Ultra_Audio_Final_V1.ipk",
+  "sha256": "df599039ebd46d4d603834fc40f7b01067220fc752e8566a0d420b867c554491",
+  "size": 4110178,
+  "notes": [
+    "First official release: Ultra Audio Final V1.",
+    "Receiver and mobile controls for IP audio commentary, picture delay and audio delay.",
+    "Receiver channel name and local /media/hdd/picon artwork in the web now-playing card.",
+    "Bundled commentary logos and source icons; Arabic and English interfaces.",
+    "Official GitHub updates with verified IPK downloads and a verified Telnet installer.",
+    "Python 3 images only (3.5+)."
+  ],
+  "notes_ar": [
+    "الإصدار الرسمي الأول: Ultra Audio Final V1.",
+    "تشغيل الصوتيات والتحكم في تأخير الصوت والصورة من الرسيفر والموبايل.",
+    "عرض اسم قناة الرسيفر وبايكونها المحلي من /media/hdd/picon على الويب.",
+    "شعارات الصوتيات وأيقونات المصادر المرفقة، مع واجهة عربية وإنجليزية.",
+    "تحديثات GitHub رسمية ومُثبّت تلنت يتحقق من الحزمة قبل التثبيت.",
+    "يدعم صور Python 3 فقط، بدءًا من الإصدار 3.5."
+  ]
+}
