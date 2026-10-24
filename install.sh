@@ -145,7 +145,7 @@ def install_args(installed, target, path):
     args = ['opkg', 'install']
     if installed and installed != target:
         # Only the known temporary test numbering may move back to public V1.
-        if target == '1.0.0' and re.fullmatch(r'2\.0\.(?:[0-9]|1[0-3])-finalv1', installed):
+        if re.fullmatch(r'1\.\d+\.\d+', target) and re.fullmatch(r'2\.0\.(?:[0-9]|1[0-3])-finalv1', installed):
             args.append('--force-downgrade')
         else:
             def version(v):

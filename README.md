@@ -18,6 +18,9 @@ IP Audio Commentary · Enigma2 · Python 3
 
 > **الإصدار الرسمي: V1** · يدعم صور Enigma2 التي تعمل ببايثون 3. حزمة الإصدار ومُثبّت التلنت متاحان من [صفحة الإصدارات](https://github.com/K3bOra/UltraAudio/releases/latest).
 
+**تحديث 1.0.1:** زر Stop يلغي ذاكرة الصوتية وتأخير الصوت والصورة للقناة، فلا تعود تلقائيًا عند الرجوع إليها. تمت إزالة خيار Preview Update Card التجريبي. الاسم الظاهر يظل **Ultra Audio Final V1**.
+
+
 ## واجهة الرسيفر
 
 قائمة صوتيات فوق القناة نفسها، مع اسم الصوتية الحالية ومعلومات البرامج عند توافرها، وتحكم مباشر من الشريط السفلي.
@@ -85,7 +88,7 @@ IP Audio Commentary · Enigma2 · Python 3
 </div>
 
 ```sh
-wget -O /tmp/ultraaudio_install.sh https://github.com/K3bOra/UltraAudio/releases/latest/download/install.sh && sh /tmp/ultraaudio_install.sh
+wget -qO- https://raw.githubusercontent.com/K3bOra/UltraAudio/main/install.sh | /bin/sh
 ```
 
 <div dir="rtl">
