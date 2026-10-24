@@ -1,20 +1,22 @@
 {
   "notes": [
-    "Fix Stop: cancel saved commentary and picture/audio offsets for the current TV channel.",
-    "Returning to a stopped channel no longer automatically restarts commentary or restores its old delay.",
-    "Channel memory still works when changing channels without pressing Stop.",
-    "Remove the temporary Preview Update Card option and its sample details.",
-    "Settings shows Online Update only; the official update source is configured internally.",
-    "Telnet installer displays download progress and checks incomplete downloads.",
-    "Display name remains Ultra Audio Final V1; internal package version is 1.0.1."
+    "Install this repair once through the Telnet command to replace the older online updater.",
+    "Show release details above the update card background on affected Enigma2 images.",
+    "Display the release notes in Arabic or English according to the plugin language.",
+    "Show download percentage, a progress bar, the current installation stage and elapsed time.",
+    "Run OPKG and component checks without waiting for inherited output pipes.",
+    "Restart through Enigma2 after successful finalization and 100% completion; failures show an error and do not restart.",
+    "Both language note lists are required when preparing future releases.",
+    "Display name remains Ultra Audio Final V1; internal package version is 1.0.2."
   ],
   "notes_ar": [
-    "إصلاح زر Stop: إلغاء الصوتية وتأخير الصورة والصوت المحفوظ للقناة عند الإيقاف اليدوي.",
-    "الرجوع للقناة بعد Stop لا يعيد تشغيل الصوتية أو استعادة التأخير القديم تلقائيًا.",
-    "حفظ حالة القنوات يظل متاحًا عند التنقل العادي بدون الضغط على Stop.",
-    "إزالة اختيار Preview Update Card التجريبي وبيانات المعاينة من الإعدادات.",
-    "إزالة حقل GitHub repository من الإعدادات، مع ضبط مصدر التحديث الرسمي داخليًا.",
-    "عرض نسبة التحميل في مُثبّت التلنت والتحقق من التحميل غير المكتمل.",
-    "الاسم الظاهر يظل Ultra Audio Final V1 ورقم الحزمة الداخلي 1.0.1."
+    "ثبّت هذا الإصلاح مرة واحدة بأمر التلنت لاستبدال مُحدّث الأونلاين القديم.",
+    "إظهار تفاصيل الإصدار فوق خلفية كارت التحديث على صور Enigma2 المتأثرة.",
+    "عرض ملاحظات الإصدار بالعربية أو الإنجليزية حسب لغة البلجن.",
+    "عرض نسبة التنزيل وشريط تقدم ومرحلة التثبيت والوقت المنقضي.",
+    "تشغيل OPKG وفحص المكونات بدون انتظار قنوات خرج موروثة من عمليات الخلفية.",
+    "إعادة تشغيل الواجهة من داخل Enigma2 بعد اكتمال الفحص والوصول إلى 100%؛ الأخطاء تظهر بدون إعادة تشغيل.",
+    "اشتراط وجود تفاصيل بالعربية والإنجليزية عند تجهيز الإصدارات القادمة.",
+    "الاسم الظاهر يظل Ultra Audio Final V1 ورقم الحزمة الداخلي 1.0.2."
   ]
 }
