@@ -1,5 +1,5 @@
 #!/bin/sh
-# Ultra Audio Final Version 1 V1 - verified official installer.
+# Ultra Audio Final V1 - verified official installer.
 set -u
 if ! command -v python3 >/dev/null 2>&1; then
     printf '%s\n' '[ERROR] UltraAudio requires Python 3.5 or newer from the receiver image.'
@@ -20,7 +20,7 @@ from urllib.request import Request, HTTPRedirectHandler, build_opener
 
 REPO = 'K3bOra/UltraAudio'
 PACKAGE = 'enigma2-plugin-extensions-ultraaudio'
-TITLE = 'Ultra Audio Final Version 1 V1'
+TITLE = 'Ultra Audio Final V1'
 LIMIT = 32 * 1024 * 1024
 MANIFEST = 'https://github.com/' + REPO + '/releases/latest/download/update.json'
 

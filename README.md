@@ -1,6 +1,6 @@
 <div align="center">
 
-# Ultra Audio Final Version 1 V1
+# Ultra Audio Final V1
 
 **اختار تعليقك… واضبط الصوت والصورة على مزاجك**
 
@@ -92,7 +92,7 @@ wget -O /tmp/ultraaudio_install.sh https://github.com/K3bOra/UltraAudio/releases
 
 بعد تثبيت الحزمة، يفحص البلجن المكونات المطلوبة ويثبت الناقص من مستودعات الصورة، ثم يعيد تشغيل واجهة Enigma2 عند نجاح الفحص. تبقى مكتبتك وإعداداتك محفوظة عند التحديث.
 
-لتحميل الحزمة يدويًا: [Ultra Audio Final Version 1 V1](https://github.com/K3bOra/UltraAudio/releases/latest).
+لتحميل الحزمة يدويًا: [Ultra Audio Final V1](https://github.com/K3bOra/UltraAudio/releases/latest).
 
 ## بداية الاستخدام
 
