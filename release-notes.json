@@ -1,24 +1,24 @@
 {
   "notes": [
-    "Added Arabic radio stations and dedicated Holy Quran reciter stations with shared artwork.",
-    "Improved plugin artwork and channel logos, including unified Shahid and STARZPLAY icons.",
-    "Improved commentary startup with timeshift: audio starts without waiting for the picture buffer to fill.",
-    "Improved Python detection, image-feed component installation and real AAC/MP3 decode checks.",
-    "Added an independent component-repair screen when missing libraries prevent the plugin opening.",
-    "Fixed backup restore and preserved user-deleted stations after restoring and restarting.",
-    "Improved beIN guide caching and background loading; tightened complete update-version validation.",
-    "Updated three default stream links and retired three unavailable unedited defaults; user-edited entries are preserved.",
-    "The display name remains Ultra Audio Final V1; the package version is 1.0.4."
+    "Added six selectable Arabic/English fonts plus the receiver image default in Settings > UI font; the preference is included in backups.",
+    "Changing the font rebuilds only the plugin UI and preserves the folder, cursor, settings row and current commentary.",
+    "Fixed M3U parsing when quoted metadata contains commas and fixed return-to-live seeks on long timeshift buffers.",
+    "Limited slider overflow recovery to failing Progress updates without modifying the global VariableValue component.",
+    "Removed PLAYING from the receiver header and web status during normal playback.",
+    "Added receiver-cached EPG fallback for Abu Dhabi, Shahid, Shasha and Al Rabiaa; guide availability depends on matching receiver EPG.",
+    "Improved DVB-only component checks and startup diagnostics. DM920 audio playback still requires confirmation on the receiver.",
+    "Improved feed-update sequencing while retaining the existing forced GUI restart method.",
+    "The display name remains Ultra Audio Final V1; the package version is 1.0.5."
   ],
   "notes_ar": [
-    "إضافة قنوات راديو عربية وإذاعات للقرآن الكريم بأصوات قراء متعددين، مع أيقونات مشتركة لتقليل استهلاك الذاكرة.",
-    "تحسين بايكون البلجن وجودة شعارات القنوات، وتوحيد أيقونات شاهد وستارز بلاي.",
-    "تحسين تشغيل الصوت مع التايم شيفت: يبدأ التعليق دون انتظار امتلاء مخزن الصورة.",
-    "تحسين اكتشاف بايثون والمكتبات والتثبيت من مستودع الصورة، مع اختبار فعلي لفك صوت AAC وMP3.",
-    "إضافة شاشة مستقلة لإصلاح المكونات عندما تمنع المكتبات الناقصة فتح البلجن.",
-    "إصلاح استرجاع النسخ الاحتياطية والحفاظ على القنوات المحذوفة بعد الاسترجاع وإعادة التشغيل.",
-    "تحسين سرعة تحميل دليل beIN والكاش في الخلفية، وتشديد مطابقة رقم إصدار التحديث كاملًا.",
-    "تحديث ثلاثة روابط بث افتراضية وإيقاف ثلاثة افتراضيات تعذّر تشغيلها، مع الحفاظ على المحطات التي عدّلها المستخدم.",
-    "الاسم الظاهر يظل Ultra Audio Final V1، ورقم الحزمة الداخلي 1.0.4."
+    "إضافة ستة خطوط عربية وإنجليزية مع خيار خط الصورة من الإعدادات > نوع الخط، وحفظ الاختيار ضمن النسخ الاحتياطي.",
+    "تغيير الخط يعيد بناء واجهة البلجن فقط ويحافظ على الفولدر والمؤشر وصف الإعدادات والصوتية الحالية.",
+    "إصلاح استيراد M3U عند وجود فواصل داخل البيانات بين علامتي اقتباس، وإصلاح الرجوع للمباشر مع بافر تايم شيفت طويل.",
+    "حصر حماية تجاوز قيمة شريط التقدم في التحديث المتسبب بالخطأ دون تعديل مكوّن VariableValue العام.",
+    "إزالة كلمة PLAYING من هيدر الرسيفر وحالة الويب أثناء التشغيل الطبيعي.",
+    "إضافة قراءة EPG المخزن على الرسيفر لقنوات أبوظبي وشاهد وشاشا والرابعة؛ يتطلب ذلك وجود دليل مطابق في الصورة.",
+    "تحسين فحص مكونات الصوت على أجهزة DVB والتشخيص في اللوج؛ تشغيل الصوت على DM920 ما زال يحتاج تأكيدًا عمليًا على الجهاز.",
+    "تحسين ترتيب تحديث قوائم الحزم مع الإبقاء على طريقة إعادة تشغيل الواجهة الحالية.",
+    "الاسم الظاهر يظل Ultra Audio Final V1، ورقم الحزمة الداخلي 1.0.5."
   ]
 }

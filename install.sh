@@ -190,7 +190,9 @@ def main(argv):
         print('[OK] This official version is already installed.', flush=True)
         return
     print('[3/4] Refreshing the image package lists once...', flush=True)
-    if subprocess.call(['opkg', 'update']):
+    feed_result = subprocess.call(['opkg', 'update'])
+    install_env = dict(os.environ, ULTRAAUDIO_FEED_UPDATED='1')
+    if feed_result:
         print('[WARN] Some image feeds did not refresh; using available package lists.', flush=True)
     fd, path = tempfile.mkstemp(prefix='ultraaudio_official_', suffix='.ipk', dir='/tmp')
     try:
@@ -198,7 +200,7 @@ def main(argv):
             handle.write(payload)
         args[-1] = path
         print('[4/4] Installing UltraAudio; library and settings are preserved...', flush=True)
-        if subprocess.call(args):
+        if subprocess.call(args, env=install_env):
             raise RuntimeError('OPKG installation failed; review the output above')
         print('[OK] Package installed. Embedded component checks will finish and restart the GUI.', flush=True)
     finally:
@@ -218,3 +220,4 @@ ULTRAAUDIO_INSTALL_PY
 install_result=$?
 case "$0" in /tmp/ultraaudio_install.sh) rm -f -- "$0" ;; esac
 exit "$install_result"
+
