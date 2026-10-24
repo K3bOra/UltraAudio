@@ -15,6 +15,7 @@ import subprocess
 import sys
 import tarfile
 import tempfile
+import time
 from urllib.parse import urlsplit
 from urllib.request import Request, HTTPRedirectHandler, build_opener
 
@@ -42,15 +43,45 @@ class GitHubRedirect(HTTPRedirectHandler):
 def download(url, limit):
     github_https(url)
     request = Request(url, headers={'User-Agent': 'UltraAudio-Installer', 'Cache-Control': 'no-cache'})
-    response = build_opener(GitHubRedirect()).open(request, timeout=30)
+    progress = limit > 64 * 1024
+    if progress:
+        print('[DOWNLOAD] Connecting to GitHub package server...', flush=True)
+    started = time.monotonic()
+    response = build_opener(GitHubRedirect()).open(request, timeout=20)
     try:
         github_https(response.geturl())
-        data = response.read(limit + 1)
+        length = response.headers.get('Content-Length', '')
+        total = int(length) if length.isdigit() else 0
+        if total > limit:
+            raise ValueError('Download exceeds size limit')
+        data = bytearray()
+        reader = getattr(response, 'read1', response.read)
+        last_report = 0.0
+        while True:
+            now = time.monotonic()
+            if now - started > 300:
+                raise TimeoutError('Download took over five minutes; check the receiver connection and retry')
+            chunk = reader(min(16 * 1024, limit + 1 - len(data)))
+            if not chunk:
+                break
+            data.extend(chunk)
+            if len(data) > limit:
+                raise ValueError('Download exceeds size limit')
+            now = time.monotonic()
+            if progress and (now - last_report >= 2 or (total and len(data) == total)):
+                if total:
+                    detail = '%3d%% | %.2f / %.2f MB' % (min(100, len(data) * 100 // total), len(data) / 1048576.0, total / 1048576.0)
+                else:
+                    detail = '%.2f MB received' % (len(data) / 1048576.0)
+                print('\r[DOWNLOAD] ' + detail, end='', flush=True)
+                last_report = now
+        if total and len(data) != total:
+            raise ValueError('Download was interrupted; package is incomplete')
+        return bytes(data)
     finally:
         response.close()
-    if len(data) > limit:
-        raise ValueError('Download exceeds size limit')
-    return data
+        if progress:
+            print('', flush=True)
 
 
 def verify_manifest(meta):
