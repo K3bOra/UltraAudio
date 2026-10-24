@@ -1,22 +1,24 @@
 {
-  "version": "1.0.0",
-  "url": "https://github.com/K3bOra/UltraAudio/releases/download/v1.0.0/Ultra_Audio_Final_V1.ipk",
-  "sha256": "df599039ebd46d4d603834fc40f7b01067220fc752e8566a0d420b867c554491",
-  "size": 4110178,
+  "version": "1.0.1",
+  "url": "https://github.com/K3bOra/UltraAudio/releases/download/v1.0.1/Ultra_Audio_Final_V1.ipk",
+  "sha256": "f52bfec17d524ea31223d6ecb6d6d685074bd61f41d0a6f9a86a3bf1e4e066f2",
+  "size": 4108980,
   "notes": [
-    "First official release: Ultra Audio Final V1.",
-    "Receiver and mobile controls for IP audio commentary, picture delay and audio delay.",
-    "Receiver channel name and local /media/hdd/picon artwork in the web now-playing card.",
-    "Bundled commentary logos and source icons; Arabic and English interfaces.",
-    "Official GitHub updates with verified IPK downloads and a verified Telnet installer.",
-    "Python 3 images only (3.5+)."
+    "Fix Stop: cancel saved commentary and picture/audio offsets for the current TV channel.",
+    "Returning to a stopped channel no longer automatically restarts commentary or restores its old delay.",
+    "Channel memory still works when changing channels without pressing Stop.",
+    "Remove the temporary Preview Update Card option and its sample details.",
+    "Settings shows Online Update only; the official update source is configured internally.",
+    "Telnet installer displays download progress and checks incomplete downloads.",
+    "Display name remains Ultra Audio Final V1; internal package version is 1.0.1."
   ],
   "notes_ar": [
-    "الإصدار الرسمي الأول: Ultra Audio Final V1.",
-    "تشغيل الصوتيات والتحكم في تأخير الصوت والصورة من الرسيفر والموبايل.",
-    "عرض اسم قناة الرسيفر وبايكونها المحلي من /media/hdd/picon على الويب.",
-    "شعارات الصوتيات وأيقونات المصادر المرفقة، مع واجهة عربية وإنجليزية.",
-    "تحديثات GitHub رسمية ومُثبّت تلنت يتحقق من الحزمة قبل التثبيت.",
-    "يدعم صور Python 3 فقط، بدءًا من الإصدار 3.5."
+    "إصلاح زر Stop: إلغاء الصوتية وتأخير الصورة والصوت المحفوظ للقناة عند الإيقاف اليدوي.",
+    "الرجوع للقناة بعد Stop لا يعيد تشغيل الصوتية أو استعادة التأخير القديم تلقائيًا.",
+    "حفظ حالة القنوات يظل متاحًا عند التنقل العادي بدون الضغط على Stop.",
+    "إزالة اختيار Preview Update Card التجريبي وبيانات المعاينة من الإعدادات.",
+    "إزالة حقل GitHub repository من الإعدادات، مع ضبط مصدر التحديث الرسمي داخليًا.",
+    "عرض نسبة التحميل في مُثبّت التلنت والتحقق من التحميل غير المكتمل.",
+    "الاسم الظاهر يظل Ultra Audio Final V1 ورقم الحزمة الداخلي 1.0.1."
   ]
 }
