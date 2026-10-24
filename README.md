@@ -1,27 +1,136 @@
-# UltraAudio — Official update repository
+<div align="center">
 
-Official repository: **K3bOra/UltraAudio**. Enigma2 plugin for **Python 3.5+** images.
+# ULTRA AUDIO
 
-**Status: repository setup only. No plugin package or release has been uploaded or published.**
+**اختار تعليقك… واضبط الصوت والصورة على مزاجك**
 
-## Update address
+IP Audio Commentary · Enigma2 · Python 3
 
-The prepared updater will read `https://github.com/K3bOra/UltraAudio/releases/latest/download/update.json`. This address will become available only after the final version is approved and the first release is published. The plugin will be configured with `K3bOra/UltraAudio`, so users do not need to type the source manually.
+تطوير **Ahmed L-HadarY**
 
-The manifest contains the tag-specific IPK URL, SHA-256, byte size, version, and Arabic/English release notes. The receiver verifies the downloaded package identity, version, size, and hash before running OPKG.
+</div>
 
-## Publish later, after explicit approval
+---
 
-1. Finish and test the plugin on the receiver.
-2. After final approval, place exactly one current IPK in `packages/`. Its filename and internal package version must match.
-3. Fill in `release-notes.json` with the changes in English and Arabic.
-4. Commit the changes to `main`. This does **not** publish a release.
-5. Only when publication is requested, run **Actions → Publish verified UltraAudio release → Run workflow**.
+<div dir="rtl">
 
-The workflow has **only a manual trigger**. Commits and tags do not run it. It rejects missing or multiple IPKs, validates Python syntax and package contents, and generates metadata from the actual package. It uploads a draft, downloads and checks both assets, then publishes the release. It refuses to overwrite an existing release. No credentials are embedded in the plugin.
+**UltraAudio** بلجن لأجهزة Enigma2 يتيح تشغيل صوتية من الإنترنت مع القناة التي تشاهدها على الرسيفر، والتحكم في تأخير الصوت والصورة حتى تصل للتزامن المناسب. يمكنك إدارة مكتبتك من الريموت أو من صفحة الويب على الموبايل.
 
-A root `update.json` bootstrap file for older clients will be created only after the first release is published. There is no dummy or placeholder update manifest.
+> **حالة المشروع:** المستودع قيد التجهيز. لم تُرفع أي حزمة بلجن أو يُنشر أي إصدار حتى الآن. رابط التحميل والتحديث الأونلاين سيتفعّلان بعد الانتهاء من النسخة والموافقة على نشرها.
 
-## Local validation when a package is available
+## واجهة الرسيفر
 
-Run `python3 scripts/prepare_release.py`. It intentionally stops if no approved IPK is present. Generated `dist/` and `verified/` files are not committed.
+قائمة صوتيات فوق القناة نفسها، مع اسم الصوتية الحالية ومعلومات البرامج عند توافرها، وتحكم مباشر من الشريط السفلي.
+
+</div>
+
+<p align="center">
+  <img src="screenshots/tv-channels.jpg" alt="قائمة الصوتيات والتحكم في تأخير الصوت والصورة داخل UltraAudio" width="100%">
+</p>
+
+<div dir="rtl">
+
+## مميزات UltraAudio
+
+| الميزة | ماذا تقدم؟ |
+| :--- | :--- |
+| **صوتية مع قناة الرسيفر** | تشغيل التعليق الذي تختاره مع الصورة الحالية، مع خيارات لكتم الصوت الأصلي. |
+| **ضبط الصورة والصوت بشكل مستقل** | تعديل تأخير الصورة باستخدام التايم شيفت، وضبط تأخير الصوتية للوصول للتزامن المناسب. |
+| **مكتبة منظمة** | مجلدات ومجلدات فرعية لتنظيم المصادر والصوتيات، مع الإضافة والتعديل والحذف وترتيب القوائم. |
+| **استيراد وتحديث المصادر** | استيراد قوائم الصوتيات وتحديث المصدر من داخل البلجن أو صفحة الويب. |
+| **تحكم من الموبايل** | تشغيل وإيقاف الصوتية، تجميد الصورة واستئنافها، وضبط التأخير من المتصفح على نفس الشبكة. |
+| **اسم قناة الرسيفر وبايكونها** | عرض اسم قناة التلفزيون الفعلية وبايكونها المحلي في كارت التشغيل على الويب. |
+| **نوعان من أيقونات الصوتيات** | الاختيار بين شعارات القنوات المرفقة وأيقونات المصادر الخاصة بالبلجن. |
+| **نسخ احتياطي واستعادة** | حفظ المكتبة والإعدادات واستعادتها عند الحاجة. |
+| **العربية والإنجليزية** | واجهة وإعدادات وصفحة ويب باللغتين. |
+| **تحديث أونلاين يدوي** | إعداد فحص الإصدارات وعرض المميزات والتحقق من الحزمة قبل تثبيتها؛ التفعيل بعد نشر أول إصدار. |
+
+## مكتبتك مرتبة من أول مصدر لآخر صوتية
+
+تصفح المصادر الرئيسية، ثم ادخل على المجلدات الفرعية للوصول إلى المجموعة التي تريدها.
+
+</div>
+
+<table>
+  <tr>
+    <td width="50%" align="center"><strong>المصادر الرئيسية</strong></td>
+    <td width="50%" align="center"><strong>المجلدات الفرعية</strong></td>
+  </tr>
+  <tr>
+    <td><img src="screenshots/tv-library.jpg" alt="مصادر الصوتيات في مكتبة UltraAudio" width="100%"></td>
+    <td><img src="screenshots/tv-folders.jpg" alt="تنظيم الصوتيات داخل مجلدات 4K وLow وVIP" width="100%"></td>
+  </tr>
+</table>
+
+<div dir="rtl">
+
+## التحكم من الموبايل
+
+افتح صفحة البلجن من أي متصفح على نفس شبكة الرسيفر. كارت التشغيل يعرض **اسم قناة التلفزيون وبايكونها**، وتحتها اسم الصوتية المستخدمة، مع أزرار مستقلة للصورة والصوت.
+
+البايكون يُقرأ من المسار المحلي على الرسيفر `/media/hdd/picon`؛ وإذا لم يوجد ملف مناسب تظهر الأيقونة الافتراضية. أما أيقونات قائمة الصوتيات فتظل من الصور المرفقة بالبلجن.
+
+</div>
+
+<p align="center">
+  <img src="screenshots/mobile-control.jpg" alt="التحكم من الموبايل مع اسم قناة Eleven Sports وبايكونها واسم الصوتية" width="360">
+</p>
+
+<div dir="rtl">
+
+## بداية الاستخدام
+
+1. بعد إتاحة النسخة، ثبّت حزمة IPK على صورة Enigma2 تعمل ببايثون 3.
+2. شغّل قناة التلفزيون التي تريد مشاهدتها، ثم افتح UltraAudio واختر الصوتية المناسبة.
+3. اضبط تأخير الصورة والصوت من الريموت أو صفحة الويب.
+4. لإدارة المكتبة من الموبايل، افتح العنوان التالي واستبدل `RECEIVER-IP` بعنوان الرسيفر على شبكتك:
+
+</div>
+
+```text
+http://RECEIVER-IP:9990
+```
+
+<div dir="rtl">
+
+المنفذ الافتراضي **9990** ويمكن تغييره من الإعدادات. تأخير الصورة يحتاج تايم شيفت ومساحة تخزين مناسبة على الرسيفر.
+
+### اختصارات أثناء التشغيل
+
+| الزر | الوظيفة |
+| :--- | :--- |
+| **1 / 3** | تعديل تأخير الصورة. |
+| **4 / 6** | تعديل تأخير الصوتية. |
+| **الأخضر** | تجميد الصورة أو استئنافها. |
+| **الأحمر** | إيقاف الصوتية. |
+| **الأزرق** | إعادة تأخير الصوت إلى الصفر. |
+
+### المتطلبات
+
+- جهاز Enigma2 بصورة تعمل ببايثون **3.5 أو أحدث**.
+- اتصال بالإنترنت لتشغيل المصادر وفحص التحديثات عند إتاحتها.
+- تايم شيفت وتخزين مناسب لاستخدام تأخير الصورة.
+- وجود بايكونات القنوات في `/media/hdd/picon` لإظهارها في كارت التشغيل على الويب.
+
+<details>
+<summary><strong>تجهيز المستودع والتحديثات القادمة</strong></summary>
+
+المصدر الرسمي هو `K3bOra/UltraAudio`. تم تجهيز إجراء نشر **يدوي فقط**؛ حفظ الملفات أو رفعها للمستودع لا ينشر إصدارًا تلقائيًا.
+
+بعد الموافقة النهائية على النسخة، تُضاف حزمة واحدة إلى `packages/` وتُكتب ملاحظات الإصدار في `release-notes.json`. يُشغَّل إجراء **Publish verified UltraAudio release** يدويًا عند طلب النشر فقط.
+
+سكربت التجهيز يفحص اسم الحزمة ورقمها ومحتوياتها، ويحسب الحجم وبصمة SHA-256 من الملف الفعلي. ثم يجهز إجراء النشر مسودة، ويتحقق من الملفات المرفوعة قبل إتاحة الإصدار. لا يُستبدل إصدار سبق نشره.
+
+التحديث الأونلاين سيقرأ ملف `update.json` من آخر إصدار منشور، ويعرض الملاحظات ويطلب موافقة المستخدم قبل التثبيت. لن يُنشَر ملف تحديث تجريبي يشير إلى حزمة غير موجودة.
+
+</details>
+
+</div>
+
+---
+
+<div align="center">
+
+**UltraAudio** · Developed by **Ahmed L-HadarY**
+
+</div>
