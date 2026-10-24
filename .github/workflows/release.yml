@@ -1,0 +1,54 @@
+name: Publish verified UltraAudio release
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ultraaudio-release
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Validate package and generate update metadata
+        run: python3 scripts/prepare_release.py
+      - name: Upload draft, download and verify, then publish
+        shell: bash
+        run: |
+          set -euo pipefail
+          release_tag=$(python3 -c 'import json; print(json.load(open("dist/release-info.json"))["tag"])')
+          if gh release view "$release_tag" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            echo 'This version already exists. Increment the package version; published assets are never overwritten.'
+            exit 1
+          fi
+          gh release create "$release_tag" --repo "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --draft --title "UltraAudio $release_tag" --notes-file dist/notes.md dist/*.ipk dist/update.json dist/SHA256SUMS
+          gh release download "$release_tag" --repo "$GITHUB_REPOSITORY" --pattern '*.ipk' --pattern update.json --dir verified
+          python3 scripts/prepare_release.py --verify-published verified
+          gh release edit "$release_tag" --repo "$GITHUB_REPOSITORY" --draft=false --latest
+      - name: Refresh bootstrap manifest for versions before 2.0.13
+        shell: bash
+        run: |
+          set -euo pipefail
+          if ! gh api "repos/$GITHUB_REPOSITORY/contents/update.json" > dist/previous-manifest.json; then
+            printf '{}\n' > dist/previous-manifest.json
+          fi
+          python3 - <<'PY'
+          import base64, json
+          from pathlib import Path
+          previous = json.loads(Path('dist/previous-manifest.json').read_text())
+          body = {'message': 'Update bootstrap manifest after verified release', 'content': base64.b64encode(Path('dist/update.json').read_bytes()).decode('ascii')}
+          if previous.get('sha'):
+              body['sha'] = previous['sha']
+          Path('dist/update-request.json').write_text(json.dumps(body))
+          PY
+          gh api --method PUT "repos/$GITHUB_REPOSITORY/contents/update.json" --input dist/update-request.json
