@@ -1,26 +1,26 @@
 {
-  "version": "1.0.2",
-  "url": "https://github.com/K3bOra/UltraAudio/releases/download/v1.0.2/Ultra_Audio_Final_V1.ipk",
-  "sha256": "490384fb5d212fc3676974980eb32425a46be6298a60f29bfae754dc15e028b8",
-  "size": 4111278,
+  "version": "1.0.3",
+  "url": "https://github.com/K3bOra/UltraAudio/releases/download/v1.0.3/Ultra_Audio_Final_V1.ipk",
+  "sha256": "66f441a03dc51f0c231664633031c49737094d298d2e45e5307796b46b5751f4",
+  "size": 4112304,
   "notes": [
-    "Install this repair once through the Telnet command to replace the older online updater.",
-    "Show release details above the update card background on affected Enigma2 images.",
-    "Display the release notes in Arabic or English according to the plugin language.",
-    "Show download percentage, a progress bar, the current installation stage and elapsed time.",
-    "Run OPKG and component checks without waiting for inherited output pipes.",
-    "Restart through Enigma2 after successful finalization and 100% completion; failures show an error and do not restart.",
-    "Both language note lists are required when preparing future releases.",
-    "Display name remains Ultra Audio Final V1; internal package version is 1.0.2."
+    "The new progress interface and startup check become active after this package is installed and the GUI restarts.",
+    "Check for a newer official release in the background when UltraAudio opens; show its details with Update or Back only when available.",
+    "Keep automatic checks silent when already up to date or offline; never download or install without confirmation.",
+    "Show real download progress from 1 to 100 percent, followed by package installation, configuration and component checks.",
+    "Deliver all update stages through an Enigma2 timer so a fast worker cannot skip the completed download or installation messages.",
+    "Restart the Enigma2 interface only after installation and component checks succeed. Installation failures show an error without restarting.",
+    "Keep the working bilingual release card, libraries, receiver picons and bundled commentary icons.",
+    "The display name stays Ultra Audio Final V1; the internal package version is 1.0.3."
   ],
   "notes_ar": [
-    "ثبّت هذا الإصلاح مرة واحدة بأمر التلنت لاستبدال مُحدّث الأونلاين القديم.",
-    "إظهار تفاصيل الإصدار فوق خلفية كارت التحديث على صور Enigma2 المتأثرة.",
-    "عرض ملاحظات الإصدار بالعربية أو الإنجليزية حسب لغة البلجن.",
-    "عرض نسبة التنزيل وشريط تقدم ومرحلة التثبيت والوقت المنقضي.",
-    "تشغيل OPKG وفحص المكونات بدون انتظار قنوات خرج موروثة من عمليات الخلفية.",
-    "إعادة تشغيل الواجهة من داخل Enigma2 بعد اكتمال الفحص والوصول إلى 100%؛ الأخطاء تظهر بدون إعادة تشغيل.",
-    "اشتراط وجود تفاصيل بالعربية والإنجليزية عند تجهيز الإصدارات القادمة.",
-    "الاسم الظاهر يظل Ultra Audio Final V1 ورقم الحزمة الداخلي 1.0.2."
+    "يعمل عرض التقدم الجديد والفحص عند الفتح بعد تثبيت هذه الحزمة وإعادة تشغيل الواجهة.",
+    "فحص وجود إصدار رسمي أحدث في الخلفية عند فتح UltraAudio، وعرض تفاصيله مع اختيار تحديث أو رجوع عند توافره.",
+    "الفحص التلقائي صامت إذا كنت على آخر إصدار أو بدون إنترنت، ولا يبدأ أي تنزيل أو تثبيت بدون موافقتك.",
+    "عرض نسبة التحميل الفعلية من 1 إلى 100%، ثم مراحل تثبيت الحزمة وإعدادها وفحص المكونات.",
+    "عرض مراحل التحديث بتايمر Enigma2، مع الاحتفاظ برسالة اكتمال التحميل ومراحل التثبيت حتى لو انتهت بسرعة.",
+    "إعادة تشغيل واجهة Enigma2 بعد نجاح التثبيت وفحص المكونات فقط؛ يظهر الخطأ بدون إعادة تشغيل إذا فشل التثبيت.",
+    "الإبقاء على كارت التفاصيل بالعربية والإنجليزية والمكتبات وبايكونات الرسيفر وأيقونات الصوتيات المرفقة.",
+    "الاسم الظاهر يظل Ultra Audio Final V1، ورقم الحزمة الداخلي 1.0.3."
   ]
 }
