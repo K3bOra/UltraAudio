@@ -1,4 +1,18 @@
 {
-  "notes": [],
-  "notes_ar": []
+  "notes": [
+    "First official release: Ultra Audio Final Version 1 V1.",
+    "Receiver and mobile controls for IP audio commentary, picture delay and audio delay.",
+    "Receiver channel name and local /media/hdd/picon artwork in the web now-playing card.",
+    "Bundled commentary logos and source icons; Arabic and English interfaces.",
+    "Official GitHub updates with verified IPK downloads and a verified Telnet installer.",
+    "Python 3 images only (3.5+)."
+  ],
+  "notes_ar": [
+    "الإصدار الرسمي الأول: Ultra Audio Final Version 1 V1.",
+    "تشغيل الصوتيات والتحكم في تأخير الصوت والصورة من الرسيفر والموبايل.",
+    "عرض اسم قناة الرسيفر وبايكونها المحلي من /media/hdd/picon على الويب.",
+    "شعارات الصوتيات وأيقونات المصادر المرفقة، مع واجهة عربية وإنجليزية.",
+    "تحديثات GitHub رسمية ومُثبّت تلنت يتحقق من الحزمة قبل التثبيت.",
+    "يدعم صور Python 3 فقط، بدءًا من الإصدار 3.5."
+  ]
 }
