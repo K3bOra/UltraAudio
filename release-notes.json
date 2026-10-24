@@ -1,22 +1,24 @@
 {
   "notes": [
-    "The new progress interface and startup check become active after this package is installed and the GUI restarts.",
-    "Check for a newer official release in the background when UltraAudio opens; show its details with Update or Back only when available.",
-    "Keep automatic checks silent when already up to date or offline; never download or install without confirmation.",
-    "Show real download progress from 1 to 100 percent, followed by package installation, configuration and component checks.",
-    "Deliver all update stages through an Enigma2 timer so a fast worker cannot skip the completed download or installation messages.",
-    "Restart the Enigma2 interface only after installation and component checks succeed. Installation failures show an error without restarting.",
-    "Keep the working bilingual release card, libraries, receiver picons and bundled commentary icons.",
-    "The display name stays Ultra Audio Final V1; the internal package version is 1.0.3."
+    "Added Arabic radio stations and dedicated Holy Quran reciter stations with shared artwork.",
+    "Improved plugin artwork and channel logos, including unified Shahid and STARZPLAY icons.",
+    "Improved commentary startup with timeshift: audio starts without waiting for the picture buffer to fill.",
+    "Improved Python detection, image-feed component installation and real AAC/MP3 decode checks.",
+    "Added an independent component-repair screen when missing libraries prevent the plugin opening.",
+    "Fixed backup restore and preserved user-deleted stations after restoring and restarting.",
+    "Improved beIN guide caching and background loading; tightened complete update-version validation.",
+    "Updated three default stream links and retired three unavailable unedited defaults; user-edited entries are preserved.",
+    "The display name remains Ultra Audio Final V1; the package version is 1.0.4."
   ],
   "notes_ar": [
-    "يعمل عرض التقدم الجديد والفحص عند الفتح بعد تثبيت هذه الحزمة وإعادة تشغيل الواجهة.",
-    "فحص وجود إصدار رسمي أحدث في الخلفية عند فتح UltraAudio، وعرض تفاصيله مع اختيار تحديث أو رجوع عند توافره.",
-    "الفحص التلقائي صامت إذا كنت على آخر إصدار أو بدون إنترنت، ولا يبدأ أي تنزيل أو تثبيت بدون موافقتك.",
-    "عرض نسبة التحميل الفعلية من 1 إلى 100%، ثم مراحل تثبيت الحزمة وإعدادها وفحص المكونات.",
-    "عرض مراحل التحديث بتايمر Enigma2، مع الاحتفاظ برسالة اكتمال التحميل ومراحل التثبيت حتى لو انتهت بسرعة.",
-    "إعادة تشغيل واجهة Enigma2 بعد نجاح التثبيت وفحص المكونات فقط؛ يظهر الخطأ بدون إعادة تشغيل إذا فشل التثبيت.",
-    "الإبقاء على كارت التفاصيل بالعربية والإنجليزية والمكتبات وبايكونات الرسيفر وأيقونات الصوتيات المرفقة.",
-    "الاسم الظاهر يظل Ultra Audio Final V1، ورقم الحزمة الداخلي 1.0.3."
+    "إضافة قنوات راديو عربية وإذاعات للقرآن الكريم بأصوات قراء متعددين، مع أيقونات مشتركة لتقليل استهلاك الذاكرة.",
+    "تحسين بايكون البلجن وجودة شعارات القنوات، وتوحيد أيقونات شاهد وستارز بلاي.",
+    "تحسين تشغيل الصوت مع التايم شيفت: يبدأ التعليق دون انتظار امتلاء مخزن الصورة.",
+    "تحسين اكتشاف بايثون والمكتبات والتثبيت من مستودع الصورة، مع اختبار فعلي لفك صوت AAC وMP3.",
+    "إضافة شاشة مستقلة لإصلاح المكونات عندما تمنع المكتبات الناقصة فتح البلجن.",
+    "إصلاح استرجاع النسخ الاحتياطية والحفاظ على القنوات المحذوفة بعد الاسترجاع وإعادة التشغيل.",
+    "تحسين سرعة تحميل دليل beIN والكاش في الخلفية، وتشديد مطابقة رقم إصدار التحديث كاملًا.",
+    "تحديث ثلاثة روابط بث افتراضية وإيقاف ثلاثة افتراضيات تعذّر تشغيلها، مع الحفاظ على المحطات التي عدّلها المستخدم.",
+    "الاسم الظاهر يظل Ultra Audio Final V1، ورقم الحزمة الداخلي 1.0.4."
   ]
 }
