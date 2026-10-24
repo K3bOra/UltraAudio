@@ -12,7 +12,7 @@ concurrency:
 
 jobs:
   release:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 15
     env:
       GH_TOKEN: ${{ github.token }}
@@ -31,11 +31,14 @@ jobs:
             echo 'This version already exists. Increment the package version; published assets are never overwritten.'
             exit 1
           fi
-          gh release create "$release_tag" --repo "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --draft --title "UltraAudio $release_tag" --notes-file dist/notes.md dist/*.ipk dist/update.json dist/SHA256SUMS
-          gh release download "$release_tag" --repo "$GITHUB_REPOSITORY" --pattern '*.ipk' --pattern update.json --dir verified
+          release_title=$(python3 -c 'import json; print(json.load(open("dist/release-info.json"))["title"])')
+          gh release create "$release_tag" --repo "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --draft --title "$release_title" --notes-file dist/notes.md dist/*.ipk dist/update.json dist/SHA256SUMS dist/install.sh
+          gh release download "$release_tag" --repo "$GITHUB_REPOSITORY" --pattern '*.ipk' --pattern update.json --pattern install.sh --dir verified
           python3 scripts/prepare_release.py --verify-published verified
           gh release edit "$release_tag" --repo "$GITHUB_REPOSITORY" --draft=false --latest
-      - name: Refresh bootstrap manifest for versions before 2.0.13
+      - name: Verify public installation download
+        run: sh install.sh --verify-only
+      - name: Refresh bootstrap update manifest
         shell: bash
         run: |
           set -euo pipefail
