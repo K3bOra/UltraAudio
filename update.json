@@ -1,28 +1,20 @@
 {
-  "version": "1.0.5",
-  "url": "https://github.com/K3bOra/UltraAudio/releases/download/v1.0.5/Ultra_Audio_Final_V1.ipk",
-  "sha256": "07965733099d01ef6a055296d2b4298c7b1858c795596b604d2bc782f55afac0",
-  "size": 5390324,
+  "version": "1.0.6",
+  "url": "https://github.com/K3bOra/UltraAudio/releases/download/v1.0.6/Ultra_Audio_Final_V1.ipk",
+  "sha256": "2e259ff3aeb01c72c3960c0373f9c9a515d9c38de6586a9e63ae930027ec740a",
+  "size": 4158032,
   "notes": [
-    "Added six selectable Arabic/English fonts plus the receiver image default in Settings > UI font; the preference is included in backups.",
-    "Changing the font rebuilds only the plugin UI and preserves the folder, cursor, settings row and current commentary.",
-    "Fixed M3U parsing when quoted metadata contains commas and fixed return-to-live seeks on long timeshift buffers.",
-    "Limited slider overflow recovery to failing Progress updates without modifying the global VariableValue component.",
-    "Removed PLAYING from the receiver header and web status during normal playback.",
-    "Added receiver-cached EPG fallback for Abu Dhabi, Shahid, Shasha and Al Rabiaa; guide availability depends on matching receiver EPG.",
-    "Improved DVB-only component checks and startup diagnostics. DM920 audio playback still requires confirmation on the receiver.",
-    "Improved feed-update sequencing while retaining the existing forced GUI restart method.",
-    "The display name remains Ultra Audio Final V1; the package version is 1.0.5."
+    "Add a searchable icon picker for every audio stream, preserving manual choices across refresh and backup/restore.",
+    "Improve Dreambox ALSA discovery and use compressed DVB audio for delayed playback.",
+    "Dispatch receiver/UI callbacks on the Enigma2 main loop even when Twisted is unavailable.",
+    "Allow direct GStreamer playback to switch to an available delay-capable route; later relay delay changes remain live.",
+    "Preserve official EPG priority and receiver EPG fallback."
   ],
   "notes_ar": [
-    "إضافة ستة خطوط عربية وإنجليزية مع خيار خط الصورة من الإعدادات > نوع الخط، وحفظ الاختيار ضمن النسخ الاحتياطي.",
-    "تغيير الخط يعيد بناء واجهة البلجن فقط ويحافظ على الفولدر والمؤشر وصف الإعدادات والصوتية الحالية.",
-    "إصلاح استيراد M3U عند وجود فواصل داخل البيانات بين علامتي اقتباس، وإصلاح الرجوع للمباشر مع بافر تايم شيفت طويل.",
-    "حصر حماية تجاوز قيمة شريط التقدم في التحديث المتسبب بالخطأ دون تعديل مكوّن VariableValue العام.",
-    "إزالة كلمة PLAYING من هيدر الرسيفر وحالة الويب أثناء التشغيل الطبيعي.",
-    "إضافة قراءة EPG المخزن على الرسيفر لقنوات أبوظبي وشاهد وشاشا والرابعة؛ يتطلب ذلك وجود دليل مطابق في الصورة.",
-    "تحسين فحص مكونات الصوت على أجهزة DVB والتشخيص في اللوج؛ تشغيل الصوت على DM920 ما زال يحتاج تأكيدًا عمليًا على الجهاز.",
-    "تحسين ترتيب تحديث قوائم الحزم مع الإبقاء على طريقة إعادة تشغيل الواجهة الحالية.",
-    "الاسم الظاهر يظل Ultra Audio Final V1، ورقم الحزمة الداخلي 1.0.5."
+    "إضافة اختيار وبحث في أيقونات الصوتيات مع حفظ الربط عند تحديث المصدر والنسخ الاحتياطي والاسترجاع.",
+    "تحسين اكتشاف كارت الصوت على Dreambox واستخدام صوت مضغوط في مسار DVB للتأخير.",
+    "تنفيذ أوامر الويب والصوت المتعلقة بالرسيفر على خيط Enigma2 الرئيسي حتى عند تعطل Twisted.",
+    "السماح بالانتقال من GStreamer المباشر لمسار يدعم التأخير عند توفره، ثم تعديل التأخير أثناء التشغيل.",
+    "الإبقاء على أولوية الدليل الرسمي مع الرجوع إلى EPG الرسيفر عند الحاجة."
   ]
 }
