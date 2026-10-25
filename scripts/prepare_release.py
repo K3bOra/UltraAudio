@@ -58,19 +58,27 @@ def inspect_package(path):
     version = installed_version
     if path.name != 'Ultra_Audio_Final_V' + version.split('.')[0] + '.ipk':
         raise ValueError('Filename does not match package version')
-    count = 0
+    # Assets intentionally removed in test3 must not make a complete plugin
+    # fail a historical file-count threshold. Check the runtime contract.
+    prefix = 'usr/lib/enigma2/python/Plugins/Extensions/UltraAudio/'
+    required = ('__init__.py', 'assets/checks/audio.aac', 'assets/checks/audio.mp3', 'assets/folders/generic.png', 'assets/folders/quran.png', 'assets/folders/radio.png', 'assets/fonts/Amiri.ttf', 'assets/fonts/Cocon.otf', 'assets/fonts/Osama.otf', 'assets/fonts/Shahid.ttf', 'assets/fonts/XBZar.ttf', 'assets/fonts/YakoutBold.ttf', 'assets/logos/event.png', 'assets/logos/live.png', 'assets/logos/match.png', 'audiohw.py', 'compat.py', 'components.map', 'components.py', 'ctl.py', 'deps.sh', 'diskbackup.py', 'dvbaudio.py', 'engine.py', 'finish_install.sh', 'frontpanel.py', 'gstplay.py', 'guide.py', 'hotkey.py', 'i18n.py', 'iconchoices.py', 'importer.py', 'keymap.xml', 'locale_packs/ar.json', 'logos.py', 'menu.py', 'motion.py', 'pcmplay.py', 'pidguard.py', 'plugin.png', 'plugin.py', 'presets.py', 'quranradio.py', 'receiverguide.py', 'repairui.py', 'screen.py', 'store.py', 'syncguard.py', 'themes.py', 'tvchannel.py', 'uifont.py', 'updater.py', 'updateui.py', 'vdelay.py', 'web/icon-192.png', 'web/icon-512.png', 'web/index.html', 'webui.py')
+    present = set()
     with tarfile.open(fileobj=io.BytesIO(parts['data.tar.gz']), mode='r:gz') as archive:
         for item in archive:
             if item.name.startswith('/') or '..' in Path(item.name).parts or item.issym() or item.islnk():
                 raise ValueError('Unsafe package path')
             if item.isfile():
-                count += 1
+                normalized = item.name[2:] if item.name.startswith('./') else item.name
+                if normalized in present:
+                    raise ValueError('Duplicate package path')
+                present.add(normalized)
                 if item.name.endswith(('.pyc', '.pyo')):
                     raise ValueError('Compiled interpreter-specific files in package')
                 if item.name.endswith('.py'):
                     ast.parse(archive.extractfile(item).read().decode('utf-8'), feature_version=(3, 5))
-    if count < 900:
-        raise ValueError('Plugin files are incomplete')
+    missing = sorted(prefix + name for name in required if prefix + name not in present)
+    if missing:
+        raise ValueError('Plugin files are incomplete: ' + ', '.join(missing))
     return {'version': version, 'url': 'https://github.com/' + REPO + '/releases/download/v' + version + '/' + path.name,
             'sha256': hashlib.sha256(payload).hexdigest(), 'size': len(payload)}
 
