@@ -1,20 +1,22 @@
 {
-  "version": "1.0.6",
-  "url": "https://github.com/K3bOra/UltraAudio/releases/download/v1.0.6/Ultra_Audio_Final_V1.ipk",
-  "sha256": "2e259ff3aeb01c72c3960c0373f9c9a515d9c38de6586a9e63ae930027ec740a",
-  "size": 4158032,
+  "version": "1.0.7",
+  "url": "https://github.com/K3bOra/UltraAudio/releases/download/v1.0.7/Ultra_Audio_Final_V1.ipk",
+  "sha256": "de01b83fa9e493034ffba9a7806c585d288258698828e052a5d0ccf9d25ea3e5",
+  "size": 4548174,
   "notes": [
-    "Add a searchable icon picker for every audio stream, preserving manual choices across refresh and backup/restore.",
-    "Improve Dreambox ALSA discovery and use compressed DVB audio for delayed playback.",
-    "Dispatch receiver/UI callbacks on the Enigma2 main loop even when Twisted is unavailable.",
-    "Allow direct GStreamer playback to switch to an available delay-capable route; later relay delay changes remain live.",
-    "Preserve official EPG priority and receiver EPG fallback."
+    "Refine live audio delay adjustments using the working PCM relay, including reductions and return to zero.",
+    "Save commentary and synchronization per TV channel; restore automatically on return. Stop removes the saved association.",
+    "Align web audio delay, picture delay, Freeze and Stop actions with the receiver controller and reject stale playback commands.",
+    "Add a taller vertical receiver volume control to the web player.",
+    "Introduce slim green-to-red gradient programme progress bars without circular markers, using cached graphics in the plugin.",
+    "Remove web link checking and compact library actions and section headings."
   ],
   "notes_ar": [
-    "إضافة اختيار وبحث في أيقونات الصوتيات مع حفظ الربط عند تحديث المصدر والنسخ الاحتياطي والاسترجاع.",
-    "تحسين اكتشاف كارت الصوت على Dreambox واستخدام صوت مضغوط في مسار DVB للتأخير.",
-    "تنفيذ أوامر الويب والصوت المتعلقة بالرسيفر على خيط Enigma2 الرئيسي حتى عند تعطل Twisted.",
-    "السماح بالانتقال من GStreamer المباشر لمسار يدعم التأخير عند توفره، ثم تعديل التأخير أثناء التشغيل.",
-    "الإبقاء على أولوية الدليل الرسمي مع الرجوع إلى EPG الرسيفر عند الحاجة."
+    "تحسين تعديل تأخير الصوتية أثناء التشغيل بالمسار الصوتي المجرب، مع تقليل التأخير والعودة للصفر.",
+    "حفظ الصوتية والتزامن لكل قناة تلفزيون واستعادتهما عند العودة؛ زر Stop يلغي الربط المحفوظ.",
+    "توحيد أوامر تأخير الصوت والصورة والفريز والإيقاف بين الويب والبلجن، ومنع الأوامر المتأخرة من التأثير على تشغيل آخر.",
+    "إضافة شريط رأسي أطول للتحكم في صوت الرسيفر من صفحة الويب.",
+    "بروجرس رفيع بتدرج أخضر إلى أحمر بدون دوائر، مع صور مخزنة مسبقًا داخل البلجن.",
+    "إزالة فحص روابط الويب وتقليل المسافات وترتيب أزرار وعناوين المكتبة."
   ]
 }
