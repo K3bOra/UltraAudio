@@ -12,8 +12,11 @@ Your picture. Your commentary. Your timing.
 [![Version](https://img.shields.io/github/v/release/K3bOra/UltraAudio?style=for-the-badge&label=RELEASE&color=7DE3A0&labelColor=10251C)](https://github.com/K3bOra/UltraAudio/releases/latest)
 [![Python](https://img.shields.io/badge/PYTHON-3.5+-7DE3A0?style=for-the-badge&labelColor=10251C)](install.sh)
 [![Web](https://img.shields.io/badge/CONTROL-TV_%2B_MOBILE-E47C8B?style=for-the-badge&labelColor=10251C)](#mobile)
+[![Downloads](https://img.shields.io/github/downloads/K3bOra/UltraAudio/total?style=for-the-badge&label=DOWNLOADS&color=E47C8B&labelColor=10251C)](https://github.com/K3bOra/UltraAudio/releases)
+[![Updated](https://img.shields.io/github/last-commit/K3bOra/UltraAudio/main?style=for-the-badge&label=UPDATED&color=7DE3A0&labelColor=10251C)](https://github.com/K3bOra/UltraAudio/commits/main)
+[![License](https://img.shields.io/github/license/K3bOra/UltraAudio?style=for-the-badge&label=LICENSE&color=7DE3A0&labelColor=10251C)](LICENSE)
 
-**[معرض الصور](#experience) · [التحكم من الموبايل](#mobile) · [التزامن](#sync) · [المميزات](#features) · [التثبيت](#install)**
+**[معرض الصور](#experience) · [التحكم من الموبايل](#mobile) · [التزامن](#sync) · [المميزات](#features) · [التثبيت](#install) · [الجديد](#updates)**
 
 Developed by **Ahmed L-HadarY**
 
