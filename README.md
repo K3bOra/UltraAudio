@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="screenshots/ua-hero.png" width="100%" alt="Ultra Audio — premium Enigma2 audio experience on receiver and mobile" />
+<img src="screenshots/ua-hero-neon.png" width="100%" alt="Ultra Audio — premium Enigma2 audio experience on receiver and mobile" />
 
 <br />
 
@@ -42,7 +42,7 @@ Developed by **Ahmed L-HadarY**
 
 </div>
 
-<p align="center"><a href="screenshots/ua-tv-library.jpg"><img src="screenshots/ua-tv-library.jpg" width="100%" alt="واجهة Ultra Audio على الرسيفر بثيم Neon: مكتبة الصوتيات والراديو مع كارت الإعدادات" /></a></p>
+<p align="center"><a href="screenshots/ua-tv-library-neon.jpg"><img src="screenshots/ua-tv-library-neon.jpg" width="100%" alt="واجهة Ultra Audio على الرسيفر بثيم Neon: مكتبة الصوتيات والراديو مع كارت الإعدادات" /></a></p>
 
 <a name="mobile"></a>
 
@@ -182,7 +182,7 @@ wget -qO- https://raw.githubusercontent.com/K3bOra/UltraAudio/main/install.sh | 
 <details>
 <summary><strong>شاهد شاشة الإعدادات والتحديث الأونلاين</strong></summary>
 
-<p align="center"><a href="screenshots/ua-tv-updates.jpg"><img src="screenshots/ua-tv-updates.jpg" width="100%" alt="شاشة إعدادات Ultra Audio بثيم Neon وكارت التحديث الأونلاين" /></a></p>
+<p align="center"><a href="screenshots/ua-tv-updates-neon.jpg"><img src="screenshots/ua-tv-updates-neon.jpg" width="100%" alt="شاشة إعدادات Ultra Audio بثيم Neon وكارت التحديث الأونلاين" /></a></p>
 
 </details>
 
