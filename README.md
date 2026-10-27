@@ -161,18 +161,92 @@ Picture delay requires working timeshift and suitable storage on the receiver.
 ## More control. Less effort.
 ### تحكم أكتر… بخطوات أبسط.
 
-| Feature<br>الميزة | What it offers<br>التجربة |
-|:---|:---|
-| **Your commentary**<br>صوتية مع قناة الرسيفر | Internet audio alongside the current TV picture, with options to mute the channel's original audio.<br>تشغيل صوتية إنترنت مع الصورة الحالية، مع خيارات لكتم صوت القناة الأصلي. |
-| **Organized library**<br>مكتبة منظمة | Sources and subfolders with add, edit, delete and ordering controls.<br>مصادر ومجلدات فرعية، مع الإضافة والتعديل والحذف وترتيب القوائم. |
-| **Source management**<br>إدارة المصادر | Import M3U lists and manage sources from the plugin or web interface; update sources from Settings.<br>استيراد قوائم M3U وإدارة المصادر من البلجن أو الويب، وتحديث المصادر من الإعدادات. |
-| **Audio icons**<br>أيقونات الصوتيات | Search, preview and assign included icons from the web interface; associations survive source updates and backups.<br>البحث في الأيقونات المرفقة ومعاينتها واختيارها من الويب، مع حفظ الربط بعد تحديث المصادر والنسخ الاحتياطي. |
-| **Channel picons**<br>بايكون القناة | Show the current TV channel picon, with a fallback when unavailable.<br>عرض بايكون قناة التلفزيون الحالية، مع أيقونة بديلة عند عدم توفره. |
-| **Two-screen control**<br>تحكم من شاشتين | Playback, timing, freeze and stop from the remote or phone.<br>التشغيل والتأخير والفريز والإيقاف من الريموت أو الموبايل. |
-| **Backup & restore**<br>نسخ احتياطي واستعادة | Preserve the library, settings and icon associations.<br>حفظ المكتبة والإعدادات وروابط الأيقونات. |
-| **Arabic & English**<br>العربية والإنجليزية | Both languages across the receiver interface, Settings and web page.<br>واجهة الرسيفر والإعدادات وصفحة الويب باللغتين. |
-| **Themes & fonts**<br>الثيمات والخطوط | Neon theme, six optional Arabic/English fonts and the image's default font.<br>ثيم Neon، وستة خطوط عربية وإنجليزية اختيارية، بالإضافة لخط الصورة الأساسي. |
-| **Official online updates**<br>تحديث رسمي أونلاين | Background checks, release notes and package verification before installation.<br>فحص في الخلفية وعرض ملاحظات الإصدار والتحقق من الحزمة قبل التثبيت. |
+[![UltraAudio feature cards / كروت المميزات](screenshots/premium-features-audio.svg)](screenshots/premium-features-audio.svg)
+
+<details>
+<summary><b>Full feature descriptions<br>تفاصيل المميزات كاملة</b></summary>
+
+**Your commentary**
+
+**صوتية مع قناة الرسيفر**
+
+Internet audio alongside the current TV picture, with options to mute the channel's original audio.
+
+تشغيل صوتية إنترنت مع الصورة الحالية، مع خيارات لكتم صوت القناة الأصلي.
+
+**Organized library**
+
+**مكتبة منظمة**
+
+Sources and subfolders with add, edit, delete and ordering controls.
+
+مصادر ومجلدات فرعية، مع الإضافة والتعديل والحذف وترتيب القوائم.
+
+**Source management**
+
+**إدارة المصادر**
+
+Import M3U lists and manage sources from the plugin or web interface; update sources from Settings.
+
+استيراد قوائم M3U وإدارة المصادر من البلجن أو الويب، وتحديث المصادر من الإعدادات.
+
+**Audio icons**
+
+**أيقونات الصوتيات**
+
+Search, preview and assign included icons from the web interface; associations survive source updates and backups.
+
+البحث في الأيقونات المرفقة ومعاينتها واختيارها من الويب، مع حفظ الربط بعد تحديث المصادر والنسخ الاحتياطي.
+
+**Channel picons**
+
+**بايكون القناة**
+
+Show the current TV channel picon, with a fallback when unavailable.
+
+عرض بايكون قناة التلفزيون الحالية، مع أيقونة بديلة عند عدم توفره.
+
+**Two-screen control**
+
+**تحكم من شاشتين**
+
+Playback, timing, freeze and stop from the remote or phone.
+
+التشغيل والتأخير والفريز والإيقاف من الريموت أو الموبايل.
+
+**Backup & restore**
+
+**نسخ احتياطي واستعادة**
+
+Preserve the library, settings and icon associations.
+
+حفظ المكتبة والإعدادات وروابط الأيقونات.
+
+**Arabic & English**
+
+**العربية والإنجليزية**
+
+Both languages across the receiver interface, Settings and web page.
+
+واجهة الرسيفر والإعدادات وصفحة الويب باللغتين.
+
+**Themes & fonts**
+
+**الثيمات والخطوط**
+
+Neon theme, six optional Arabic/English fonts and the image's default font.
+
+ثيم Neon، وستة خطوط عربية وإنجليزية اختيارية، بالإضافة لخط الصورة الأساسي.
+
+**Official online updates**
+
+**تحديث رسمي أونلاين**
+
+Background checks, release notes and package verification before installation.
+
+فحص في الخلفية وعرض ملاحظات الإصدار والتحقق من الحزمة قبل التثبيت.
+
+</details>
 
 ---
 
@@ -292,10 +366,13 @@ Two plugins. One family. Explore media with Ultra Stalker, and choose your comme
 
 بلجنين من عيلة واحدة: اكتشف المحتوى مع الترا ستالكر، واختار الصوتية والتوقيت المناسب مع الترا أوديو.
 
-| [Ultra Stalker](https://github.com/K3bOra/UltraStalker) | [Ultra Audio](https://github.com/K3bOra/UltraAudio) |
-|:---:|:---:|
-| Live TV, movies, series and local media.<br>البث المباشر والأفلام والمسلسلات والمحتوى المحلي. | Internet audio, picture/audio timing and mobile control.<br>صوتيات الإنترنت وتزامن الصورة والصوت والتحكم من الموبايل. |
-| [Explore Ultra Stalker](https://github.com/K3bOra/UltraStalker)<br>[اكتشف الترا ستالكر](https://github.com/K3bOra/UltraStalker) | [Explore Ultra Audio](https://github.com/K3bOra/UltraAudio)<br>[اكتشف الترا أوديو](https://github.com/K3bOra/UltraAudio) |
+<p align="center">
+<a href="https://github.com/K3bOra/UltraStalker"><img src="screenshots/ultra-family-stalker.svg" width="100%" alt="Ultra Stalker — Live TV, movies, series and local media / البث المباشر والأفلام والمسلسلات والمحتوى المحلي" /></a>
+</p>
+
+<p align="center">
+<a href="https://github.com/K3bOra/UltraAudio"><img src="screenshots/ultra-family-audio.svg" width="100%" alt="Ultra Audio — Internet audio, timing and mobile control / صوتيات الإنترنت والتزامن والتحكم بالموبايل" /></a>
+</p>
 
 Each plugin has its own installation command and official updates.
 
@@ -339,4 +416,5 @@ Developed and maintained by **Ahmed L-HadarY**
 [المستودع الرسمي على GitHub](https://github.com/K3bOra/UltraAudio)
 
 </div>
+
 
