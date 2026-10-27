@@ -62,6 +62,7 @@ def inspect_package(path):
     # fail a historical file-count threshold. Check the runtime contract.
     prefix = 'usr/lib/enigma2/python/Plugins/Extensions/UltraAudio/'
     required = ('__init__.py', 'assets/checks/audio.aac', 'assets/checks/audio.mp3', 'assets/folders/generic.png', 'assets/folders/quran.png', 'assets/folders/radio.png', 'assets/fonts/Amiri.ttf', 'assets/fonts/Cocon.otf', 'assets/fonts/Osama.otf', 'assets/fonts/Shahid.ttf', 'assets/fonts/XBZar.ttf', 'assets/fonts/YakoutBold.ttf', 'assets/logos/event.png', 'assets/logos/live.png', 'assets/logos/match.png', 'audiohw.py', 'compat.py', 'components.map', 'components.py', 'ctl.py', 'deps.sh', 'diskbackup.py', 'dvbaudio.py', 'engine.py', 'finish_install.sh', 'frontpanel.py', 'gstplay.py', 'guide.py', 'hotkey.py', 'i18n.py', 'iconchoices.py', 'importer.py', 'keymap.xml', 'locale_packs/ar.json', 'logos.py', 'menu.py', 'motion.py', 'pcmplay.py', 'pidguard.py', 'plugin.png', 'plugin.py', 'presets.py', 'quranradio.py', 'receiverguide.py', 'repairui.py', 'screen.py', 'store.py', 'syncguard.py', 'themes.py', 'tvchannel.py', 'uifont.py', 'updater.py', 'updateui.py', 'vdelay.py', 'web/icon-192.png', 'web/icon-512.png', 'web/index.html', 'webui.py')
+    required += ('sayedsaeed.py', 'shaarawi.py', 'assets/menu/panel_480x812.png', 'assets/menu/row_420x66.png', 'assets/menu/row_420x66_selected.png', 'assets/menu/set_brand_260x50.png', 'assets/menu/set_sign_250x58.png', 'assets/themes/neon/select.png', 'assets/themes/neon/panel_list.png')
     present = set()
     with tarfile.open(fileobj=io.BytesIO(parts['data.tar.gz']), mode='r:gz') as archive:
         for item in archive:
@@ -75,7 +76,12 @@ def inspect_package(path):
                 if item.name.endswith(('.pyc', '.pyo')):
                     raise ValueError('Compiled interpreter-specific files in package')
                 if item.name.endswith('.py'):
-                    ast.parse(archive.extractfile(item).read().decode('utf-8'), feature_version=(3, 5))
+                    source = archive.extractfile(item).read().decode('utf-8')
+                    tree = ast.parse(source, feature_version=(3, 5))
+                    if normalized == prefix + '__init__.py':
+                        versions = [ast.literal_eval(node.value) for node in tree.body if isinstance(node, ast.Assign) and any(isinstance(target, ast.Name) and target.id == 'PACKAGE_VERSION' for target in node.targets)]
+                        if versions != [version]:
+                            raise ValueError('Runtime version differs from package version')
     missing = sorted(prefix + name for name in required if prefix + name not in present)
     if missing:
         raise ValueError('Plugin files are incomplete: ' + ', '.join(missing))
