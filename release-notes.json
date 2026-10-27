@@ -1,18 +1,18 @@
 {
   "notes": [
-    "Refine live audio delay adjustments using the working PCM relay, including reductions and return to zero.",
-    "Save commentary and synchronization per TV channel; restore automatically on return. Stop removes the saved association.",
-    "Align web audio delay, picture delay, Freeze and Stop actions with the receiver controller and reject stale playback commands.",
-    "Add a taller vertical receiver volume control to the web player.",
-    "Introduce slim green-to-red gradient programme progress bars without circular markers, using cached graphics in the plugin.",
-    "Remove web link checking and compact library actions and section headings."
+    "Add the Neon theme and refine the interface and colors.",
+    "Add 53 Sayed Saeed recitations, starting with Yusuf, Al-Maidah and Maryam.",
+    "Add live Shaarawi radio and 53 interpretation recordings.",
+    "Fix picture reset and close timeshift with the yellow key or 0.",
+    "Add Update sources to settings.",
+    "Improve the web interface and show recitation duration below the title with green metadata."
   ],
   "notes_ar": [
-    "تحسين تعديل تأخير الصوتية أثناء التشغيل بالمسار الصوتي المجرب، مع تقليل التأخير والعودة للصفر.",
-    "حفظ الصوتية والتزامن لكل قناة تلفزيون واستعادتهما عند العودة؛ زر Stop يلغي الربط المحفوظ.",
-    "توحيد أوامر تأخير الصوت والصورة والفريز والإيقاف بين الويب والبلجن، ومنع الأوامر المتأخرة من التأثير على تشغيل آخر.",
-    "إضافة شريط رأسي أطول للتحكم في صوت الرسيفر من صفحة الويب.",
-    "بروجرس رفيع بتدرج أخضر إلى أحمر بدون دوائر، مع صور مخزنة مسبقًا داخل البلجن.",
-    "إزالة فحص روابط الويب وتقليل المسافات وترتيب أزرار وعناوين المكتبة."
+    "إضافة ثيم Neon وتحسين شكل الواجهة والألوان.",
+    "إضافة ٥٣ تلاوة للشيخ السيد سعيد، تتصدرها يوسف ثم المائدة ومريم.",
+    "إضافة إذاعة الشعراوي المباشرة و٥٣ ملف تفسير.",
+    "إصلاح إرجاع الصورة لايف وإغلاق التايم شيفت بالزر الأصفر أو 0.",
+    "إضافة تحديث المصادر من الإعدادات.",
+    "تحسين صفحة الويب، ونقل مدة التلاوة تحت الاسم مع عرض المعلومات بالأخضر."
   ]
 }
