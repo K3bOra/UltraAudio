@@ -42,7 +42,7 @@ Developed by **Ahmed L-HadarY**
 
 </div>
 
-<p align="center"><a href="screenshots/ua-tv-library.jpg"><img src="screenshots/ua-tv-library.jpg" width="100%" alt="واجهة Ultra Audio الجديدة على الرسيفر مع مكتبة الصوتيات والراديو" /></a></p>
+<p align="center"><a href="screenshots/ua-tv-library.jpg"><img src="screenshots/ua-tv-library.jpg" width="100%" alt="واجهة Ultra Audio على الرسيفر بثيم Neon: مكتبة الصوتيات والراديو مع كارت الإعدادات" /></a></p>
 
 <a name="mobile"></a>
 
@@ -182,7 +182,7 @@ wget -qO- https://raw.githubusercontent.com/K3bOra/UltraAudio/main/install.sh | 
 <details>
 <summary><strong>شاهد شاشة الإعدادات والتحديث الأونلاين</strong></summary>
 
-<p align="center"><a href="screenshots/ua-tv-updates.jpg"><img src="screenshots/ua-tv-updates.jpg" width="100%" alt="شاشة إعدادات Ultra Audio وكارت التحديث الرسمي 1.0.7" /></a></p>
+<p align="center"><a href="screenshots/ua-tv-updates.jpg"><img src="screenshots/ua-tv-updates.jpg" width="100%" alt="شاشة إعدادات Ultra Audio بثيم Neon وكارت التحديث الأونلاين" /></a></p>
 
 </details>
 
@@ -205,24 +205,7 @@ wget -qO- https://raw.githubusercontent.com/K3bOra/UltraAudio/main/install.sh | 
 
 </details>
 
-<div dir="rtl">
-
-<details>
-<summary><strong>نشر التحديثات القادمة</strong></summary>
-
-المصدر الرسمي هو `K3bOra/UltraAudio`. تم تجهيز إجراء نشر **يدوي فقط**؛ حفظ الملفات أو رفعها للمستودع لا ينشر إصدارًا تلقائيًا.
-
-عند تجهيز تحديث جديد، تُضاف الحزمة الجديدة إلى `packages/` وتُكتب ملاحظات الإصدار في `release-notes.json`. يجب زيادة رقم الحزمة لكل تحديث، مع إبقاء اسم الإصدار الرئيسي V1 ضمن سلسلة 1.x. يُشغَّل إجراء **Publish verified UltraAudio release** يدويًا عند طلب النشر فقط.
-
-سكربت التجهيز يفحص اسم الحزمة ورقمها ومحتوياتها، ويحسب الحجم وبصمة SHA-256 من الملف الفعلي. ثم يجهز إجراء النشر مسودة، ويتحقق من الملفات المرفوعة قبل إتاحة الإصدار. لا يُستبدل إصدار سبق نشره.
-
-التحديث الأونلاين يقرأ ملف `update.json` من آخر إصدار منشور، ويعرض الملاحظات ويطلب موافقة المستخدم قبل التثبيت. لن يُنشَر ملف تحديث تجريبي يشير إلى حزمة غير موجودة.
-
-</details>
-
-</div>
-
-<p align="center"><a href="https://github.com/K3bOra/UltraAudio/releases">كل الإصدارات الرسمية</a> · <a href="https://github.com/K3bOra/UltraAudio/issues">الإبلاغ عن مشكلة</a></p>
+<p align="center"><a href="https://github.com/K3bOra/UltraAudio/releases">كل الإصدارات الرسمية</a> · <a href="https://github.com/K3bOra/UltraAudio/issues">الإبلاغ عن مشكلة</a> · <a href="RELEASING.md">نشر الإصدارات</a></p>
 
 ---
 

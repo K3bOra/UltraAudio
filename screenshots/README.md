@@ -1,8 +1,9 @@
 # UltraAudio screenshots
 
-Screenshots of UltraAudio provided by the developer for the project README.
+Images used by the project README.
 
-- `tv-channels.jpg`: commentary list on the receiver.
-- `tv-library.jpg`: main audio library and sources.
-- `tv-folders.jpg`: subfolders inside an audio source.
-- `mobile-control.jpg`: web controls and current receiver channel picon.
+- `ua-hero.png`: page header (receiver with the Neon theme and the mobile web page).
+- `ua-tv-library.jpg`: audio library on the receiver with the settings card (Neon theme).
+- `ua-tv-updates.jpg`: settings card and the online update card on the receiver.
+- `ua-mobile-control.jpg`, `ua-mobile-library.jpg`, `ua-mobile-showcase.jpg`: the mobile web page.
+- `ua-*.svg`: section banners.
