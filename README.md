@@ -48,19 +48,17 @@ A shared visual language with Ultra Stalker, with its own Neon theme, organized 
 
 <a name="updates"></a>
 
-## What's new — V1.0.8
-### الجديد في V1.0.8
+## What's new — V1.0.9
+### الجديد في V1.0.9
 
-The latest published release is **V1.0.8**. The plugin's product name remains **Ultra Audio Final V1**.
+The latest published release is **V1.0.9**. The plugin's product name remains **Ultra Audio Final V1**.
 
-أحدث إصدار منشور هو **V1.0.8**، والاسم الرئيسي للبلجن يظل **Ultra Audio Final V1**.
+أحدث إصدار منشور هو **V1.0.9**، والاسم الرئيسي للبلجن يظل **Ultra Audio Final V1**.
 
-- Add the Neon theme and refine the interface and colors.<br>إضافة ثيم Neon وتحسين شكل الواجهة والألوان.
-- Add 53 Sayed Saeed recitations, starting with Yusuf, Al-Maidah and Maryam.<br>إضافة ٥٣ تلاوة للشيخ السيد سعيد، تتصدرها يوسف ثم المائدة ومريم.
-- Add live Shaarawi radio and 53 interpretation recordings.<br>إضافة إذاعة الشعراوي المباشرة و٥٣ ملف تفسير.
-- Fix picture reset and close timeshift with the yellow key or 0.<br>إصلاح إرجاع الصورة لايف وإغلاق التايم شيفت بالزر الأصفر أو 0.
-- Add Update sources to settings.<br>إضافة تحديث المصادر من الإعدادات.
-- Improve the web interface and show recitation duration below the title with green metadata.<br>تحسين صفحة الويب، ونقل مدة التلاوة تحت الاسم مع عرض المعلومات بالأخضر.
+- Improve picture timeshift adjustment and return to live on Dreambox / OpenATV.<br>تحسين ضبط تايم شيفت الصورة والرجوع للبث المباشر على Dreambox وOpenATV.
+- Improve audio delay and saved channel synchronization.<br>تحسين تأخير الصوت واستعادة المزامنة المحفوظة للقنوات.
+- Restore missing bundled radio stations, including ON Sport FM, without duplicating imported links.<br>استكمال محطات الراديو الناقصة، ومنها ON Sport FM، مع منع تكرار الروابط المستوردة.
+- Unify playing-row colors on the receiver and web: green title and red details.<br>توحيد ألوان العنصر الجاري تشغيله على الرسيفر والويب: الاسم بالأخضر والتفاصيل بالأحمر.
 
 [Full release notes and downloads](https://github.com/K3bOra/UltraAudio/releases/latest) · [Previous releases](https://github.com/K3bOra/UltraAudio/releases)
 
