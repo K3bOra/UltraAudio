@@ -1,211 +1,327 @@
 <div align="center">
 
-<img src="screenshots/ua-hero-neon.png" width="100%" alt="Ultra Audio — premium Enigma2 audio experience on receiver and mobile" />
+[![Ultra Audio — receiver and mobile / الترا أوديو على الرسيفر والموبايل](screenshots/ua-hero-neon.png)](screenshots/ua-hero-neon.png)
 
-<br />
+### Your picture. Your commentary. Your timing.
+### صورتك… تعليقك… والتوقيت على مزاجك.
 
-**اختار تعليقك… واضبط الصوت والصورة على مزاجك**
+Internet audio, independent picture/audio timing and control from your receiver or phone — built for Enigma2.
 
-Your picture. Your commentary. Your timing.
+صوتيات الإنترنت، وضبط توقيت الصورة والصوتية بشكل مستقل، والتحكم من الرسيفر أو الموبايل — على أجهزة Enigma2.
 
-[![Enigma2](https://img.shields.io/badge/PLATFORM-ENIGMA2-7DE3A0?style=for-the-badge&labelColor=10251C)](https://github.com/K3bOra/UltraAudio)
-[![Version](https://img.shields.io/github/v/release/K3bOra/UltraAudio?style=for-the-badge&label=RELEASE&color=7DE3A0&labelColor=10251C)](https://github.com/K3bOra/UltraAudio/releases/latest)
-[![Python](https://img.shields.io/badge/PYTHON-3.5+-7DE3A0?style=for-the-badge&labelColor=10251C)](install.sh)
-[![Web](https://img.shields.io/badge/CONTROL-TV_%2B_MOBILE-E47C8B?style=for-the-badge&labelColor=10251C)](#mobile)
-[![Downloads](https://img.shields.io/github/downloads/K3bOra/UltraAudio/total?style=for-the-badge&label=DOWNLOADS&color=E47C8B&labelColor=10251C)](https://github.com/K3bOra/UltraAudio/releases)
-[![Updated](https://img.shields.io/github/last-commit/K3bOra/UltraAudio/main?style=for-the-badge&label=UPDATED&color=7DE3A0&labelColor=10251C)](https://github.com/K3bOra/UltraAudio/commits/main)
-[![License](https://img.shields.io/github/license/K3bOra/UltraAudio?style=for-the-badge&label=LICENSE&color=7DE3A0&labelColor=10251C)](LICENSE)
+[![Release / الإصدار](https://img.shields.io/github/v/release/K3bOra/UltraAudio?style=for-the-badge&label=RELEASE&labelColor=10251C&color=7DE3A0)](https://github.com/K3bOra/UltraAudio/releases/latest)
+[![Platform / المنصة](https://img.shields.io/badge/PLATFORM-Enigma2-7DE3A0?style=for-the-badge&labelColor=10251C)](#compatibility)
+[![Python / بايثون](https://img.shields.io/badge/PYTHON-3.5+-7DE3A0?style=for-the-badge&labelColor=10251C)](#compatibility)
+[![Downloads / التنزيلات](https://img.shields.io/github/downloads/K3bOra/UltraAudio/total?style=for-the-badge&label=DOWNLOADS&labelColor=10251C&color=E47C8B)](https://github.com/K3bOra/UltraAudio/releases)
 
-**[معرض الصور](#experience) · [التحكم من الموبايل](#mobile) · [التزامن](#sync) · [المميزات](#features) · [التثبيت](#install) · [الجديد](#updates)**
+Platform: Enigma2 · Python: 3.5+ · Official release and download count above.
 
-Developed by **Ahmed L-HadarY**
+المنصة: Enigma2 · بايثون: 3.5 أو أحدث · الشارات بالأعلى تعرض الإصدار الرسمي وعدد التنزيلات.
+
+[![Install Ultra Audio / تثبيت الترا أوديو](screenshots/ua-action-install.svg)](#install)
+[![Official releases / الإصدارات الرسمية](screenshots/ua-action-releases.svg)](https://github.com/K3bOra/UltraAudio/releases)
+
+**[التثبيت الرسمي](#install) · [تحميل الإصدارات الرسمية](https://github.com/K3bOra/UltraAudio/releases)**
+
+[What's new](#updates) · [Screenshots](#experience) · [Mobile control](#mobile) · [Timing](#sync) · [Features](#features) · [Install](#install) · [FAQ](#faq)
+
+[الجديد](#updates) · [الصور](#experience) · [التحكم بالموبايل](#mobile) · [التزامن](#sync) · [المميزات](#features) · [التثبيت](#install) · [الأسئلة الشائعة](#faq)
 
 </div>
 
-<img src="screenshots/ua-pillars.svg" width="100%" alt="Choose your commentary. Sync your timing. Control from your receiver or phone." />
+---
 
-<div dir="rtl">
+<a name="overview"></a>
 
-**Ultra Audio Final** يتيح لك تشغيل صوتية من الإنترنت مع قناة التلفزيون التي تشاهدها على رسيفر Enigma2، وضبط تأخير الصورة والصوتية بشكل مستقل. مكتبتك، توقيتك، والتحكم في التشغيل — من الريموت أو متصفح الموبايل على نفس الشبكة.
+## Meet Ultra Audio
+### تعرّف على الترا أوديو
 
-</div>
+Play internet audio alongside the TV channel you are watching on your Enigma2 receiver. Choose your commentary, adjust picture and audio delays independently, and control playback from the remote or a phone on the same network.
+
+شغّل صوتية من الإنترنت مع قناة التلفزيون اللي بتشاهدها على رسيفر Enigma2. اختار تعليقك، واضبط تأخير الصورة والصوتية كل واحدة لوحدها، وتحكم من الريموت أو الموبايل على نفس الشبكة.
+
+A shared visual language with Ultra Stalker, with its own Neon theme, organized library and dedicated audio controls.
+
+نفس روح التصميم مع الترا ستالكر، مع ثيم Neon الخاص بأوديو ومكتبة منظمة وأدوات مخصصة للتحكم في الصوت.
+
+---
+
+<a name="updates"></a>
+
+## What's new — V1.0.8
+### الجديد في V1.0.8
+
+The latest published release is **V1.0.8**. The plugin's product name remains **Ultra Audio Final V1**.
+
+أحدث إصدار منشور هو **V1.0.8**، والاسم الرئيسي للبلجن يظل **Ultra Audio Final V1**.
+
+- Add the Neon theme and refine the interface and colors.<br>إضافة ثيم Neon وتحسين شكل الواجهة والألوان.
+- Add 53 Sayed Saeed recitations, starting with Yusuf, Al-Maidah and Maryam.<br>إضافة ٥٣ تلاوة للشيخ السيد سعيد، تتصدرها يوسف ثم المائدة ومريم.
+- Add live Shaarawi radio and 53 interpretation recordings.<br>إضافة إذاعة الشعراوي المباشرة و٥٣ ملف تفسير.
+- Fix picture reset and close timeshift with the yellow key or 0.<br>إصلاح إرجاع الصورة لايف وإغلاق التايم شيفت بالزر الأصفر أو 0.
+- Add Update sources to settings.<br>إضافة تحديث المصادر من الإعدادات.
+- Improve the web interface and show recitation duration below the title with green metadata.<br>تحسين صفحة الويب، ونقل مدة التلاوة تحت الاسم مع عرض المعلومات بالأخضر.
+
+[Full release notes and downloads](https://github.com/K3bOra/UltraAudio/releases/latest) · [Previous releases](https://github.com/K3bOra/UltraAudio/releases)
+
+[تفاصيل الإصدار والتحميل](https://github.com/K3bOra/UltraAudio/releases/latest) · [الإصدارات السابقة](https://github.com/K3bOra/UltraAudio/releases)
+
+---
 
 <a name="experience"></a>
 
-<img src="screenshots/ua-experience.svg" width="100%" alt="01 — The Ultra Audio experience" />
+## The experience
+### جولة داخل البلجن
 
-<div dir="rtl">
+### Familiar picture. Your choice of sound.
+#### نفس الصورة… بصوت تختاره أنت.
 
-### صورة مألوفة… بصوت تختاره أنت
+Choose from your audio and radio library while keeping the TV channel on screen. Browse folders, select a source and adjust playback from the plugin.
 
-اختر مصدرك من مكتبة الصوتيات والراديو، وتابع القناة نفسها مع التحكم في الصوت والتزامن من واجهة البلجن. مجلدات واضحة، أيقونات موحدة، وشريط تحكم مباشر أثناء التشغيل.
+اختار من مكتبة الصوتيات والراديو مع استمرار عرض قناة التلفزيون. تصفح المجلدات، واختار المصدر واضبط التشغيل من داخل البلجن.
 
-</div>
+[![Neon TV library / مكتبة الصوتيات والراديو بثيم Neon](screenshots/ua-tv-library-neon.jpg)](screenshots/ua-tv-library-neon.jpg)
 
-<p align="center"><a href="screenshots/ua-tv-library-neon.jpg"><img src="screenshots/ua-tv-library-neon.jpg" width="100%" alt="واجهة Ultra Audio على الرسيفر بثيم Neon: مكتبة الصوتيات والراديو مع كارت الإعدادات" /></a></p>
+<details>
+<summary><b>Settings & online updates<br>الإعدادات والتحديث أونلاين</b></summary>
+
+[![Neon settings and online update / الإعدادات والتحديث أونلاين بثيم Neon](screenshots/ua-tv-updates-neon.jpg)](screenshots/ua-tv-updates-neon.jpg)
+
+</details>
+
+---
 
 <a name="mobile"></a>
 
-<img src="screenshots/ua-mobile.svg" width="100%" alt="02 — One experience. Two screens." />
+## One experience. Two screens.
+### تجربة واحدة… على شاشتين.
 
-<div dir="rtl">
+The playback card shows the current TV channel, its picon and the selected audio source. Adjust volume and timing, organize folders, import sources and back up your library from your browser.
 
-### الرسيفر في إيدك
+كارت التشغيل بيعرض قناة التلفزيون الحالية وبايكونها والصوتية المختارة. اضبط مستوى الصوت والتزامن، ونظم المجلدات واستورد المصادر واعمل نسخة احتياطية للمكتبة من المتصفح.
 
-كارت التشغيل يعرض **قناة التلفزيون وبايكونها**، واسم الصوتية المستخدمة. تحكم في مستوى الصوت وتأخير الصورة والصوتية، ونظم المجلدات واستورد مصادر الصوتيات واعمل نسخة احتياطية — من متصفحك.
+[![Mobile playback and library / التحكم في التشغيل والمكتبة من الموبايل](screenshots/ua-mobile-showcase.jpg)](screenshots/ua-mobile-showcase.jpg)
 
-</div>
+[Full control screen](screenshots/ua-mobile-control.jpg) · [Full library screen](screenshots/ua-mobile-library.jpg)
 
-<p align="center"><a href="screenshots/ua-mobile-showcase.jpg"><img src="screenshots/ua-mobile-showcase.jpg" width="100%" alt="واجهة الموبايل الجديدة: التحكم في التشغيل والتزامن على اليسار وإدارة المكتبة على اليمين" /></a></p>
+[شاشة التحكم كاملة](screenshots/ua-mobile-control.jpg) · [شاشة المكتبة كاملة](screenshots/ua-mobile-library.jpg)
 
-<p align="center"><a href="screenshots/ua-mobile-control.jpg">عرض شاشة التحكم كاملة</a> · <a href="screenshots/ua-mobile-library.jpg">عرض شاشة المكتبة كاملة</a></p>
+On a device connected to the **same network as your receiver**, open this address and replace `RECEIVER-IP` with the receiver's local IP:
 
-<div dir="rtl">
-
-افتح العنوان التالي من جهاز متصل **بنفس شبكة الرسيفر**، واستبدل `RECEIVER-IP` بعنوانه المحلي:
-
-</div>
+من جهاز متصل **بنفس شبكة الرسيفر**، افتح العنوان ده واستبدل `RECEIVER-IP` بعنوان الرسيفر المحلي:
 
 ```text
 http://RECEIVER-IP:9990
 ```
 
-<div dir="rtl">
+The default port is **9990** and can be changed in Settings. Add the page to your phone's home screen for quicker access.
 
-المنفذ الافتراضي **9990** ويمكن تغييره من الإعدادات. وللوصول السريع، يمكنك إضافة الصفحة إلى الشاشة الرئيسية من قائمة متصفح الموبايل.
+المنفذ الافتراضي **9990** ويمكن تغييره من الإعدادات. تقدر تضيف الصفحة للشاشة الرئيسية للموبايل للوصول السريع.
 
-</div>
+---
 
 <a name="sync"></a>
 
-<img src="screenshots/ua-sync.svg" width="100%" alt="03 — Find your perfect timing" />
-
-<div dir="rtl">
-
+## Find your perfect timing
 ### كل تفصيلة في توقيتها
 
-| التحكم | وظيفته |
-| :--- | :--- |
-| **Picture / Timeshift** | تعديل تأخير صورة التلفزيون للوصول للتوقيت المناسب. |
-| **Audio / Delay** | زيادة أو تقليل تأخير الصوتية بشكل مستقل، مع إمكانية العودة للصفر. |
-| **Freeze / Resume** | تجميد الصورة أو استئنافها من الريموت أو صفحة الويب. |
-| **ذاكرة لكل قناة** | حفظ الصوتية والتزامن لقناة التلفزيون واستعادتهما عند العودة إليها في إصدار 1.0.7. |
-| **Stop** | إيقاف الصوتية وإلغاء الربط المحفوظ للقناة. |
+Adjust the picture and internet audio separately until they match the timing you want.
 
-**تأخير الصورة يحتاج تايم شيفت ومساحة تخزين مناسبة على الرسيفر.**
+اضبط الصورة والصوتية كل واحدة بشكل مستقل لحد ما توصل للتوقيت المناسب ليك.
 
-### اختصارات الريموت
+| Control<br>التحكم | What it does<br>وظيفته |
+|:---|:---|
+| **Picture / Timeshift**<br>الصورة / التايم شيفت | Adjust the delay of the TV picture.<br>ضبط تأخير صورة التلفزيون. |
+| **Audio / Delay**<br>الصوتية / التأخير | Increase or reduce audio delay, or reset it to zero.<br>زيادة أو تقليل تأخير الصوتية، أو إرجاعه للصفر. |
+| **Freeze / Resume**<br>التجميد / الاستئناف | Freeze or resume the picture from the remote or web interface.<br>تجميد الصورة أو استئنافها من الريموت أو صفحة الويب. |
+| **Per-channel memory**<br>ذاكرة لكل قناة | Remember the audio source and timing for each TV channel.<br>حفظ الصوتية والتزامن لكل قناة تلفزيون واستعادتهما عند الرجوع إليها. |
+| **Stop**<br>إيقاف | Stop the audio and clear the channel's saved association.<br>إيقاف الصوتية وإلغاء الربط المحفوظ للقناة. |
 
-| الزر | الوظيفة |
-| :--- | :--- |
-| **1 / 3** | تعديل تأخير الصورة. |
-| **4 / 6** | تعديل تأخير الصوتية. |
-| **الأخضر** | تجميد الصورة أو استئنافها. |
-| **الأحمر** | إيقاف الصوتية. |
-| **الأزرق** | إعادة تأخير الصوتية إلى الصفر. |
-| **الأصفر / 0** | إرجاع الصورة لايف وإغلاق التايم شيفت. |
-| **CH+ / CH−** | التنقل بين صفحات الإعدادات. |
+Picture delay requires working timeshift and suitable storage on the receiver.
 
-</div>
+تأخير الصورة يحتاج تايم شيفت شغال ومساحة تخزين مناسبة على الرسيفر.
+
+### Remote shortcuts
+#### اختصارات الريموت
+
+| Key<br>الزر | Action<br>الوظيفة |
+|:---|:---|
+| **1 / 3** | Adjust picture delay.<br>تعديل تأخير الصورة. |
+| **4 / 6** | Adjust audio delay.<br>تعديل تأخير الصوتية. |
+| **Green**<br>الأخضر | Freeze / resume the picture.<br>تجميد الصورة أو استئنافها. |
+| **Red**<br>الأحمر | Stop the audio.<br>إيقاف الصوتية. |
+| **Blue**<br>الأزرق | Reset audio delay to zero.<br>إعادة تأخير الصوتية للصفر. |
+| **Yellow / 0**<br>الأصفر / 0 | Return the picture to live and close timeshift.<br>إرجاع الصورة لايف وإغلاق التايم شيفت. |
+| **CH+ / CH−** | Move between Settings pages.<br>التنقل بين صفحات الإعدادات. |
+
+---
 
 <a name="features"></a>
 
-<img src="screenshots/ua-features.svg" width="100%" alt="04 — More control. Less effort." />
+## More control. Less effort.
+### تحكم أكتر… بخطوات أبسط.
 
-<div dir="rtl">
+| Feature<br>الميزة | What it offers<br>التجربة |
+|:---|:---|
+| **Your commentary**<br>صوتية مع قناة الرسيفر | Internet audio alongside the current TV picture, with options to mute the channel's original audio.<br>تشغيل صوتية إنترنت مع الصورة الحالية، مع خيارات لكتم صوت القناة الأصلي. |
+| **Organized library**<br>مكتبة منظمة | Sources and subfolders with add, edit, delete and ordering controls.<br>مصادر ومجلدات فرعية، مع الإضافة والتعديل والحذف وترتيب القوائم. |
+| **Source management**<br>إدارة المصادر | Import M3U lists and manage sources from the plugin or web interface; update sources from Settings.<br>استيراد قوائم M3U وإدارة المصادر من البلجن أو الويب، وتحديث المصادر من الإعدادات. |
+| **Audio icons**<br>أيقونات الصوتيات | Search, preview and assign included icons from the web interface; associations survive source updates and backups.<br>البحث في الأيقونات المرفقة ومعاينتها واختيارها من الويب، مع حفظ الربط بعد تحديث المصادر والنسخ الاحتياطي. |
+| **Channel picons**<br>بايكون القناة | Show the current TV channel picon, with a fallback when unavailable.<br>عرض بايكون قناة التلفزيون الحالية، مع أيقونة بديلة عند عدم توفره. |
+| **Two-screen control**<br>تحكم من شاشتين | Playback, timing, freeze and stop from the remote or phone.<br>التشغيل والتأخير والفريز والإيقاف من الريموت أو الموبايل. |
+| **Backup & restore**<br>نسخ احتياطي واستعادة | Preserve the library, settings and icon associations.<br>حفظ المكتبة والإعدادات وروابط الأيقونات. |
+| **Arabic & English**<br>العربية والإنجليزية | Both languages across the receiver interface, Settings and web page.<br>واجهة الرسيفر والإعدادات وصفحة الويب باللغتين. |
+| **Themes & fonts**<br>الثيمات والخطوط | Neon theme, six optional Arabic/English fonts and the image's default font.<br>ثيم Neon، وستة خطوط عربية وإنجليزية اختيارية، بالإضافة لخط الصورة الأساسي. |
+| **Official online updates**<br>تحديث رسمي أونلاين | Background checks, release notes and package verification before installation.<br>فحص في الخلفية وعرض ملاحظات الإصدار والتحقق من الحزمة قبل التثبيت. |
 
-| الميزة | التجربة |
-| :--- | :--- |
-| **صوتية مع قناة الرسيفر** | اختر تعليقك مع الصورة الحالية، مع خيارات لكتم صوت القناة الأصلي. |
-| **مكتبة منظمة** | مصادر ومجلدات فرعية، مع الإضافة والتعديل والحذف وترتيب القوائم. |
-| **استيراد وتحديث المصادر** | إدارة قوائم الصوتيات من داخل البلجن أو الويب، بما يشمل استيراد M3U. |
-| **أيقونات لكل صوتية** | اختيار أيقونة من الصور المرفقة عبر الويب، مع البحث والمعاينة والحفظ بعد تحديث المصدر. |
-| **بايكون القناة الفعلية** | يظهر في كارت تشغيل الويب من `/media/hdd/picon`، مع أيقونة بديلة عند عدم توافره. |
-| **تحكم من شاشتين** | أوامر التشغيل والتأخير والفريز والإيقاف من الريموت أو الموبايل. |
-| **نسخ احتياطي واستعادة** | احتفظ بالمكتبة والإعدادات وروابط الأيقونات. |
-| **العربية والإنجليزية** | واجهة الرسيفر والإعدادات وصفحة الويب باللغتين. |
-| **اختيار الخط** | ستة خطوط عربية وإنجليزية، بالإضافة إلى خط الصورة الأساسي. |
-| **تحديث أونلاين** | فحص في الخلفية وإشعار عند وجود تحديث، مع عرض الملاحظات والتحقق من الحزمة قبل التثبيت. |
+---
 
-</div>
+<a name="compatibility"></a>
+
+## Compatibility
+### التوافق والمتطلبات
+
+| Requirement<br>المتطلب | Details<br>التفاصيل |
+|:---|:---|
+| Platform<br>المنصة | Enigma2 receiver<br>رسيفر Enigma2 |
+| Python<br>بايثون | Python 3.5 or newer<br>بايثون 3.5 أو أحدث |
+| Access<br>الوصول | Root via Telnet / SSH<br>حساب root عبر Telnet أو SSH |
+| Internet<br>الإنترنت | Required for online sources and updates.<br>مطلوب لمصادر الإنترنت والتحديثات. |
+| Picture delay<br>تأخير الصورة | Working timeshift and suitable receiver storage.<br>تايم شيفت شغال وتخزين مناسب على الرسيفر. |
+| Mobile control<br>التحكم من الموبايل | A browser on the same local network.<br>متصفح متصل بنفس الشبكة المحلية. |
+
+These are the published requirements, not confirmation that every receiver and image has been tested.
+
+دي المتطلبات المنشورة، وليست تأكيدًا إن كل جهاز وصورة تشغيل تم اختبارهم عمليًا.
+
+---
 
 <a name="install"></a>
 
-<img src="screenshots/ua-install.svg" width="100%" alt="05 — Your next listen starts here" />
-
-<div dir="rtl">
-
+## Official installation
 ### التثبيت الرسمي
 
-افتح Telnet أو SSH على الرسيفر بحساب **root** ثم نفّذ:
+Open Telnet or SSH on a compatible receiver as **root**, then run:
 
-</div>
+افتح Telnet أو SSH على رسيفر متوافق بحساب **root**، ثم نفّذ:
 
 ```sh
 wget -qO- https://raw.githubusercontent.com/K3bOra/UltraAudio/main/install.sh | /bin/sh
 ```
 
-<p align="center"><strong><a href="install.sh">مراجعة المُثبّت</a> · <a href="https://github.com/K3bOra/UltraAudio/releases/latest">تحميل الحزمة الرسمية IPK</a></strong></p>
+The installer downloads the official release and verifies the SHA-256, package size, name and version. Setup checks required components and attempts to install missing components from the receiver image's feeds.
 
-<div dir="rtl">
+المُثبّت بيحمّل الإصدار الرسمي ويتحقق من بصمة SHA-256 وحجم الحزمة واسمها ورقمها. وبعدها التجهيز بيفحص المكونات المطلوبة وبيحاول يثبت الناقص من مستودعات صورة الرسيفر.
 
-المُثبّت يحمّل الإصدار الرسمي ويتحقق من **SHA-256 وحجم الحزمة واسمها ورقمها**. بعد التثبيت، يفحص البلجن المكونات المطلوبة ويثبت الناقص من مستودعات الصورة، ثم يعيد تشغيل واجهة Enigma2 عند نجاح الفحص. تبقى المكتبة والإعدادات محفوظة عند التحديث.
+[Review the installer](install.sh) · [Download the latest IPK](https://github.com/K3bOra/UltraAudio/releases/latest)
 
-### أول تشغيل
+[راجع سكربت التثبيت](install.sh) · [حمّل أحدث حزمة IPK](https://github.com/K3bOra/UltraAudio/releases/latest)
 
-1. شغّل قناة التلفزيون التي تريد مشاهدتها.
-2. افتح Ultra Audio واختر الصوتية المناسبة.
-3. اضبط تأخير الصورة والصوتية من الريموت أو صفحة الويب.
-4. ارجع للقناة واستمتع بالمشاهدة بالتوقيت الذي ضبطته.
+> Setup restarts Enigma2 after successful checks. Back up important receiver settings first.
+>
+> التجهيز بيعيد تشغيل واجهة Enigma2 بعد نجاح الفحص. احتفظ بنسخة احتياطية من إعدادات الرسيفر المهمة أولًا.
 
-**المتطلبات:** جهاز Enigma2 بصورة تعمل ببايثون **3.5 أو أحدث**، واتصال بالإنترنت لتشغيل المصادر والتحديثات. استخدام تأخير الصورة يحتاج تايم شيفت وتخزين مناسب.
+### First run
+#### أول تشغيل
 
-</div>
+1. Tune to the TV channel you want to watch.<br>شغّل قناة التلفزيون اللي عايز تشاهدها.
+2. Open Ultra Audio and select your audio source.<br>افتح الترا أوديو واختار الصوتية المناسبة.
+3. Adjust picture and audio timing from the remote or web page.<br>اضبط توقيت الصورة والصوتية من الريموت أو صفحة الويب.
+4. Return to the channel and enjoy your chosen commentary.<br>ارجع للقناة واستمتع بالتعليق اللي اخترته.
 
-<a name="updates"></a>
+---
 
-<img src="screenshots/ua-updates.svg" width="100%" alt="06 — Built to keep getting better" />
+<a name="faq"></a>
 
-<div dir="rtl">
-
-### الجديد في 1.0.8
-
-- إضافة ثيم Neon وتحسين شكل الواجهة والألوان.
-- إضافة ٥٣ تلاوة للشيخ السيد سعيد، تتصدرها يوسف ثم المائدة ومريم.
-- إضافة إذاعة الشعراوي المباشرة و٥٣ ملف تفسير.
-- إصلاح إرجاع الصورة لايف وإغلاق التايم شيفت بالزر الأصفر أو 0.
-- إضافة تحديث المصادر من الإعدادات.
-- تحسين صفحة الويب، ونقل مدة التلاوة تحت الاسم مع عرض المعلومات بالأخضر.
-
-</div>
+## Troubleshooting & FAQ
+### حل المشاكل والأسئلة الشائعة
 
 <details>
-<summary><strong>شاهد شاشة الإعدادات والتحديث الأونلاين</strong></summary>
+<summary><b>The mobile page will not open.<br>صفحة الموبايل مش بتفتح.</b></summary>
 
-<p align="center"><a href="screenshots/ua-tv-updates-neon.jpg"><img src="screenshots/ua-tv-updates-neon.jpg" width="100%" alt="شاشة إعدادات Ultra Audio بثيم Neon وكارت التحديث الأونلاين" /></a></p>
+Check that both devices are on the same network and that you entered the receiver's current local IP and the port configured in Settings. The default port is 9990.
+
+تأكد إن الجهازين على نفس الشبكة، وإنك كتبت عنوان الرسيفر المحلي الحالي والمنفذ الموجود في الإعدادات. المنفذ الافتراضي 9990.
 
 </details>
 
 <details>
-<summary><strong>ملاحظات الإصدارات السابقة</strong></summary>
+<summary><b>The picture delay is not working.<br>تأخير الصورة مش شغال.</b></summary>
 
-<div dir="rtl">
+Check that the receiver's timeshift works and that its storage is available with enough free space. Use Yellow or 0 to return the picture to live.
 
-**تحديث 1.0.6:** اختيار أيقونة لكل صوتية من صفحة الويب مع البحث والمعاينة وحفظ الربط بعد تحديث المصدر والنسخ الاحتياطي. تحسين مسار الصوت والتأخير على Dreambox، وتنفيذ أوامر التحكم على خيط Enigma2 الرئيسي، وإصلاح الانتقال من التشغيل المباشر إلى مسار يدعم تأخير الصوت.
-
-**تحديث 1.0.5:** ستة خطوط عربية وإنجليزية اختيارية مع خط الصورة الأساسي من الإعدادات > نوع الخط. إصلاح استيراد M3U والرجوع للمباشر مع التايم شيفت الطويل، وتحسين حماية شريط التقدم وفحص مكونات DVB وترتيب التثبيت. تغيير الخط يحافظ على الفولدر والمؤشر والصوتية الحالية. دليل القنوات الإضافية يعتمد على EPG المخزن في الصورة؛ صوت DM920 يحتاج تأكيدًا عمليًا على الجهاز.
-
-**تحديث 1.0.3:** فحص تلقائي صامت في الخلفية عند فتح البلجن، وإشعار عند وجود إصدار جديد مع اختيار تحديث أو رجوع. نسبة تحميل فعلية من 1 إلى 100%، ثم مراحل التثبيت وفحص المكونات، مع تحديث الكارت من تايمر Enigma2 وإعادة تشغيل الواجهة بعد النجاح. يعمل أسلوب العرض الجديد بعد تثبيت هذا الإصدار وإعادة تشغيل الواجهة.
-
-**إصلاحات 1.0.2:** إظهار تفاصيل التحديث بالعربية أو الإنجليزية، وإتمام فحص المكونات قبل إعادة تشغيل واجهة Enigma2.
-
-**إصلاحات 1.0.1:** زر Stop يلغي ذاكرة الصوتية وتأخير الصوت والصورة للقناة، فلا تعود تلقائيًا عند الرجوع إليها. تمت إزالة خيار Preview Update Card التجريبي وحقل GitHub repository؛ يظهر Online Update فقط ومصدره الرسمي مضبوط داخليًا. الاسم الظاهر يظل **Ultra Audio Final V1**.
-
-</div>
+تأكد إن التايم شيفت على الرسيفر شغال، وإن وحدة التخزين متاحة وفيها مساحة كافية. استخدم الأصفر أو 0 للرجوع بالصورة للايف.
 
 </details>
 
-<p align="center"><a href="https://github.com/K3bOra/UltraAudio/releases">كل الإصدارات الرسمية</a> · <a href="https://github.com/K3bOra/UltraAudio/issues">الإبلاغ عن مشكلة</a> · <a href="RELEASING.md">نشر الإصدارات</a></p>
+<details>
+<summary><b>An audio source has no sound.<br>الصوتية مش بتطلع صوت.</b></summary>
+
+Check the internet connection, receiver volume and mute state, then try another source. If only one source fails, check that source's URL and availability.
+
+راجع الإنترنت ومستوى صوت الرسيفر وحالة كتم الصوت، وجرب مصدر تاني. لو المشكلة في مصدر واحد بس، راجع رابطه وتوفره.
+
+</details>
+
+<details>
+<summary><b>Will updating remove my library?<br>هل التحديث هيمسح مكتبتي؟</b></summary>
+
+Updates are designed to preserve the library and settings. Use Backup before making important changes.
+
+التحديثات مصممة للحفاظ على المكتبة والإعدادات. استخدم النسخ الاحتياطي قبل أي تغييرات مهمة.
+
+</details>
+
+<details>
+<summary><b>How do I report a problem?<br>أبلغ عن مشكلة إزاي؟</b></summary>
+
+[Open an issue](https://github.com/K3bOra/UltraAudio/issues) with the receiver model, image, Python version, plugin version, steps to reproduce and full error text. Remove private source URLs and credentials first.
+
+[افتح بلاغ مشكلة](https://github.com/K3bOra/UltraAudio/issues)، واكتب موديل الرسيفر واسم الصورة وإصدار بايثون والبلجن وخطوات ظهور المشكلة ورسالة الخطأ كاملة. امسح روابط المصادر الخاصة وبيانات الدخول قبل النشر.
+
+</details>
+
+---
+
+<a name="ultra-family"></a>
+
+## The Ultra family
+### عيلة Ultra
+
+Two plugins. One family. Explore media with Ultra Stalker, and choose your commentary and timing with Ultra Audio.
+
+بلجنين من عيلة واحدة: اكتشف المحتوى مع الترا ستالكر، واختار الصوتية والتوقيت المناسب مع الترا أوديو.
+
+| [Ultra Stalker](https://github.com/K3bOra/UltraStalker) | [Ultra Audio](https://github.com/K3bOra/UltraAudio) |
+|:---:|:---:|
+| Live TV, movies, series and local media.<br>البث المباشر والأفلام والمسلسلات والمحتوى المحلي. | Internet audio, picture/audio timing and mobile control.<br>صوتيات الإنترنت وتزامن الصورة والصوت والتحكم من الموبايل. |
+| [Explore Ultra Stalker](https://github.com/K3bOra/UltraStalker)<br>[اكتشف الترا ستالكر](https://github.com/K3bOra/UltraStalker) | [Explore Ultra Audio](https://github.com/K3bOra/UltraAudio)<br>[اكتشف الترا أوديو](https://github.com/K3bOra/UltraAudio) |
+
+Each plugin has its own installation command and official updates.
+
+لكل بلجن أمر تثبيت وتحديثات رسمية خاصة به.
+
+---
+
+
+<a name="resources"></a>
+
+## Updates & resources
+### التحديثات والروابط المهمة
+
+- [Official releases and history](https://github.com/K3bOra/UltraAudio/releases)<br>[الإصدارات الرسمية وسجل التحديثات](https://github.com/K3bOra/UltraAudio/releases)
+- [Latest release manifest](https://github.com/K3bOra/UltraAudio/releases/latest/download/update.json)<br>[ملف بيانات أحدث إصدار](https://github.com/K3bOra/UltraAudio/releases/latest/download/update.json)
+- [Repository manifest](update.json)<br>[نسخة بيانات التحديث في المستودع](update.json)
+- [Publishing guide](RELEASING.md)<br>[دليل نشر الإصدارات](RELEASING.md)
+
+---
+
+## License
+### الترخيص
+
+Released under the [MIT License](LICENSE).
+
+المشروع منشور بترخيص [MIT](LICENSE).
 
 ---
 
@@ -213,7 +329,14 @@ wget -qO- https://raw.githubusercontent.com/K3bOra/UltraAudio/main/install.sh | 
 
 **ULTRA AUDIO** · Your picture. Your commentary. Your timing.
 
+**الترا أوديو** · صورتك… تعليقك… والتوقيت على مزاجك.
+
 Developed and maintained by **Ahmed L-HadarY**
+
+تطوير وصيانة **Ahmed L-HadarY**
+
+[GitHub Repository](https://github.com/K3bOra/UltraAudio)<br>
+[المستودع الرسمي على GitHub](https://github.com/K3bOra/UltraAudio)
 
 </div>
 
