@@ -1,14 +1,8 @@
 {
   "notes": [
-    "Improve picture timeshift adjustment and return to live on Dreambox / OpenATV.",
-    "Improve audio delay and saved channel synchronization.",
-    "Restore missing bundled radio stations, including ON Sport FM, without duplicating imported links.",
-    "Unify playing-row colors on the receiver and web: green title and red details."
+    "Fix MP3 playback errors and audio cutting in Sheikh Shaarawi and Sheikh Sayed Saeed recordings."
   ],
   "notes_ar": [
-    "تحسين ضبط تايم شيفت الصورة والرجوع للبث المباشر على Dreambox وOpenATV.",
-    "تحسين تأخير الصوت واستعادة المزامنة المحفوظة للقنوات.",
-    "استكمال محطات الراديو الناقصة، ومنها ON Sport FM، مع منع تكرار الروابط المستوردة.",
-    "توحيد ألوان العنصر الجاري تشغيله على الرسيفر والويب: الاسم بالأخضر والتفاصيل بالأحمر."
+    "إصلاح أخطاء التشغيل والتقطيع لملفات MP3 الخاصة بالشيخ الشعراوي والشيخ السيد سعيد."
   ]
 }

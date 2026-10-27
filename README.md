@@ -48,17 +48,14 @@ A shared visual language with Ultra Stalker, with its own Neon theme, organized 
 
 <a name="updates"></a>
 
-## What's new — V1.0.9
-### الجديد في V1.0.9
+## What's new — V1.0.10
+### الجديد في V1.0.10
 
-The latest published release is **V1.0.9**. The plugin's product name remains **Ultra Audio Final V1**.
+The latest published release is **V1.0.10**. The plugin's product name remains **Ultra Audio Final V1**.
 
-أحدث إصدار منشور هو **V1.0.9**، والاسم الرئيسي للبلجن يظل **Ultra Audio Final V1**.
+أحدث إصدار منشور هو **V1.0.10**، والاسم الرئيسي للبلجن يظل **Ultra Audio Final V1**.
 
-- Improve picture timeshift adjustment and return to live on Dreambox / OpenATV.<br>تحسين ضبط تايم شيفت الصورة والرجوع للبث المباشر على Dreambox وOpenATV.
-- Improve audio delay and saved channel synchronization.<br>تحسين تأخير الصوت واستعادة المزامنة المحفوظة للقنوات.
-- Restore missing bundled radio stations, including ON Sport FM, without duplicating imported links.<br>استكمال محطات الراديو الناقصة، ومنها ON Sport FM، مع منع تكرار الروابط المستوردة.
-- Unify playing-row colors on the receiver and web: green title and red details.<br>توحيد ألوان العنصر الجاري تشغيله على الرسيفر والويب: الاسم بالأخضر والتفاصيل بالأحمر.
+- Fix MP3 playback errors and audio cutting in Sheikh Shaarawi and Sheikh Sayed Saeed recordings.<br>إصلاح أخطاء التشغيل والتقطيع لملفات MP3 الخاصة بالشيخ الشعراوي والشيخ السيد سعيد.
 
 [Full release notes and downloads](https://github.com/K3bOra/UltraAudio/releases/latest) · [Previous releases](https://github.com/K3bOra/UltraAudio/releases)
 
