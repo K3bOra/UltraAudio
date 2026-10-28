@@ -20,8 +20,11 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
-      - name: Validate package and generate update metadata
-        run: python3 scripts/prepare_release.py
+      - name: Validate both packages and independent update metadata
+        run: |
+          python3 -B scripts/render_installer.py
+          python3 -B scripts/unpack_sources.py
+          python3 -B tests/run_local.py
       - name: Upload draft, download and verify, then publish
         shell: bash
         run: |
@@ -32,26 +35,39 @@ jobs:
             exit 1
           fi
           release_title=$(python3 -c 'import json; print(json.load(open("dist/release-info.json"))["title"])')
-          gh release create "$release_tag" --repo "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --draft --title "$release_title" --notes-file dist/notes.md dist/*.ipk dist/update.json dist/SHA256SUMS dist/install.sh
-          gh release download "$release_tag" --repo "$GITHUB_REPOSITORY" --pattern '*.ipk' --pattern update.json --pattern install.sh --dir verified
+          gh release create "$release_tag" --repo "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --draft --title "$release_title" --notes-file dist/notes.md dist/*.ipk dist/*.deb dist/update.json dist/update-ipk.json dist/update-dreamos.json dist/SHA256SUMS dist/install.sh
+          gh release download "$release_tag" --repo "$GITHUB_REPOSITORY" --pattern '*.ipk' --pattern '*.deb' --pattern 'update*.json' --pattern SHA256SUMS --pattern install.sh --dir verified
           python3 scripts/prepare_release.py --verify-published verified
           gh release edit "$release_tag" --repo "$GITHUB_REPOSITORY" --draft=false --latest
       - name: Verify public installation download
-        run: sh install.sh --verify-only
-      - name: Refresh bootstrap update manifest
+        run: |
+          sh install.sh --verify-only --platform=ipk
+          sh install.sh --verify-only --platform=dreamos
+      - name: Refresh independent bootstrap update manifests
         shell: bash
         run: |
           set -euo pipefail
-          if ! gh api "repos/$GITHUB_REPOSITORY/contents/update.json" > dist/previous-manifest.json; then
-            printf '{}\n' > dist/previous-manifest.json
-          fi
           python3 - <<'PY'
           import base64, json
           from pathlib import Path
-          previous = json.loads(Path('dist/previous-manifest.json').read_text())
-          body = {'message': 'Update bootstrap manifest after verified release', 'content': base64.b64encode(Path('dist/update.json').read_bytes()).decode('ascii')}
-          if previous.get('sha'):
-              body['sha'] = previous['sha']
-          Path('dist/update-request.json').write_text(json.dumps(body))
+          import subprocess
+          import os
+          repo = os.environ['GITHUB_REPOSITORY']
+          for name in ('update-ipk.json', 'update-dreamos.json', 'update.json', 'install.sh'):
+              endpoint = 'repos/%s/contents/%s' % (repo, name)
+              previous = subprocess.run(['gh', 'api', endpoint], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+              if previous.returncode:
+                  # Only a genuine missing file may be created; fail on auth/network errors.
+                  if b'(HTTP 404)' not in previous.stderr:
+                      raise RuntimeError(previous.stderr.decode('utf-8', 'replace'))
+                  prior = {}
+              else:
+                  prior = json.loads(previous.stdout)
+              body = {'message': 'Refresh verified ' + name, 'branch': 'main',
+                      'content': base64.b64encode(Path('dist', name).read_bytes()).decode('ascii')}
+              if prior.get('sha'):
+                  body['sha'] = prior['sha']
+              request = Path('dist', 'update-request.json')
+              request.write_text(json.dumps(body))
+              subprocess.run(['gh', 'api', '--method', 'PUT', endpoint, '--input', str(request)], check=True)
           PY
-          gh api --method PUT "repos/$GITHUB_REPOSITORY/contents/update.json" --input dist/update-request.json
