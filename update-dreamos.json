@@ -1,0 +1,20 @@
+{
+  "version": "1.0.13-dreamos",
+  "channel": "dreamos",
+  "format": "deb",
+  "sha256": "596cc1dc5a0e45f601bfa45966fa4f3dc66c6acb12e97d0b8715b3f7b22d9c82",
+  "size": 5790784,
+  "url": "https://github.com/K3bOra/UltraAudio/releases/download/v1.0.13/Ultra_Audio_Final_DreamOS.deb",
+  "notes": [
+    "Dedicated DreamOS DEB update channel; version 1.0.13-dreamos now advances in parallel with IPK 1.0.13.",
+    "Update downloads require verified HTTPS; playback compatibility settings cannot disable certificate validation for updates.",
+    "Preserves DreamOS Python 2/3 support, audio handling, timeshift synchronization, and existing interface assets.",
+    "Use the unified installer once to migrate legacy DreamOS numbering 1.0.23/24 to the new parallel series."
+  ],
+  "notes_ar": [
+    "مسار تحديث DEB مستقل لنسخة DreamOS، مع توحيد الرقم على 1.0.13-dreamos بالتوازي مع IPK 1.0.13.",
+    "التحقق من شهادات HTTPS أثناء التحديث دون تأثر بإعدادات توافق تشغيل الصوت.",
+    "الاحتفاظ بدعم بايثون ٢ و٣ وتعديلات صوت الدريم بوكس ومزامنة التايم شيفت وملفات الواجهة الحالية.",
+    "تشغيل المثبت الموحّد مرة واحدة لنقل ترقيم DreamOS القديم 23 و24 إلى السلسلة المتوازية الجديدة."
+  ]
+}
