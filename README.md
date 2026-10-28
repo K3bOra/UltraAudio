@@ -11,12 +11,12 @@ Internet audio, independent picture/audio timing and control from your receiver 
 
 [![Release / الإصدار](https://img.shields.io/github/v/release/K3bOra/UltraAudio?style=for-the-badge&label=RELEASE&labelColor=10251C&color=7DE3A0)](https://github.com/K3bOra/UltraAudio/releases/latest)
 [![Platform / المنصة](https://img.shields.io/badge/PLATFORM-Enigma2-7DE3A0?style=for-the-badge&labelColor=10251C)](#compatibility)
-[![Python / بايثون](https://img.shields.io/badge/PYTHON-3.5+-7DE3A0?style=for-the-badge&labelColor=10251C)](#compatibility)
+[![Python / بايثون](https://img.shields.io/badge/PYTHON-2.7.9+%20%2F%203.5+-7DE3A0?style=for-the-badge&labelColor=10251C)](#compatibility)
 [![Downloads / التنزيلات](https://img.shields.io/github/downloads/K3bOra/UltraAudio/total?style=for-the-badge&label=DOWNLOADS&labelColor=10251C&color=E47C8B)](https://github.com/K3bOra/UltraAudio/releases)
 
-Platform: Enigma2 · Python: 3.5+ · Official release and download count above.
+Platform: Enigma2 / DreamOS · IPK: Python 3.5+ · DreamOS DEB: Python 2.7.9+ / 3.5+.
 
-المنصة: Enigma2 · بايثون: 3.5 أو أحدث · الشارات بالأعلى تعرض الإصدار الرسمي وعدد التنزيلات.
+المنصة: Enigma2 وDreamOS · حزمة IPK لبايثون 3.5 فأحدث · حزمة DreamOS DEB لبايثون 2.7.9 فأحدث أو 3.5 فأحدث.
 
 [![Install Ultra Audio / تثبيت الترا أوديو](screenshots/ua-action-install.svg)](#install)
 [![Official releases / الإصدارات الرسمية](screenshots/ua-action-releases.svg)](https://github.com/K3bOra/UltraAudio/releases)
@@ -48,12 +48,16 @@ A shared visual language with Ultra Stalker, with its own Neon theme, organized 
 
 <a name="updates"></a>
 
-## What's new — V1.0.12
-### الجديد في V1.0.12
+## What's new — V1.0.13
+### الجديد في V1.0.13
 
-The latest published release is **V1.0.12**. The plugin's product name remains **Ultra Audio Final V1**.
+Release **V1.0.13** includes **IPK 1.0.13** and **DreamOS DEB 1.0.13-dreamos**. The plugin's product name remains **Ultra Audio Final V1**.
 
-أحدث إصدار منشور هو **V1.0.12**، والاسم الرئيسي للبلجن يظل **Ultra Audio Final V1**.
+إصدار **V1.0.13** يجمع **IPK 1.0.13** و**DreamOS DEB 1.0.13-dreamos**، والاسم الرئيسي للبلجن يظل **Ultra Audio Final V1**.
+
+- One Telnet / SSH command selects IPK or DEB from the receiver image's package manager; online update channels stay separate.<br>أمر تلنت واحد يختار IPK أو DEB حسب مدير حزم صورة الرسيفر، مع فصل مسارات التحديث الأونلاين.
+- Audio delay up to **60 seconds** in both versions, including remote/web controls and saved channel timing.<br>تأخير الصوت حتى **60 ثانية** في النسختين، مع دعم الريموت والويب وحفظ ضبط القنوات.
+- Verified HTTPS updates with SHA-256, size, package identity and version checks.<br>تحديثات HTTPS مع التحقق من الشهادات وبصمة الحزمة وحجمها واسمها وإصدارها.
 
 - Synchronize the picture-delay display and controls with confirmed actual timeshift, including large shifts, without extra buttons.<br>مزامنة عداد وضبط تأخير الصورة مع التايم شيفت الفعلي المؤكد، حتى مع الترحيل الكبير، بدون أزرار إضافية.
 - Fix premature stopping or restarting of MP3 recordings by draining queued audio after decoding ends, including Shaarawi and Sayed Saeed files.<br>إصلاح توقف أو إعادة تشغيل تسجيلات MP3 قبل اكتمال الصوت المخزّن، ومنها ملفات الشيخ الشعراوي والشيخ السيد سعيد.
@@ -254,7 +258,8 @@ Background checks, release notes and package verification before installation.
 | Requirement<br>المتطلب | Details<br>التفاصيل |
 |:---|:---|
 | Platform<br>المنصة | Enigma2 receiver<br>رسيفر Enigma2 |
-| Python<br>بايثون | Python 3.5 or newer<br>بايثون 3.5 أو أحدث |
+| IPK / OPKG | Python 3.5 or newer<br>بايثون 3.5 أو أحدث |
+| DreamOS DEB / DPKG | Python 2.7.9+ or Python 3.5+<br>بايثون 2.7.9 فأحدث أو 3.5 فأحدث |
 | Access<br>الوصول | Root via Telnet / SSH<br>حساب root عبر Telnet أو SSH |
 | Internet<br>الإنترنت | Required for online sources and updates.<br>مطلوب لمصادر الإنترنت والتحديثات. |
 | Picture delay<br>تأخير الصورة | Working timeshift and suitable receiver storage.<br>تايم شيفت شغال وتخزين مناسب على الرسيفر. |
@@ -279,13 +284,17 @@ Open Telnet or SSH on a compatible receiver as **root**, then run:
 wget -qO- https://raw.githubusercontent.com/K3bOra/UltraAudio/main/install.sh | /bin/sh
 ```
 
-The installer downloads the official release and verifies the SHA-256, package size, name and version. Setup checks required components and attempts to install missing components from the receiver image's feeds.
+The installer detects the image package manager and selects IPK for OPKG or DEB for DreamOS/DPKG. It verifies HTTPS, SHA-256, package size, name, architecture and version before installation. A Dreambox running an OPKG image uses IPK; the hardware name alone does not determine the package. Ambiguous package managers and unsupported Python 2 OPKG images stop with an error. Setup checks required components using the image's feeds.
 
-المُثبّت بيحمّل الإصدار الرسمي ويتحقق من بصمة SHA-256 وحجم الحزمة واسمها ورقمها. وبعدها التجهيز بيفحص المكونات المطلوبة وبيحاول يثبت الناقص من مستودعات صورة الرسيفر.
+المثبت يختار IPK لصور OPKG أو DEB لـDreamOS/DPKG، ويتحقق من HTTPS والبصمة والحجم واسم الحزمة ومعماريتها ورقمها قبل التثبيت. جهاز دريم بوكس بصورة OPKG يأخذ IPK؛ الاختيار حسب الصورة وليس اسم الجهاز فقط. لو مدير الحزم غير واضح، أو صورة OPKG تعمل ببايثون 2، يتوقف برسالة واضحة. وبعدها يفحص المكونات المطلوبة من مستودعات الصورة.
 
-[Review the installer](install.sh) · [Download the latest IPK](https://github.com/K3bOra/UltraAudio/releases/latest)
+**DreamOS migration:** users on the old **1.0.23-dreamos / 1.0.24-dreamos** numbering should run this command once. It installs **1.0.13-dreamos** over the old package without requiring manual removal, preserving the library and settings. Subsequent updates use the dedicated DreamOS online channel and advance to 14, 15, and later alongside IPK.
 
-[راجع سكربت التثبيت](install.sh) · [حمّل أحدث حزمة IPK](https://github.com/K3bOra/UltraAudio/releases/latest)
+**لمستخدمي DreamOS بإصدار 23 أو 24 القديم:** شغّل نفس الأمر مرة واحدة. يثبت **1.0.13-dreamos** فوق النسخة القديمة دون حذفها يدويًا، مع الحفاظ على المكتبة والإعدادات. بعدها التحديث من داخل البلجن بمسار DreamOS مستقل، ويتقدم الرقم 14 ثم 15 بالتوازي مع IPK.
+
+[Review the installer](install.sh) · [Download IPK or DreamOS DEB](https://github.com/K3bOra/UltraAudio/releases/latest)
+
+[راجع سكربت التثبيت](install.sh) · [حمّل IPK أو DreamOS DEB](https://github.com/K3bOra/UltraAudio/releases/latest)
 
 > Setup restarts Enigma2 after successful checks. Back up important receiver settings first.
 >
