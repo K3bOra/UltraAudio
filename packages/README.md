@@ -1,5 +1,5 @@
-# Official package
+# Official packages
 
-Ultra Audio Final V1 — package version 1.0.7.
+Keep exactly the current `Ultra_Audio_Final_V1.ipk` and `Ultra_Audio_Final_DreamOS.deb` here. Both use release 1.0.13; DreamOS adds the `-dreamos` suffix.
 
-Keep exactly one current IPK here. For every future update, increment the internal package version and update release-notes.json before running the manual release workflow.
+The unified installer selects the package by image package manager. Download release assets from the official Releases page. Source trees can be recovered with `python3 -B scripts/unpack_sources.py`.
