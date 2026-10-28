@@ -1,12 +1,14 @@
 {
-  "version": "1.0.10",
-  "url": "https://github.com/K3bOra/UltraAudio/releases/download/v1.0.10/Ultra_Audio_Final_V1.ipk",
-  "sha256": "9a6d2375c3825fe24e410b5c6995e924df5682d28abc40083f764944f4cb2a9b",
-  "size": 4874696,
+  "version": "1.0.12",
+  "url": "https://github.com/K3bOra/UltraAudio/releases/download/v1.0.12/Ultra_Audio_Final_V1.ipk",
+  "sha256": "528a8c5447870d12a1f3ead1cd633a2f2e9a9b0593241ecdc10a234e8cfce5a0",
+  "size": 4876040,
   "notes": [
-    "Fix MP3 playback errors and audio cutting in Sheikh Shaarawi and Sheikh Sayed Saeed recordings."
+    "Synchronize the picture-delay display and controls with confirmed actual timeshift, including large shifts, without extra buttons.",
+    "Fix premature stopping or restarting of MP3 recordings by draining queued audio after decoding ends, including Shaarawi and Sayed Saeed files."
   ],
   "notes_ar": [
-    "إصلاح أخطاء التشغيل والتقطيع لملفات MP3 الخاصة بالشيخ الشعراوي والشيخ السيد سعيد."
+    "مزامنة عداد وضبط تأخير الصورة مع التايم شيفت الفعلي المؤكد، حتى مع الترحيل الكبير، بدون أزرار إضافية.",
+    "إصلاح توقف أو إعادة تشغيل تسجيلات MP3 قبل اكتمال الصوت المخزّن، ومنها ملفات الشيخ الشعراوي والشيخ السيد سعيد."
   ]
 }
