@@ -1,8 +1,10 @@
 {
   "notes": [
-    "Fix MP3 playback errors and audio cutting in Sheikh Shaarawi and Sheikh Sayed Saeed recordings."
+    "Synchronize the picture-delay display and controls with confirmed actual timeshift, including large shifts, without extra buttons.",
+    "Fix premature stopping or restarting of MP3 recordings by draining queued audio after decoding ends, including Shaarawi and Sayed Saeed files."
   ],
   "notes_ar": [
-    "إصلاح أخطاء التشغيل والتقطيع لملفات MP3 الخاصة بالشيخ الشعراوي والشيخ السيد سعيد."
+    "مزامنة عداد وضبط تأخير الصورة مع التايم شيفت الفعلي المؤكد، حتى مع الترحيل الكبير، بدون أزرار إضافية.",
+    "إصلاح توقف أو إعادة تشغيل تسجيلات MP3 قبل اكتمال الصوت المخزّن، ومنها ملفات الشيخ الشعراوي والشيخ السيد سعيد."
   ]
 }

@@ -48,14 +48,15 @@ A shared visual language with Ultra Stalker, with its own Neon theme, organized 
 
 <a name="updates"></a>
 
-## What's new — V1.0.10
-### الجديد في V1.0.10
+## What's new — V1.0.12
+### الجديد في V1.0.12
 
-The latest published release is **V1.0.10**. The plugin's product name remains **Ultra Audio Final V1**.
+The latest published release is **V1.0.12**. The plugin's product name remains **Ultra Audio Final V1**.
 
-أحدث إصدار منشور هو **V1.0.10**، والاسم الرئيسي للبلجن يظل **Ultra Audio Final V1**.
+أحدث إصدار منشور هو **V1.0.12**، والاسم الرئيسي للبلجن يظل **Ultra Audio Final V1**.
 
-- Fix MP3 playback errors and audio cutting in Sheikh Shaarawi and Sheikh Sayed Saeed recordings.<br>إصلاح أخطاء التشغيل والتقطيع لملفات MP3 الخاصة بالشيخ الشعراوي والشيخ السيد سعيد.
+- Synchronize the picture-delay display and controls with confirmed actual timeshift, including large shifts, without extra buttons.<br>مزامنة عداد وضبط تأخير الصورة مع التايم شيفت الفعلي المؤكد، حتى مع الترحيل الكبير، بدون أزرار إضافية.
+- Fix premature stopping or restarting of MP3 recordings by draining queued audio after decoding ends, including Shaarawi and Sayed Saeed files.<br>إصلاح توقف أو إعادة تشغيل تسجيلات MP3 قبل اكتمال الصوت المخزّن، ومنها ملفات الشيخ الشعراوي والشيخ السيد سعيد.
 
 [Full release notes and downloads](https://github.com/K3bOra/UltraAudio/releases/latest) · [Previous releases](https://github.com/K3bOra/UltraAudio/releases)
 
@@ -411,5 +412,3 @@ Developed and maintained by **Ahmed L-HadarY**
 [المستودع الرسمي على GitHub](https://github.com/K3bOra/UltraAudio)
 
 </div>
-
-
