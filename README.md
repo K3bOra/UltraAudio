@@ -48,16 +48,16 @@ A shared visual language with Ultra Stalker, with its own Neon theme, organized 
 
 <a name="updates"></a>
 
-## What's new — V1.0.15
-### الجديد في V1.0.15
+## What's new — V1.0.16
+### الجديد في V1.0.16
 
-Release **V1.0.15** includes **IPK 1.0.15** and **DreamOS DEB 1.0.15-dreamos**. The plugin's product name remains **Ultra Audio Final V1**.
+Release **V1.0.16** includes **IPK 1.0.16** and **DreamOS DEB 1.0.16-dreamos**. The plugin's product name remains **Ultra Audio Final V1**.
 
-إصدار **V1.0.15** يجمع **IPK 1.0.15** و**DreamOS DEB 1.0.15-dreamos**، والاسم الرئيسي للبلجن يظل **Ultra Audio Final V1**.
+إصدار **V1.0.16** يجمع **IPK 1.0.16** و**DreamOS DEB 1.0.16-dreamos**، والاسم الرئيسي للبلجن يظل **Ultra Audio Final V1**.
 
-- Improved desktop web tools, centered folders and channel guide cards.<br>تحسين توزيع أدوات ويب الكمبيوتر وتوسيط الفولدرات وكروت القنوات والدليل.
-- Fixed disappearing web guide when browser and receiver clocks differ.<br>إصلاح اختفاء دليل الويب عند اختلاف ساعة الكمبيوتر عن الريسيفر.
-- Confirmed live match badges in the web list; removed the animated icon beside the playing channel name.<br>علامة لايف للمباريات المباشرة المؤكدة في الويب وإلغاء الأيقونة المتحركة بجوار اسم الصوتية.
+- Press **0** during audio playback to open a compact themed control card over TV, with delay, reset and Freeze/Resume controls.<br>اضغط **0** أثناء تشغيل صوتية لفتح كارت تحكم صغير فوق القناة، بنفس خامة الثيم، للتأخير والتصفير والتجميد والاستكمال.
+- Added Turkish interface and 35 Turkish radio stations, with popular stations first.<br>إضافة اللغة التركية و35 محطة راديو تركية مع تقديم المحطات الأشهر.
+- Improved goal-scorer details using a cached structured feed, with player names and goal times only. More than two rows scroll within their own space.<br>تحسين جلب الهدافين بمصدر بيانات منظم وكاش، وعرض الأسماء والتوقيت فقط، وتحريك القوائم الأطول من سطرين في مساحتها.
 
 [Full release notes and downloads](https://github.com/K3bOra/UltraAudio/releases/latest) · [Previous releases](https://github.com/K3bOra/UltraAudio/releases)
 
@@ -140,6 +140,9 @@ Picture delay requires working timeshift and suitable storage on the receiver.
 
 ### Remote shortcuts
 #### اختصارات الريموت
+
+**0 opens/closes the playback card over TV while commentary is active; EXIT closes it. Inside the main plugin, 0 retains picture reset.**<br>
+**زر 0 يفتح ويغلق الكارت فوق القناة أثناء تشغيل الصوتية، وEXIT يغلقه. داخل شاشة البلجن الرئيسية يظل 0 لتصفير الصورة.**
 
 | Key<br>الزر | Action<br>الوظيفة |
 |:---|:---|
@@ -285,9 +288,9 @@ The installer detects the image package manager and selects IPK for OPKG or DEB 
 
 المثبت يختار IPK لصور OPKG أو DEB لـDreamOS/DPKG، ويتحقق من HTTPS والبصمة والحجم واسم الحزمة ومعماريتها ورقمها قبل التثبيت. جهاز دريم بوكس بصورة OPKG يأخذ IPK؛ الاختيار حسب الصورة وليس اسم الجهاز فقط. لو مدير الحزم غير واضح، أو صورة OPKG تعمل ببايثون 2، يتوقف برسالة واضحة. وبعدها يفحص المكونات المطلوبة من مستودعات الصورة.
 
-**DreamOS migration:** users on the old **1.0.23-dreamos / 1.0.24-dreamos** numbering should run this command once. It installs **1.0.15-dreamos** over the old package without requiring manual removal, preserving the library and settings. Subsequent updates use the dedicated DreamOS online channel and advance to 16 and later alongside IPK.
+**DreamOS migration:** users on the old **1.0.23-dreamos / 1.0.24-dreamos** numbering should run this command once. It installs **1.0.16-dreamos** over the old package without requiring manual removal, preserving the library and settings. Subsequent updates use the dedicated DreamOS online channel and advance to 17 and later alongside IPK.
 
-**لمستخدمي DreamOS بإصدار 23 أو 24 القديم:** شغّل نفس الأمر مرة واحدة. يثبت **1.0.15-dreamos** فوق النسخة القديمة دون حذفها يدويًا، مع الحفاظ على المكتبة والإعدادات. بعدها التحديث من داخل البلجن بمسار DreamOS مستقل، ويتقدم الرقم 16 وما بعده بالتوازي مع IPK.
+**لمستخدمي DreamOS بإصدار 23 أو 24 القديم:** شغّل نفس الأمر مرة واحدة. يثبت **1.0.16-dreamos** فوق النسخة القديمة دون حذفها يدويًا، مع الحفاظ على المكتبة والإعدادات. بعدها التحديث من داخل البلجن بمسار DreamOS مستقل، ويتقدم الرقم 17 وما بعده بالتوازي مع IPK.
 
 [Review the installer](install.sh) · [Download IPK or DreamOS DEB](https://github.com/K3bOra/UltraAudio/releases/latest)
 
