@@ -18,10 +18,11 @@ for tree in ('ipk-source', 'deb-source'):
     with tempfile.TemporaryDirectory(prefix='ultraaudio_offline_') as scratch:
         env = dict(os.environ, ULTRAAUDIO_DATA=scratch,
             UA_PLUGIN_ROOT=str(BASE / tree / 'data/usr/lib/enigma2/python/Plugins/Extensions/UltraAudio'))
-        names = ['test_timeshift.py', 'test_library.py', 'test_delay_limits.py', 'test_live_rich.py']
+        names = ['test_timeshift.py', 'test_library.py', 'test_delay_limits.py', 'test_live_rich.py', 'test_web_test3.py']
         if args.audio:
             names.append('test_audio.py')
         for name in names:
             subprocess.run([sys.executable, '-B', str(BASE / 'tests' / name)], env=env, check=True)
 subprocess.run([sys.executable, '-B', str(BASE / 'scripts/prepare_release.py'), '--verify-published', str(BASE / 'dist')], check=True)
+subprocess.run(['node', str(BASE / 'tests/test_web_guide_clock.cjs')], check=True)
 print('PASS all requested offline checks; no external publication or installation')
