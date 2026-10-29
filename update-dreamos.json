@@ -1,18 +1,18 @@
 {
-  "version": "1.0.15-dreamos",
+  "version": "1.0.16-dreamos",
   "channel": "dreamos",
   "format": "deb",
-  "sha256": "6c0108256f55c20bd95392ddf2783662a35adec91082c6188f5bcec21d5c8458",
-  "size": 5906678,
-  "url": "https://github.com/K3bOra/UltraAudio/releases/download/v1.0.15/Ultra_Audio_Final_DreamOS.deb",
+  "sha256": "c1098ce2a88d9faabd124308abb6dc20fce2e950aed0c7528fab705b29326a39",
+  "size": 6123884,
+  "url": "https://github.com/K3bOra/UltraAudio/releases/download/v1.0.16/Ultra_Audio_Final_DreamOS.deb",
   "notes": [
-    "Improved desktop web layout, centered folders and channel guide cards.",
-    "Fixed disappearing web guide when browser and receiver clocks differ.",
-    "Live match badges in the web channel list; removed its animated playback icon."
+    "New 0-key playback card with picture/audio delay, reset and Freeze/Resume controls.",
+    "Turkish interface and 35 Turkish radio stations, ordered with popular stations first.",
+    "Improved match goal-scorer fetching; text-only names and goal times with scrolling for long lists."
   ],
   "notes_ar": [
-    "تحسين توزيع أدوات ويب الكمبيوتر وتوسيط الفولدرات وكروت القنوات والدليل.",
-    "إصلاح اختفاء دليل الويب عند اختلاف ساعة الكمبيوتر عن الريسيفر.",
-    "علامة لايف للمباريات المباشرة في الويب وإلغاء الحركة بجوار اسم الصوتية."
+    "كارت تشغيل بزر 0 للتحكم في تأخير الصورة والصوت والتصفير والتجميد والاستكمال.",
+    "إضافة اللغة التركية و35 محطة راديو تركية مع تقديم المحطات الأشهر.",
+    "تحسين جلب الهدافين وعرض الأسماء والتوقيت فقط مع تحريك القوائم الطويلة."
   ]
 }
