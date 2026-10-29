@@ -1,20 +1,18 @@
 {
-  "version": "1.0.14-dreamos",
+  "version": "1.0.15-dreamos",
   "channel": "dreamos",
   "format": "deb",
-  "sha256": "2e547e865d126b87780f9ffe6d0fa928efae43d5a8b609f2ca46f92a5f5db444",
-  "size": 5905370,
-  "url": "https://github.com/K3bOra/UltraAudio/releases/download/v1.0.14/Ultra_Audio_Final_DreamOS.deb",
+  "sha256": "6c0108256f55c20bd95392ddf2783662a35adec91082c6188f5bcec21d5c8458",
+  "size": 5906678,
+  "url": "https://github.com/K3bOra/UltraAudio/releases/download/v1.0.15/Ultra_Audio_Final_DreamOS.deb",
   "notes": [
-    "Live football cards with team crests, score, time and match details.",
-    "Two scorer rows per team, with vertical scrolling for longer lists.",
-    "Classic/Neon artwork and language-aware home/away layout on Enigma2 and DreamOS.",
-    "Desktop web workspace with a side playback panel and wider library; mobile layout retained."
+    "Improved desktop web layout, centered folders and channel guide cards.",
+    "Fixed disappearing web guide when browser and receiver clocks differ.",
+    "Live match badges in the web channel list; removed its animated playback icon."
   ],
   "notes_ar": [
-    "كروت المباريات المباشرة بالشعارات والنتيجة والوقت وتفاصيل المباراة.",
-    "سطران للهدافين لكل فريق، مع حركة رأسية للقوائم الأطول.",
-    "نفس خامات الثيم وترتيب الفرق حسب اللغة في نسختي الأوبن سورس والدريم.",
-    "تحسين واجهة الكمبيوتر بلوحة تشغيل جانبية ومكتبة أوسع مع الحفاظ على تنسيق الموبايل."
+    "تحسين توزيع أدوات ويب الكمبيوتر وتوسيط الفولدرات وكروت القنوات والدليل.",
+    "إصلاح اختفاء دليل الويب عند اختلاف ساعة الكمبيوتر عن الريسيفر.",
+    "علامة لايف للمباريات المباشرة في الويب وإلغاء الحركة بجوار اسم الصوتية."
   ]
 }
