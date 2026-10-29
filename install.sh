@@ -508,7 +508,7 @@ def _installed_parallel_dreamos():
 
 def _dreamos_numbering_transition(channel, installed, target):
     # Exact, one-time rebase only. New online updates keep normal version order.
-    return (channel == 'dreamos' and target == '1.0.13-dreamos'
+    return (channel == 'dreamos' and target in ('1.0.13-dreamos', '1.0.14-dreamos')
             and installed in ('1.0.23-dreamos', '1.0.24-dreamos')
             and not _installed_parallel_dreamos())
 
