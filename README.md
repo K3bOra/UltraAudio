@@ -48,19 +48,17 @@ A shared visual language with Ultra Stalker, with its own Neon theme, organized 
 
 <a name="updates"></a>
 
-## What's new — V1.0.13
-### الجديد في V1.0.13
+## What's new — V1.0.14
+### الجديد في V1.0.14
 
-Release **V1.0.13** includes **IPK 1.0.13** and **DreamOS DEB 1.0.13-dreamos**. The plugin's product name remains **Ultra Audio Final V1**.
+Release **V1.0.14** includes **IPK 1.0.14** and **DreamOS DEB 1.0.14-dreamos**. The plugin's product name remains **Ultra Audio Final V1**.
 
-إصدار **V1.0.13** يجمع **IPK 1.0.13** و**DreamOS DEB 1.0.13-dreamos**، والاسم الرئيسي للبلجن يظل **Ultra Audio Final V1**.
+إصدار **V1.0.14** يجمع **IPK 1.0.14** و**DreamOS DEB 1.0.14-dreamos**، والاسم الرئيسي للبلجن يظل **Ultra Audio Final V1**.
 
-- One Telnet / SSH command selects IPK or DEB from the receiver image's package manager; online update channels stay separate.<br>أمر تلنت واحد يختار IPK أو DEB حسب مدير حزم صورة الرسيفر، مع فصل مسارات التحديث الأونلاين.
-- Audio delay up to **60 seconds** in both versions, including remote/web controls and saved channel timing.<br>تأخير الصوت حتى **60 ثانية** في النسختين، مع دعم الريموت والويب وحفظ ضبط القنوات.
-- Verified HTTPS updates with SHA-256, size, package identity and version checks.<br>تحديثات HTTPS مع التحقق من الشهادات وبصمة الحزمة وحجمها واسمها وإصدارها.
-
-- Synchronize the picture-delay display and controls with confirmed actual timeshift, including large shifts, without extra buttons.<br>مزامنة عداد وضبط تأخير الصورة مع التايم شيفت الفعلي المؤكد، حتى مع الترحيل الكبير، بدون أزرار إضافية.
-- Fix premature stopping or restarting of MP3 recordings by draining queued audio after decoding ends, including Shaarawi and Sayed Saeed files.<br>إصلاح توقف أو إعادة تشغيل تسجيلات MP3 قبل اكتمال الصوت المخزّن، ومنها ملفات الشيخ الشعراوي والشيخ السيد سعيد.
+- Live match cards with team crests, score, time, competition and available match details.<br>كروت المباريات المباشرة بالشعارات والنتيجة والوقت والبطولة وتفاصيل المباراة المتاحة.
+- Two scorer rows under each team; longer lists scroll vertically within their own space.<br>سطران للهدافين تحت كل فريق، والقوائم الأطول تتحرك رأسيًا داخل مساحتها.
+- Matching Classic/Neon materials and language-aware team order on Enigma2 and DreamOS.<br>نفس خامات الثيم وترتيب الفرق حسب اللغة في نسختي الأوبن سورس والدريم.
+- Wider desktop web library with a side playback panel; mobile layout retained.<br>مكتبة أوسع ولوحة تشغيل جانبية على الكمبيوتر، مع الحفاظ على تنسيق الموبايل.
 
 [Full release notes and downloads](https://github.com/K3bOra/UltraAudio/releases/latest) · [Previous releases](https://github.com/K3bOra/UltraAudio/releases)
 
@@ -288,9 +286,9 @@ The installer detects the image package manager and selects IPK for OPKG or DEB 
 
 المثبت يختار IPK لصور OPKG أو DEB لـDreamOS/DPKG، ويتحقق من HTTPS والبصمة والحجم واسم الحزمة ومعماريتها ورقمها قبل التثبيت. جهاز دريم بوكس بصورة OPKG يأخذ IPK؛ الاختيار حسب الصورة وليس اسم الجهاز فقط. لو مدير الحزم غير واضح، أو صورة OPKG تعمل ببايثون 2، يتوقف برسالة واضحة. وبعدها يفحص المكونات المطلوبة من مستودعات الصورة.
 
-**DreamOS migration:** users on the old **1.0.23-dreamos / 1.0.24-dreamos** numbering should run this command once. It installs **1.0.13-dreamos** over the old package without requiring manual removal, preserving the library and settings. Subsequent updates use the dedicated DreamOS online channel and advance to 14, 15, and later alongside IPK.
+**DreamOS migration:** users on the old **1.0.23-dreamos / 1.0.24-dreamos** numbering should run this command once. It installs **1.0.14-dreamos** over the old package without requiring manual removal, preserving the library and settings. Subsequent updates use the dedicated DreamOS online channel and advance to 15 and later alongside IPK.
 
-**لمستخدمي DreamOS بإصدار 23 أو 24 القديم:** شغّل نفس الأمر مرة واحدة. يثبت **1.0.13-dreamos** فوق النسخة القديمة دون حذفها يدويًا، مع الحفاظ على المكتبة والإعدادات. بعدها التحديث من داخل البلجن بمسار DreamOS مستقل، ويتقدم الرقم 14 ثم 15 بالتوازي مع IPK.
+**لمستخدمي DreamOS بإصدار 23 أو 24 القديم:** شغّل نفس الأمر مرة واحدة. يثبت **1.0.14-dreamos** فوق النسخة القديمة دون حذفها يدويًا، مع الحفاظ على المكتبة والإعدادات. بعدها التحديث من داخل البلجن بمسار DreamOS مستقل، ويتقدم الرقم 15 وما بعده بالتوازي مع IPK.
 
 [Review the installer](install.sh) · [Download IPK or DreamOS DEB](https://github.com/K3bOra/UltraAudio/releases/latest)
 

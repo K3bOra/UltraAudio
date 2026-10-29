@@ -1,30 +1,30 @@
 {
   "ipk": {
     "notes": [
-      "Unified verified installer selects the image package format.",
-      "Separate IPK and DreamOS update channels prevent installing the wrong package.",
-      "Keeps the MP3 playback fixes for Sheikh Al-Shaarawi and Sheikh Sayed Saeed and actual timeshift synchronization.",
-      "Increase audio delay from 30 to 60 seconds, including remote/web controls, saved channel sync and backup validation."
+      "Live football cards with team crests, score, time and match details.",
+      "Two scorer rows per team, with vertical scrolling for longer lists.",
+      "Classic/Neon artwork and language-aware home/away layout on Enigma2 and DreamOS.",
+      "Desktop web workspace with a side playback panel and wider library; mobile layout retained."
     ],
     "notes_ar": [
-      "توحيد أمر التثبيت مع اختيار الحزمة المناسبة للصورة تلقائيًا.",
-      "فصل تحديثات IPK عن DreamOS ومنع تثبيت حزمة غير مناسبة للجهاز.",
-      "الاحتفاظ بإصلاح أخطاء تشغيل ملفات MP3 للشيخ الشعراوي والشيخ السيد سعيد ومزامنة التايم شيفت الفعلي.",
-      "زيادة الحد الأقصى لتأخير الصوت من ٣٠ إلى ٦٠ ثانية، مع دعم الريموت والويب وحفظ مزامنة القنوات والنسخ الاحتياطي."
+      "كروت المباريات المباشرة بالشعارات والنتيجة والوقت وتفاصيل المباراة.",
+      "سطران للهدافين لكل فريق، مع حركة رأسية للقوائم الأطول.",
+      "نفس خامات الثيم وترتيب الفرق حسب اللغة في نسختي الأوبن سورس والدريم.",
+      "تحسين واجهة الكمبيوتر بلوحة تشغيل جانبية ومكتبة أوسع مع الحفاظ على تنسيق الموبايل."
     ]
   },
   "dreamos": {
     "notes": [
-      "Dedicated DreamOS DEB update channel; version 1.0.13-dreamos now advances in parallel with IPK 1.0.13.",
-      "Update downloads require verified HTTPS; playback compatibility settings cannot disable certificate validation for updates.",
-      "Preserves DreamOS Python 2/3 support, audio handling, timeshift synchronization, and existing interface assets.",
-      "Use the unified installer once to migrate legacy DreamOS numbering 1.0.23/24 to the new parallel series."
+      "Live football cards with team crests, score, time and match details.",
+      "Two scorer rows per team, with vertical scrolling for longer lists.",
+      "Classic/Neon artwork and language-aware home/away layout on Enigma2 and DreamOS.",
+      "Desktop web workspace with a side playback panel and wider library; mobile layout retained."
     ],
     "notes_ar": [
-      "مسار تحديث DEB مستقل لنسخة DreamOS، مع توحيد الرقم على 1.0.13-dreamos بالتوازي مع IPK 1.0.13.",
-      "التحقق من شهادات HTTPS أثناء التحديث دون تأثر بإعدادات توافق تشغيل الصوت.",
-      "الاحتفاظ بدعم بايثون ٢ و٣ وتعديلات صوت الدريم بوكس ومزامنة التايم شيفت وملفات الواجهة الحالية.",
-      "تشغيل المثبت الموحّد مرة واحدة لنقل ترقيم DreamOS القديم 23 و24 إلى السلسلة المتوازية الجديدة."
+      "كروت المباريات المباشرة بالشعارات والنتيجة والوقت وتفاصيل المباراة.",
+      "سطران للهدافين لكل فريق، مع حركة رأسية للقوائم الأطول.",
+      "نفس خامات الثيم وترتيب الفرق حسب اللغة في نسختي الأوبن سورس والدريم.",
+      "تحسين واجهة الكمبيوتر بلوحة تشغيل جانبية ومكتبة أوسع مع الحفاظ على تنسيق الموبايل."
     ]
   }
 }
