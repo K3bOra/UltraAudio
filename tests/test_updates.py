@@ -87,9 +87,9 @@ class PlatformTests(unittest.TestCase):
 
     def test_legacy_manifest_always_ipk(self):
         self.assertEqual((BASE / 'dist/update.json').read_bytes(), (BASE / 'dist/update-ipk.json').read_bytes())
-        self.assertEqual(metadata('ipk')['version'], '1.0.13')
-        self.assertEqual(metadata('dreamos')['version'], '1.0.13-dreamos')
-        self.assertEqual(json.loads((BASE / 'dist/release-info.json').read_text())['tag'], 'v1.0.13')
+        self.assertEqual(metadata('ipk')['version'], '1.0.14')
+        self.assertEqual(metadata('dreamos')['version'], '1.0.14-dreamos')
+        self.assertEqual(json.loads((BASE / 'dist/release-info.json').read_text())['tag'], 'v1.0.14')
 
     def test_reject_bad_manifests(self):
         m = load('ipk')

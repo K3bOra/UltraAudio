@@ -18,7 +18,7 @@ for tree in ('ipk-source', 'deb-source'):
     with tempfile.TemporaryDirectory(prefix='ultraaudio_offline_') as scratch:
         env = dict(os.environ, ULTRAAUDIO_DATA=scratch,
             UA_PLUGIN_ROOT=str(BASE / tree / 'data/usr/lib/enigma2/python/Plugins/Extensions/UltraAudio'))
-        names = ['test_timeshift.py', 'test_library.py', 'test_delay_limits.py']
+        names = ['test_timeshift.py', 'test_library.py', 'test_delay_limits.py', 'test_live_rich.py']
         if args.audio:
             names.append('test_audio.py')
         for name in names:
