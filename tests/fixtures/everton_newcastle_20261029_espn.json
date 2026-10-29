@@ -1,0 +1,152 @@
+{
+  "events": [
+    {
+      "id": "401921844",
+      "date": "2026-10-29T19:45Z",
+      "competitions": [
+        {
+          "date": "2026-10-29T19:45Z",
+          "status": {
+            "clock": 3960.0,
+            "displayClock": "66'",
+            "period": 2,
+            "type": {
+              "id": "26",
+              "name": "STATUS_SECOND_HALF",
+              "state": "in",
+              "completed": false,
+              "description": "Second Half",
+              "detail": "66'",
+              "shortDetail": "66'"
+            }
+          },
+          "competitors": [
+            {
+              "id": "368",
+              "homeAway": "home",
+              "score": "2",
+              "team": {
+                "id": "368",
+                "displayName": "Everton",
+                "shortDisplayName": "Everton",
+                "name": "Everton"
+              }
+            },
+            {
+              "id": "361",
+              "homeAway": "away",
+              "score": "0",
+              "team": {
+                "id": "361",
+                "displayName": "Newcastle United",
+                "shortDisplayName": "Newcastle",
+                "name": "Newcastle United"
+              }
+            }
+          ],
+          "details": [
+            {
+              "type": {
+                "id": "70",
+                "text": "Goal"
+              },
+              "clock": {
+                "value": 2009.0,
+                "displayValue": "34'"
+              },
+              "team": {
+                "id": "368"
+              },
+              "scoreValue": 1,
+              "scoringPlay": true,
+              "redCard": false,
+              "yellowCard": false,
+              "penaltyKick": false,
+              "ownGoal": false,
+              "shootout": false,
+              "athletesInvolved": [
+                {
+                  "id": "276220",
+                  "displayName": "James Garner",
+                  "shortName": "J. Garner",
+                  "fullName": "James Garner",
+                  "jersey": "37",
+                  "team": {
+                    "id": "368"
+                  },
+                  "position": "LM"
+                }
+              ]
+            },
+            {
+              "type": {
+                "id": "173",
+                "text": "Goal - Volley"
+              },
+              "clock": {
+                "value": 2659.0,
+                "displayValue": "45'"
+              },
+              "team": {
+                "id": "368"
+              },
+              "scoreValue": 1,
+              "scoringPlay": true,
+              "redCard": false,
+              "yellowCard": false,
+              "penaltyKick": false,
+              "ownGoal": false,
+              "shootout": false,
+              "athletesInvolved": [
+                {
+                  "id": "282978",
+                  "displayName": "Hayden Hackney",
+                  "shortName": "H. Hackney",
+                  "fullName": "Hayden Hackney",
+                  "jersey": "30",
+                  "team": {
+                    "id": "368"
+                  },
+                  "position": "RM"
+                }
+              ]
+            },
+            {
+              "type": {
+                "id": "94",
+                "text": "Yellow Card"
+              },
+              "clock": {
+                "value": 3567.0,
+                "displayValue": "60'"
+              },
+              "team": {
+                "id": "368"
+              },
+              "scoreValue": 0,
+              "scoringPlay": false,
+              "redCard": false,
+              "yellowCard": true,
+              "penaltyKick": false,
+              "ownGoal": false,
+              "shootout": false,
+              "athletesInvolved": [
+                {
+                  "id": "282978",
+                  "displayName": "Hayden Hackney",
+                  "shortName": "H. Hackney",
+                  "fullName": "Hayden Hackney",
+                  "jersey": "30",
+                  "team": {
+                    "id": "368"
+                  },
+                  "position": "RM"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
