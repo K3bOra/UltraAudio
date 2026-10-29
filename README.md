@@ -48,17 +48,16 @@ A shared visual language with Ultra Stalker, with its own Neon theme, organized 
 
 <a name="updates"></a>
 
-## What's new — V1.0.14
-### الجديد في V1.0.14
+## What's new — V1.0.15
+### الجديد في V1.0.15
 
-Release **V1.0.14** includes **IPK 1.0.14** and **DreamOS DEB 1.0.14-dreamos**. The plugin's product name remains **Ultra Audio Final V1**.
+Release **V1.0.15** includes **IPK 1.0.15** and **DreamOS DEB 1.0.15-dreamos**. The plugin's product name remains **Ultra Audio Final V1**.
 
-إصدار **V1.0.14** يجمع **IPK 1.0.14** و**DreamOS DEB 1.0.14-dreamos**، والاسم الرئيسي للبلجن يظل **Ultra Audio Final V1**.
+إصدار **V1.0.15** يجمع **IPK 1.0.15** و**DreamOS DEB 1.0.15-dreamos**، والاسم الرئيسي للبلجن يظل **Ultra Audio Final V1**.
 
-- Live match cards with team crests, score, time, competition and available match details.<br>كروت المباريات المباشرة بالشعارات والنتيجة والوقت والبطولة وتفاصيل المباراة المتاحة.
-- Two scorer rows under each team; longer lists scroll vertically within their own space.<br>سطران للهدافين تحت كل فريق، والقوائم الأطول تتحرك رأسيًا داخل مساحتها.
-- Matching Classic/Neon materials and language-aware team order on Enigma2 and DreamOS.<br>نفس خامات الثيم وترتيب الفرق حسب اللغة في نسختي الأوبن سورس والدريم.
-- Wider desktop web library with a side playback panel; mobile layout retained.<br>مكتبة أوسع ولوحة تشغيل جانبية على الكمبيوتر، مع الحفاظ على تنسيق الموبايل.
+- Improved desktop web tools, centered folders and channel guide cards.<br>تحسين توزيع أدوات ويب الكمبيوتر وتوسيط الفولدرات وكروت القنوات والدليل.
+- Fixed disappearing web guide when browser and receiver clocks differ.<br>إصلاح اختفاء دليل الويب عند اختلاف ساعة الكمبيوتر عن الريسيفر.
+- Confirmed live match badges in the web list; removed the animated icon beside the playing channel name.<br>علامة لايف للمباريات المباشرة المؤكدة في الويب وإلغاء الأيقونة المتحركة بجوار اسم الصوتية.
 
 [Full release notes and downloads](https://github.com/K3bOra/UltraAudio/releases/latest) · [Previous releases](https://github.com/K3bOra/UltraAudio/releases)
 
@@ -286,9 +285,9 @@ The installer detects the image package manager and selects IPK for OPKG or DEB 
 
 المثبت يختار IPK لصور OPKG أو DEB لـDreamOS/DPKG، ويتحقق من HTTPS والبصمة والحجم واسم الحزمة ومعماريتها ورقمها قبل التثبيت. جهاز دريم بوكس بصورة OPKG يأخذ IPK؛ الاختيار حسب الصورة وليس اسم الجهاز فقط. لو مدير الحزم غير واضح، أو صورة OPKG تعمل ببايثون 2، يتوقف برسالة واضحة. وبعدها يفحص المكونات المطلوبة من مستودعات الصورة.
 
-**DreamOS migration:** users on the old **1.0.23-dreamos / 1.0.24-dreamos** numbering should run this command once. It installs **1.0.14-dreamos** over the old package without requiring manual removal, preserving the library and settings. Subsequent updates use the dedicated DreamOS online channel and advance to 15 and later alongside IPK.
+**DreamOS migration:** users on the old **1.0.23-dreamos / 1.0.24-dreamos** numbering should run this command once. It installs **1.0.15-dreamos** over the old package without requiring manual removal, preserving the library and settings. Subsequent updates use the dedicated DreamOS online channel and advance to 16 and later alongside IPK.
 
-**لمستخدمي DreamOS بإصدار 23 أو 24 القديم:** شغّل نفس الأمر مرة واحدة. يثبت **1.0.14-dreamos** فوق النسخة القديمة دون حذفها يدويًا، مع الحفاظ على المكتبة والإعدادات. بعدها التحديث من داخل البلجن بمسار DreamOS مستقل، ويتقدم الرقم 15 وما بعده بالتوازي مع IPK.
+**لمستخدمي DreamOS بإصدار 23 أو 24 القديم:** شغّل نفس الأمر مرة واحدة. يثبت **1.0.15-dreamos** فوق النسخة القديمة دون حذفها يدويًا، مع الحفاظ على المكتبة والإعدادات. بعدها التحديث من داخل البلجن بمسار DreamOS مستقل، ويتقدم الرقم 16 وما بعده بالتوازي مع IPK.
 
 [Review the installer](install.sh) · [Download IPK or DreamOS DEB](https://github.com/K3bOra/UltraAudio/releases/latest)
 
