@@ -508,7 +508,7 @@ def _installed_parallel_dreamos():
 
 def _dreamos_numbering_transition(channel, installed, target):
     # Exact, one-time rebase only. New online updates keep normal version order.
-    return (channel == 'dreamos' and target in ('1.0.13-dreamos', '1.0.14-dreamos')
+    return (channel == 'dreamos' and target in ('1.0.13-dreamos', '1.0.14-dreamos', '1.0.15-dreamos')
             and installed in ('1.0.23-dreamos', '1.0.24-dreamos')
             and not _installed_parallel_dreamos())
 
@@ -601,7 +601,7 @@ def installer_main(argv):
             handle.write(payload)
         args = ['dpkg', '--force-downgrade' if rebase else '--refuse-downgrade', '-i', path] if channel == 'dreamos' else ['opkg', 'install', path]
         if rebase:
-            print('[MIGRATION] Moving legacy DreamOS numbering to parallel version 1.0.13.')
+            print('[MIGRATION] Moving legacy DreamOS numbering to parallel version ' + meta['version'] + '.')
         if channel == 'ipk' and _legacy_transition(installed, meta['version']):
             args.insert(2, '--force-downgrade')
         env = dict(os.environ, ULTRAAUDIO_ONLINE_UPDATE='1', ULTRAAUDIO_FEED_UPDATED='1', DEBIAN_FRONTEND='noninteractive')
