@@ -39,6 +39,12 @@ class Details(unittest.TestCase):
   c=f.Scores();c._updated=999;c._last_attempt=990;c._matches=[match()];c._logo_attempts={('home123','away123'):990}
   with patch.object(f.time,'time',return_value=NOW),patch.object(f,'monotonic',return_value=1000),patch.object(f,'start_thread') as thread:c.ensure(EVENT);thread.assert_not_called()
 class Ticker(unittest.TestCase):
+ def test_scorer_rows_are_text_only(self):
+  tree=ast.parse((ROOT/'scorerticker.py').read_text())
+  cls=next(n for n in tree.body if isinstance(n,ast.ClassDef))
+  rebuild=next(n for n in cls.body if isinstance(n,ast.FunctionDef) and n.name=='rebuild')
+  self.assertFalse(any(isinstance(n,ast.Call) and isinstance(n.func,ast.Name) and n.func.id=='ePixmap' for n in ast.walk(rebuild)))
+
  def test_native_tick_wrap_pause_and_hidden_stop(self):
   tree=ast.parse((ROOT/'scorerticker.py').read_text());cls=next(n for n in tree.body if isinstance(n,ast.ClassDef));tick=next(n for n in cls.body if isinstance(n,ast.FunctionDef) and n.name=='tick')
   ns={'monotonic':lambda:100,'ePoint':lambda x,y:(x,y)};exec(compile(ast.Module(body=[tick],type_ignores=[]),'ticker','exec'),ns)
