@@ -1,20 +1,18 @@
 {
-  "version": "1.0.14",
+  "version": "1.0.15",
   "channel": "ipk",
   "format": "ipk",
-  "sha256": "52c9e3882d1b5324a980dff8efa9a2da99a2ee7148bcf7ab8d95206cc8f0d66d",
-  "size": 4983420,
-  "url": "https://github.com/K3bOra/UltraAudio/releases/download/v1.0.14/Ultra_Audio_Final_V1.ipk",
+  "sha256": "d2fa3e88e6b17a86067296ca1b49dadd375efa7235d49eabead854004ab79e98",
+  "size": 4984654,
+  "url": "https://github.com/K3bOra/UltraAudio/releases/download/v1.0.15/Ultra_Audio_Final_V1.ipk",
   "notes": [
-    "Live football cards with team crests, score, time and match details.",
-    "Two scorer rows per team, with vertical scrolling for longer lists.",
-    "Classic/Neon artwork and language-aware home/away layout on Enigma2 and DreamOS.",
-    "Desktop web workspace with a side playback panel and wider library; mobile layout retained."
+    "Improved desktop web layout, centered folders and channel guide cards.",
+    "Fixed disappearing web guide when browser and receiver clocks differ.",
+    "Live match badges in the web channel list; removed its animated playback icon."
   ],
   "notes_ar": [
-    "كروت المباريات المباشرة بالشعارات والنتيجة والوقت وتفاصيل المباراة.",
-    "سطران للهدافين لكل فريق، مع حركة رأسية للقوائم الأطول.",
-    "نفس خامات الثيم وترتيب الفرق حسب اللغة في نسختي الأوبن سورس والدريم.",
-    "تحسين واجهة الكمبيوتر بلوحة تشغيل جانبية ومكتبة أوسع مع الحفاظ على تنسيق الموبايل."
+    "تحسين توزيع أدوات ويب الكمبيوتر وتوسيط الفولدرات وكروت القنوات والدليل.",
+    "إصلاح اختفاء دليل الويب عند اختلاف ساعة الكمبيوتر عن الريسيفر.",
+    "علامة لايف للمباريات المباشرة في الويب وإلغاء الحركة بجوار اسم الصوتية."
   ]
 }
