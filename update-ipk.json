@@ -1,20 +1,20 @@
 {
-  "version": "1.0.13",
+  "version": "1.0.14",
   "channel": "ipk",
   "format": "ipk",
-  "sha256": "a68d462ad7d5f7aae2732427d6bd1e74ce3a591ff4be4c159c97a2a2848cd4f7",
-  "size": 4869256,
-  "url": "https://github.com/K3bOra/UltraAudio/releases/download/v1.0.13/Ultra_Audio_Final_V1.ipk",
+  "sha256": "52c9e3882d1b5324a980dff8efa9a2da99a2ee7148bcf7ab8d95206cc8f0d66d",
+  "size": 4983420,
+  "url": "https://github.com/K3bOra/UltraAudio/releases/download/v1.0.14/Ultra_Audio_Final_V1.ipk",
   "notes": [
-    "Unified verified installer selects the image package format.",
-    "Separate IPK and DreamOS update channels prevent installing the wrong package.",
-    "Keeps the MP3 playback fixes for Sheikh Al-Shaarawi and Sheikh Sayed Saeed and actual timeshift synchronization.",
-    "Increase audio delay from 30 to 60 seconds, including remote/web controls, saved channel sync and backup validation."
+    "Live football cards with team crests, score, time and match details.",
+    "Two scorer rows per team, with vertical scrolling for longer lists.",
+    "Classic/Neon artwork and language-aware home/away layout on Enigma2 and DreamOS.",
+    "Desktop web workspace with a side playback panel and wider library; mobile layout retained."
   ],
   "notes_ar": [
-    "توحيد أمر التثبيت مع اختيار الحزمة المناسبة للصورة تلقائيًا.",
-    "فصل تحديثات IPK عن DreamOS ومنع تثبيت حزمة غير مناسبة للجهاز.",
-    "الاحتفاظ بإصلاح أخطاء تشغيل ملفات MP3 للشيخ الشعراوي والشيخ السيد سعيد ومزامنة التايم شيفت الفعلي.",
-    "زيادة الحد الأقصى لتأخير الصوت من ٣٠ إلى ٦٠ ثانية، مع دعم الريموت والويب وحفظ مزامنة القنوات والنسخ الاحتياطي."
+    "كروت المباريات المباشرة بالشعارات والنتيجة والوقت وتفاصيل المباراة.",
+    "سطران للهدافين لكل فريق، مع حركة رأسية للقوائم الأطول.",
+    "نفس خامات الثيم وترتيب الفرق حسب اللغة في نسختي الأوبن سورس والدريم.",
+    "تحسين واجهة الكمبيوتر بلوحة تشغيل جانبية ومكتبة أوسع مع الحفاظ على تنسيق الموبايل."
   ]
 }
