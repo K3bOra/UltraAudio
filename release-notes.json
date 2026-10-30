@@ -1,26 +1,22 @@
 {
   "ipk": {
     "notes": [
-      "New 0-key playback card with picture/audio delay, reset and Freeze/Resume controls.",
-      "Turkish interface and 35 Turkish radio stations, ordered with popular stations first.",
-      "Improved match goal-scorer fetching; text-only names and goal times with scrolling for long lists."
+      "Fix online update channel detection on x86-64 OpenPLi-PC when dpkg and opkg coexist.",
+      "Recognize installed UltraAudio package ownership while preserving IPK/DreamOS channel isolation."
     ],
     "notes_ar": [
-      "كارت تشغيل بزر 0 للتحكم في تأخير الصورة والصوت والتصفير والتجميد والاستكمال.",
-      "إضافة اللغة التركية و35 محطة راديو تركية مع تقديم المحطات الأشهر.",
-      "تحسين جلب الهدافين وعرض الأسماء والتوقيت فقط مع تحريك القوائم الطويلة."
+      "إصلاح اكتشاف مسار التحديث على OpenPLi-PC بمعمارية x86-64 عند وجود dpkg وopkg معًا.",
+      "التعرف على مدير الحزمة المثبتة مع الحفاظ على الفصل بين تحديثات IPK وDreamOS."
     ]
   },
   "dreamos": {
     "notes": [
-      "New 0-key playback card with picture/audio delay, reset and Freeze/Resume controls.",
-      "Turkish interface and 35 Turkish radio stations, ordered with popular stations first.",
-      "Improved match goal-scorer fetching; text-only names and goal times with scrolling for long lists."
+      "Fix online update channel detection on x86-64 OpenPLi-PC when dpkg and opkg coexist.",
+      "Recognize installed UltraAudio package ownership while preserving IPK/DreamOS channel isolation."
     ],
     "notes_ar": [
-      "كارت تشغيل بزر 0 للتحكم في تأخير الصورة والصوت والتصفير والتجميد والاستكمال.",
-      "إضافة اللغة التركية و35 محطة راديو تركية مع تقديم المحطات الأشهر.",
-      "تحسين جلب الهدافين وعرض الأسماء والتوقيت فقط مع تحريك القوائم الطويلة."
+      "إصلاح اكتشاف مسار التحديث على OpenPLi-PC بمعمارية x86-64 عند وجود dpkg وopkg معًا.",
+      "التعرف على مدير الحزمة المثبتة مع الحفاظ على الفصل بين تحديثات IPK وDreamOS."
     ]
   }
 }
