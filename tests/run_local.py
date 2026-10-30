@@ -14,6 +14,7 @@ args = parser.parse_args()
 
 subprocess.run([sys.executable, '-B', str(BASE / 'scripts/prepare_release.py')], check=True)
 subprocess.run([sys.executable, '-B', str(BASE / 'tests/test_updates.py')], check=True)
+subprocess.run([sys.executable, '-B', str(BASE / 'tests/test_e2pc_updates.py')], check=True)
 for tree in ('ipk-source', 'deb-source'):
     with tempfile.TemporaryDirectory(prefix='ultraaudio_offline_') as scratch:
         env = dict(os.environ, ULTRAAUDIO_DATA=scratch,
