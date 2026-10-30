@@ -1,18 +1,16 @@
 {
-  "version": "1.0.16-dreamos",
+  "version": "1.0.17-dreamos",
   "channel": "dreamos",
   "format": "deb",
-  "sha256": "c1098ce2a88d9faabd124308abb6dc20fce2e950aed0c7528fab705b29326a39",
-  "size": 6123884,
-  "url": "https://github.com/K3bOra/UltraAudio/releases/download/v1.0.16/Ultra_Audio_Final_DreamOS.deb",
+  "sha256": "9aad3833478751e37e1bd66cb3ad7fb9c16be54e014e3f9a7f04a1073287df9a",
+  "size": 6124462,
+  "url": "https://github.com/K3bOra/UltraAudio/releases/download/v1.0.17/Ultra_Audio_Final_DreamOS.deb",
   "notes": [
-    "New 0-key playback card with picture/audio delay, reset and Freeze/Resume controls.",
-    "Turkish interface and 35 Turkish radio stations, ordered with popular stations first.",
-    "Improved match goal-scorer fetching; text-only names and goal times with scrolling for long lists."
+    "Fix online update channel detection on x86-64 OpenPLi-PC when dpkg and opkg coexist.",
+    "Recognize installed UltraAudio package ownership while preserving IPK/DreamOS channel isolation."
   ],
   "notes_ar": [
-    "كارت تشغيل بزر 0 للتحكم في تأخير الصورة والصوت والتصفير والتجميد والاستكمال.",
-    "إضافة اللغة التركية و35 محطة راديو تركية مع تقديم المحطات الأشهر.",
-    "تحسين جلب الهدافين وعرض الأسماء والتوقيت فقط مع تحريك القوائم الطويلة."
+    "إصلاح اكتشاف مسار التحديث على OpenPLi-PC بمعمارية x86-64 عند وجود dpkg وopkg معًا.",
+    "التعرف على مدير الحزمة المثبتة مع الحفاظ على الفصل بين تحديثات IPK وDreamOS."
   ]
 }
