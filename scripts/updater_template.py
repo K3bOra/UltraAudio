@@ -59,21 +59,71 @@ def _has_enigma2(path):
         return False
 
 
+def _has_package(path, name):
+    try:
+        with open(path, 'rb') as handle:
+            data = handle.read().decode('utf-8', 'replace')
+        return any(re.search(r'^Package:\s*' + re.escape(name) + r'\s*$', block, re.M)
+                   and re.search(r'^Status:.* installed\s*$', block, re.M)
+                   for block in data.split('\n\n'))
+    except EnvironmentError:
+        return False
+
+
+def _is_e2pc_opkg():
+    # Narrow fallback for the confirmed x86-64 OpenPLi-PC layout. Never use
+    # the distro name, BUILD_CHANNEL or the presence of opkg alone as proof.
+    if sys.platform != 'linux' or os.uname()[4].lower() not in ('x86_64', 'amd64'):
+        return False
+    expected = '/usr/local/e2/lib/enigma2/python/Plugins/Extensions/UltraAudio'
+    alias = '/usr/lib/enigma2/python/Plugins/Extensions/UltraAudio'
+    current = (os.path.realpath(alias) if BUILD_CHANNEL is None else
+               os.path.realpath(os.path.dirname(os.path.abspath(__file__))))
+    if (current != expected or os.path.realpath(alias) != expected
+            or not os.path.isfile(os.path.join(expected, 'plugin.py'))):
+        return False
+    try:
+        output = subprocess.check_output(['opkg', 'print-architecture'],
+                                         stderr=subprocess.STDOUT).decode('utf-8', 'replace')
+        arches = set()
+        for line in output.splitlines():
+            fields = line.split()
+            if len(fields) == 3 and fields[0] == 'arch':
+                try:
+                    if int(fields[2]) > 0:
+                        arches.add(fields[1])
+                except ValueError:
+                    pass
+        # Online UltraAudio packages are Architecture: all.
+        return 'all' in arches and 'x86_64' in arches
+    except (EnvironmentError, subprocess.CalledProcessError):
+        return False
+
+
 def _detect_channel():
     deb = _command_available('dpkg') and isfile('/var/lib/dpkg/status')
     ipk = _command_available('opkg')
     if deb and ipk:
+        ipk_paths = ('/var/lib/opkg/status', '/usr/lib/opkg/status',
+                     '/usr/local/var/lib/opkg/status', '/usr/local/lib/opkg/status')
+        deb_plugin = _has_package('/var/lib/dpkg/status', PACKAGE_NAME)
+        ipk_plugin = any(_has_package(p, PACKAGE_NAME) for p in ipk_paths)
+        if deb_plugin and ipk_plugin:
+            raise RuntimeError('UltraAudio is registered in both DEB and IPK; resolve the duplicate registration')
+        if deb_plugin != ipk_plugin:
+            return 'dreamos' if deb_plugin else 'ipk'
         deb_e2 = _has_enigma2('/var/lib/dpkg/status')
-        ipk_e2 = any(_has_enigma2(p) for p in ('/var/lib/opkg/status', '/usr/lib/opkg/status'))
+        ipk_e2 = any(_has_enigma2(p) for p in ipk_paths)
         if deb_e2 != ipk_e2:
             return 'dreamos' if deb_e2 else 'ipk'
+        if not deb_e2 and not ipk_e2 and _is_e2pc_opkg():
+            return 'ipk'
         raise RuntimeError('Ambiguous package managers; cannot safely choose DEB or IPK')
     if deb:
         return 'dreamos'
     if ipk:
         return 'ipk'
     raise RuntimeError('No supported receiver package manager (dpkg/opkg) found')
-
 
 def _channel():
     detected = _VERIFY_CHANNEL or _detect_channel()
