@@ -38,3 +38,29 @@ for arabic in ('عنوان عربي',''):
   result=ns['view'](obj,{'name':'beIN SPORTS 1'},language,now=1000)
   assert result[1][0] == (arabic if language=='ar' and arabic else 'English title'),result
 print('PASS Arabic and English guide titles, including missing Arabic fallback')
+
+# Reproduce Python 2's missing functools.lru_cache on the real UI import.
+if 'deb-source' in r.parts:
+ import functools
+ from UltraAudio import compat
+ source=ast.parse((r/'screen.py').read_text())
+ imports=[n for n in source.body if isinstance(n,ast.ImportFrom) and any(a.name=='lru_cache' for a in n.names)]
+ assert imports,'screen cache import missing'
+ original=functools.lru_cache
+ try:
+  del functools.lru_cache
+  scope={'__package__':'UltraAudio'}
+  exec(compile(ast.Module(body=imports,type_ignores=[]),'screen.py','exec'),scope)
+  calls=[]
+  @scope['lru_cache'](maxsize=2)
+  def cached(value):
+   calls.append(value);return value
+  assert cached('a')=='a';cached('a');assert calls==['a']
+  cached('b');cached('a');cached('c');cached('b');assert calls==['a','b','c','b'],calls
+  cached.cache_clear();cached('b');assert calls[-2:]==['b','b']
+  for file in r.glob('*.py'):
+   for node in ast.walk(ast.parse(file.read_text())):
+    assert not (isinstance(node,ast.ImportFrom) and node.module=='functools' and any(a.name=='lru_cache' for a in node.names)),file
+ finally:
+  functools.lru_cache=original
+ print('PASS DreamOS actual UI cache import without functools.lru_cache, hits, eviction, clear')
