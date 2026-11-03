@@ -1,22 +1,22 @@
 {
   "ipk": {
     "notes": [
-      "Fix DreamOS Python 2.7 startup failure (lru_cache) that repeatedly opened Component repair.",
-      "Includes the Arabic guide fix and WQHD improvements."
+      "Keep the IPK and DreamOS release numbers aligned at 1.0.21; Open Source runtime is unchanged."
     ],
     "notes_ar": [
-      "إصلاح تعذر فتح البلجن على DreamOS ببايثون 2.7 وظهور شاشة إصلاح المكونات بشكل متكرر.",
-      "يشمل إصلاح الدليل العربي وتحسينات WQHD."
+      "توحيد رقم إصدار النسختين عند 1.0.21؛ نسخة الأوبن سورس تحتفظ بنفس كود التشغيل."
     ]
   },
   "dreamos": {
     "notes": [
-      "Fix DreamOS Python 2.7 startup failure (lru_cache) that repeatedly opened Component repair.",
-      "Includes the Arabic guide fix and WQHD improvements."
+      "Restore DreamOS screen lifecycle, legacy pixmap API and supported skin attributes when opening the plugin.",
+      "Restore UTF-8 text conversions and native cursor fallback while retaining the current design and artwork.",
+      "Verify the real opening/layout/navigation/exit path with mocked receiver APIs, including Python 2.7 locally."
     ],
     "notes_ar": [
-      "إصلاح تعذر فتح البلجن على DreamOS ببايثون 2.7 وظهور شاشة إصلاح المكونات بشكل متكرر.",
-      "يشمل إصلاح الدليل العربي وتحسينات WQHD."
+      "إصلاح مسار فتح الواجهة على DreamOS: أحداث الشاشة وواجهة الصور القديمة وخصائص السكن المدعومة.",
+      "استعادة توافق النصوص العربية وحماية المؤشر مع الحفاظ على التصميم والصور الحالية.",
+      "اختبار مسار الفتح والرسم والتنقل والخروج بمحاكاة واجهات الجهاز، مع اختبار محلي على Python 2.7."
     ]
   }
 }

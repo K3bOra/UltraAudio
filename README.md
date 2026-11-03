@@ -48,15 +48,17 @@ A shared visual language with Ultra Stalker, with its own Neon theme, organized 
 
 <a name="updates"></a>
 
-## What's new — V1.0.20
-### الجديد في V1.0.20
+## What's new — V1.0.21
+### الجديد في V1.0.21
 
-Release **V1.0.20** includes **IPK 1.0.20** and **DreamOS DEB 1.0.20-dreamos**. The plugin's product name remains **Ultra Audio Final V1**.
+Release **V1.0.21** includes **IPK 1.0.21** and **DreamOS DEB 1.0.21-dreamos**. The plugin's product name remains **Ultra Audio Final V1**.
 
-إصدار **V1.0.20** يجمع **IPK 1.0.20** و**DreamOS DEB 1.0.20-dreamos**، والاسم الرئيسي للبلجن يظل **Ultra Audio Final V1**.
+إصدار **V1.0.21** يجمع **IPK 1.0.21** و**DreamOS DEB 1.0.21-dreamos**، والاسم الرئيسي للبلجن يظل **Ultra Audio Final V1**.
 
-- Fix DreamOS Python 2.7 startup failure (lru_cache) that repeatedly opened Component repair.<br>إصلاح تعذر فتح البلجن على DreamOS ببايثون 2.7 وظهور شاشة إصلاح المكونات بشكل متكرر.
-- Includes the Arabic guide fix and WQHD improvements.<br>يشمل إصلاح الدليل العربي وتحسينات WQHD.
+- Restore DreamOS screen lifecycle hooks, legacy pixmap calls and supported skin attributes.<br>إصلاح أحداث فتح الشاشة وواجهة الصور القديمة وخصائص السكن على DreamOS.
+- Restore Arabic text handling and selection fallback while keeping the current design.<br>استعادة توافق النصوص العربية وحماية المؤشر مع الحفاظ على التصميم الحالي.
+- IPK runtime stays unchanged; both channels use release 1.0.21.<br>كود تشغيل الأوبن سورس كما هو؛ رقم إصدار النسختين 1.0.21.
+- Automated opening, layout, navigation and exit checks use mocked receiver APIs; Python 2.7 is also checked locally. Physical Dreambox testing remains necessary.<br>اختبارات آلية للفتح والرسم والتنقل والخروج بمحاكاة واجهات الرسيفر، مع اختبار محلي على Python 2.7. يظل الاختبار على دريم فعلي مطلوبًا.
 
 [Full release notes and downloads](https://github.com/K3bOra/UltraAudio/releases/latest) · [Previous releases](https://github.com/K3bOra/UltraAudio/releases)
 
@@ -287,9 +289,9 @@ The installer detects the image package manager and selects IPK for OPKG or DEB 
 
 المثبت يختار IPK لصور OPKG أو DEB لـDreamOS/DPKG، ويتحقق من HTTPS والبصمة والحجم واسم الحزمة ومعماريتها ورقمها قبل التثبيت. جهاز دريم بوكس بصورة OPKG يأخذ IPK؛ الاختيار حسب الصورة وليس اسم الجهاز فقط. لو مدير الحزم غير واضح، أو صورة OPKG تعمل ببايثون 2، يتوقف برسالة واضحة. وبعدها يفحص المكونات المطلوبة من مستودعات الصورة.
 
-**DreamOS migration:** users on the old **1.0.23-dreamos / 1.0.24-dreamos** numbering should run this command once. It installs **1.0.20-dreamos** over the old package without requiring manual removal, preserving the library and settings. Subsequent updates use the dedicated DreamOS online channel and advance alongside IPK.
+**DreamOS migration:** users on the old **1.0.23-dreamos / 1.0.24-dreamos** numbering should run this command once. It installs **1.0.21-dreamos** over the old package without requiring manual removal, preserving the library and settings. Subsequent updates use the dedicated DreamOS online channel and advance alongside IPK.
 
-**لمستخدمي DreamOS بإصدار 23 أو 24 القديم:** شغّل نفس الأمر مرة واحدة. يثبت **1.0.20-dreamos** فوق النسخة القديمة دون حذفها يدويًا، مع الحفاظ على المكتبة والإعدادات. بعدها التحديث من داخل البلجن بمسار DreamOS مستقل، ويتقدم الرقم بالتوازي مع IPK.
+**لمستخدمي DreamOS بإصدار 23 أو 24 القديم:** شغّل نفس الأمر مرة واحدة. يثبت **1.0.21-dreamos** فوق النسخة القديمة دون حذفها يدويًا، مع الحفاظ على المكتبة والإعدادات. بعدها التحديث من داخل البلجن بمسار DreamOS مستقل، ويتقدم الرقم بالتوازي مع IPK.
 
 [Review the installer](install.sh) · [Download IPK or DreamOS DEB](https://github.com/K3bOra/UltraAudio/releases/latest)
 
