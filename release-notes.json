@@ -1,30 +1,22 @@
 {
   "ipk": {
     "notes": [
-      "Full WQHD support for DreamOS and open-source Enigma2 images.",
-      "New match and playback control cards with an elegant glass design.",
-      "A new theme with a modern, distinctive look.",
-      "Comprehensive plugin improvements, with refined colours and interface layout for a clearer viewing experience."
+      "Fix Arabic programme guide display caused by an undefined event variable.",
+      "Retains WQHD support, redesigned cards and the new theme from 1.0.18."
     ],
     "notes_ar": [
-      "دعم كامل لدقة WQHD على أجهزة DreamOS وصور الأوبن سورس.",
-      "تصميم جديد لكارت المباريات وكارت التحكم بلمسة زجاجية أنيقة.",
-      "إضافة ثيم جديد بمظهر عصري ومميز.",
-      "تحسينات شاملة للبلجن، مع ضبط الألوان وتنسيق عناصر الواجهة لتجربة أجمل وأوضح."
+      "إصلاح خطأ عرض دليل البرامج باللغة العربية بسبب متغير غير معرّف.",
+      "يشمل دعم WQHD والكروت الجديدة والثيم المضاف في الإصدار 1.0.18."
     ]
   },
   "dreamos": {
     "notes": [
-      "Full WQHD support for DreamOS and open-source Enigma2 images.",
-      "New match and playback control cards with an elegant glass design.",
-      "A new theme with a modern, distinctive look.",
-      "Comprehensive plugin improvements, with refined colours and interface layout for a clearer viewing experience."
+      "Fix Arabic programme guide display caused by an undefined event variable.",
+      "Retains WQHD support, redesigned cards and the new theme from 1.0.18."
     ],
     "notes_ar": [
-      "دعم كامل لدقة WQHD على أجهزة DreamOS وصور الأوبن سورس.",
-      "تصميم جديد لكارت المباريات وكارت التحكم بلمسة زجاجية أنيقة.",
-      "إضافة ثيم جديد بمظهر عصري ومميز.",
-      "تحسينات شاملة للبلجن، مع ضبط الألوان وتنسيق عناصر الواجهة لتجربة أجمل وأوضح."
+      "إصلاح خطأ عرض دليل البرامج باللغة العربية بسبب متغير غير معرّف.",
+      "يشمل دعم WQHD والكروت الجديدة والثيم المضاف في الإصدار 1.0.18."
     ]
   }
 }
