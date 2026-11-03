@@ -1,20 +1,16 @@
 {
-  "version": "1.0.18",
+  "version": "1.0.19",
   "channel": "ipk",
   "format": "ipk",
-  "sha256": "6cdb9069d22a9c07e337c1ae1ac16cf85fd543ae555c08f90f33be4f0410aa12",
-  "size": 5483986,
-  "url": "https://github.com/K3bOra/UltraAudio/releases/download/v1.0.18/Ultra_Audio_Final_V1.ipk",
+  "sha256": "8b17a774be5c91d70138ddcf11f2f1a9cfd7b9743496b31f3b33462b5cb977b9",
+  "size": 5483766,
+  "url": "https://github.com/K3bOra/UltraAudio/releases/download/v1.0.19/Ultra_Audio_Final_V1.ipk",
   "notes": [
-    "Full WQHD support for DreamOS and open-source Enigma2 images.",
-    "New match and playback control cards with an elegant glass design.",
-    "A new theme with a modern, distinctive look.",
-    "Comprehensive plugin improvements, with refined colours and interface layout for a clearer viewing experience."
+    "Fix Arabic programme guide display caused by an undefined event variable.",
+    "Retains WQHD support, redesigned cards and the new theme from 1.0.18."
   ],
   "notes_ar": [
-    "دعم كامل لدقة WQHD على أجهزة DreamOS وصور الأوبن سورس.",
-    "تصميم جديد لكارت المباريات وكارت التحكم بلمسة زجاجية أنيقة.",
-    "إضافة ثيم جديد بمظهر عصري ومميز.",
-    "تحسينات شاملة للبلجن، مع ضبط الألوان وتنسيق عناصر الواجهة لتجربة أجمل وأوضح."
+    "إصلاح خطأ عرض دليل البرامج باللغة العربية بسبب متغير غير معرّف.",
+    "يشمل دعم WQHD والكروت الجديدة والثيم المضاف في الإصدار 1.0.18."
   ]
 }
