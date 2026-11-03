@@ -294,10 +294,13 @@ def _legacy_transition(installed, target):
 
 
 def _version_revision(v):
-    m = _fullmatch(r'(\d+\.\d+\.\d+)(?:-radio(\d+))?', v)
-    if m:
-        return (_version_tuple(m.group(1)), int(m.group(2) or 0))
-    return (_version_tuple(v), 0)
+    # Compare numeric suffixes numerically (test25 > test24, radio10 > radio9).
+    # DreamOS is a package channel, not an additional release revision.
+    suffix = re.sub(r'^\d+\.\d+\.\d+', '', v.lower())
+    suffix = re.sub(r'^[-+.]dreamos[.-]?', '', suffix)
+    tokens = tuple((1, int(token)) if token.isdigit() else (0, token)
+                   for token in re.findall(r'[a-z]+|[0-9]+', suffix))
+    return (_version_tuple(v), tokens)
 
 
 def _is_update(installed, target):
@@ -558,7 +561,7 @@ def _installed_parallel_dreamos():
 
 def _dreamos_numbering_transition(channel, installed, target):
     # Exact, one-time rebase only. New online updates keep normal version order.
-    return (channel == 'dreamos' and target in ('1.0.13-dreamos', '1.0.14-dreamos', '1.0.15-dreamos', '1.0.16-dreamos', '1.0.17-dreamos')
+    return (channel == 'dreamos' and target in ('1.0.13-dreamos', '1.0.14-dreamos', '1.0.15-dreamos', '1.0.16-dreamos', '1.0.17-dreamos', '1.0.18-dreamos')
             and installed in ('1.0.23-dreamos', '1.0.24-dreamos')
             and not _installed_parallel_dreamos())
 
