@@ -1,16 +1,20 @@
 {
-  "version": "1.0.17-dreamos",
+  "version": "1.0.18-dreamos",
   "channel": "dreamos",
   "format": "deb",
-  "sha256": "9aad3833478751e37e1bd66cb3ad7fb9c16be54e014e3f9a7f04a1073287df9a",
-  "size": 6124462,
-  "url": "https://github.com/K3bOra/UltraAudio/releases/download/v1.0.17/Ultra_Audio_Final_DreamOS.deb",
+  "sha256": "e945bd72a90355a9fb13c136fbd5e3d77a290f747c75bd8282d1d8aba947fd7e",
+  "size": 5793984,
+  "url": "https://github.com/K3bOra/UltraAudio/releases/download/v1.0.18/Ultra_Audio_Final_DreamOS.deb",
   "notes": [
-    "Fix online update channel detection on x86-64 OpenPLi-PC when dpkg and opkg coexist.",
-    "Recognize installed UltraAudio package ownership while preserving IPK/DreamOS channel isolation."
+    "Full WQHD support for DreamOS and open-source Enigma2 images.",
+    "New match and playback control cards with an elegant glass design.",
+    "A new theme with a modern, distinctive look.",
+    "Comprehensive plugin improvements, with refined colours and interface layout for a clearer viewing experience."
   ],
   "notes_ar": [
-    "إصلاح اكتشاف مسار التحديث على OpenPLi-PC بمعمارية x86-64 عند وجود dpkg وopkg معًا.",
-    "التعرف على مدير الحزمة المثبتة مع الحفاظ على الفصل بين تحديثات IPK وDreamOS."
+    "دعم كامل لدقة WQHD على أجهزة DreamOS وصور الأوبن سورس.",
+    "تصميم جديد لكارت المباريات وكارت التحكم بلمسة زجاجية أنيقة.",
+    "إضافة ثيم جديد بمظهر عصري ومميز.",
+    "تحسينات شاملة للبلجن، مع ضبط الألوان وتنسيق عناصر الواجهة لتجربة أجمل وأوضح."
   ]
 }
