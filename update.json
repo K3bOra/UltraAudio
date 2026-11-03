@@ -1,16 +1,16 @@
 {
-  "version": "1.0.19",
+  "version": "1.0.20",
   "channel": "ipk",
   "format": "ipk",
-  "sha256": "8b17a774be5c91d70138ddcf11f2f1a9cfd7b9743496b31f3b33462b5cb977b9",
-  "size": 5483766,
-  "url": "https://github.com/K3bOra/UltraAudio/releases/download/v1.0.19/Ultra_Audio_Final_V1.ipk",
+  "sha256": "aa708d39dfc2cefc9c05f768be51f62da1fbe53d3b2b1ca9fbb0505dae55d6fd",
+  "size": 5483752,
+  "url": "https://github.com/K3bOra/UltraAudio/releases/download/v1.0.20/Ultra_Audio_Final_V1.ipk",
   "notes": [
-    "Fix Arabic programme guide display caused by an undefined event variable.",
-    "Retains WQHD support, redesigned cards and the new theme from 1.0.18."
+    "Fix DreamOS Python 2.7 startup failure (lru_cache) that repeatedly opened Component repair.",
+    "Includes the Arabic guide fix and WQHD improvements."
   ],
   "notes_ar": [
-    "إصلاح خطأ عرض دليل البرامج باللغة العربية بسبب متغير غير معرّف.",
-    "يشمل دعم WQHD والكروت الجديدة والثيم المضاف في الإصدار 1.0.18."
+    "إصلاح تعذر فتح البلجن على DreamOS ببايثون 2.7 وظهور شاشة إصلاح المكونات بشكل متكرر.",
+    "يشمل إصلاح الدليل العربي وتحسينات WQHD."
   ]
 }
