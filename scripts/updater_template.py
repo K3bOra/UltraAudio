@@ -278,10 +278,13 @@ def _legacy_transition(installed, target):
 
 
 def _version_revision(v):
-    m = _fullmatch(r'(\d+\.\d+\.\d+)(?:-radio(\d+))?', v)
-    if m:
-        return (_version_tuple(m.group(1)), int(m.group(2) or 0))
-    return (_version_tuple(v), 0)
+    # Compare numeric suffixes numerically (test25 > test24, radio10 > radio9).
+    # DreamOS is a package channel, not an additional release revision.
+    suffix = re.sub(r'^\d+\.\d+\.\d+', '', v.lower())
+    suffix = re.sub(r'^[-+.]dreamos[.-]?', '', suffix)
+    tokens = tuple((1, int(token)) if token.isdigit() else (0, token)
+                   for token in re.findall(r'[a-z]+|[0-9]+', suffix))
+    return (_version_tuple(v), tokens)
 
 
 def _is_update(installed, target):
