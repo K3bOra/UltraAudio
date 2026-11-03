@@ -1,22 +1,22 @@
 {
   "ipk": {
     "notes": [
-      "Fix Arabic programme guide display caused by an undefined event variable.",
-      "Retains WQHD support, redesigned cards and the new theme from 1.0.18."
+      "Fix DreamOS Python 2.7 startup failure (lru_cache) that repeatedly opened Component repair.",
+      "Includes the Arabic guide fix and WQHD improvements."
     ],
     "notes_ar": [
-      "إصلاح خطأ عرض دليل البرامج باللغة العربية بسبب متغير غير معرّف.",
-      "يشمل دعم WQHD والكروت الجديدة والثيم المضاف في الإصدار 1.0.18."
+      "إصلاح تعذر فتح البلجن على DreamOS ببايثون 2.7 وظهور شاشة إصلاح المكونات بشكل متكرر.",
+      "يشمل إصلاح الدليل العربي وتحسينات WQHD."
     ]
   },
   "dreamos": {
     "notes": [
-      "Fix Arabic programme guide display caused by an undefined event variable.",
-      "Retains WQHD support, redesigned cards and the new theme from 1.0.18."
+      "Fix DreamOS Python 2.7 startup failure (lru_cache) that repeatedly opened Component repair.",
+      "Includes the Arabic guide fix and WQHD improvements."
     ],
     "notes_ar": [
-      "إصلاح خطأ عرض دليل البرامج باللغة العربية بسبب متغير غير معرّف.",
-      "يشمل دعم WQHD والكروت الجديدة والثيم المضاف في الإصدار 1.0.18."
+      "إصلاح تعذر فتح البلجن على DreamOS ببايثون 2.7 وظهور شاشة إصلاح المكونات بشكل متكرر.",
+      "يشمل إصلاح الدليل العربي وتحسينات WQHD."
     ]
   }
 }

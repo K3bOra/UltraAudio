@@ -48,15 +48,15 @@ A shared visual language with Ultra Stalker, with its own Neon theme, organized 
 
 <a name="updates"></a>
 
-## What's new — V1.0.19
-### الجديد في V1.0.19
+## What's new — V1.0.20
+### الجديد في V1.0.20
 
-Release **V1.0.19** includes **IPK 1.0.19** and **DreamOS DEB 1.0.19-dreamos**. The plugin's product name remains **Ultra Audio Final V1**.
+Release **V1.0.20** includes **IPK 1.0.20** and **DreamOS DEB 1.0.20-dreamos**. The plugin's product name remains **Ultra Audio Final V1**.
 
-إصدار **V1.0.19** يجمع **IPK 1.0.19** و**DreamOS DEB 1.0.19-dreamos**، والاسم الرئيسي للبلجن يظل **Ultra Audio Final V1**.
+إصدار **V1.0.20** يجمع **IPK 1.0.20** و**DreamOS DEB 1.0.20-dreamos**، والاسم الرئيسي للبلجن يظل **Ultra Audio Final V1**.
 
-- Fix Arabic programme guide display caused by an undefined event variable.<br>إصلاح خطأ عرض دليل البرامج باللغة العربية بسبب متغير غير معرّف.
-- Retains WQHD support, redesigned cards and the new theme from 1.0.18.<br>يشمل دعم WQHD والكروت الجديدة والثيم المضاف في الإصدار 1.0.18.
+- Fix DreamOS Python 2.7 startup failure (lru_cache) that repeatedly opened Component repair.<br>إصلاح تعذر فتح البلجن على DreamOS ببايثون 2.7 وظهور شاشة إصلاح المكونات بشكل متكرر.
+- Includes the Arabic guide fix and WQHD improvements.<br>يشمل إصلاح الدليل العربي وتحسينات WQHD.
 
 [Full release notes and downloads](https://github.com/K3bOra/UltraAudio/releases/latest) · [Previous releases](https://github.com/K3bOra/UltraAudio/releases)
 
@@ -287,9 +287,9 @@ The installer detects the image package manager and selects IPK for OPKG or DEB 
 
 المثبت يختار IPK لصور OPKG أو DEB لـDreamOS/DPKG، ويتحقق من HTTPS والبصمة والحجم واسم الحزمة ومعماريتها ورقمها قبل التثبيت. جهاز دريم بوكس بصورة OPKG يأخذ IPK؛ الاختيار حسب الصورة وليس اسم الجهاز فقط. لو مدير الحزم غير واضح، أو صورة OPKG تعمل ببايثون 2، يتوقف برسالة واضحة. وبعدها يفحص المكونات المطلوبة من مستودعات الصورة.
 
-**DreamOS migration:** users on the old **1.0.23-dreamos / 1.0.24-dreamos** numbering should run this command once. It installs **1.0.19-dreamos** over the old package without requiring manual removal, preserving the library and settings. Subsequent updates use the dedicated DreamOS online channel and advance alongside IPK.
+**DreamOS migration:** users on the old **1.0.23-dreamos / 1.0.24-dreamos** numbering should run this command once. It installs **1.0.20-dreamos** over the old package without requiring manual removal, preserving the library and settings. Subsequent updates use the dedicated DreamOS online channel and advance alongside IPK.
 
-**لمستخدمي DreamOS بإصدار 23 أو 24 القديم:** شغّل نفس الأمر مرة واحدة. يثبت **1.0.19-dreamos** فوق النسخة القديمة دون حذفها يدويًا، مع الحفاظ على المكتبة والإعدادات. بعدها التحديث من داخل البلجن بمسار DreamOS مستقل، ويتقدم الرقم بالتوازي مع IPK.
+**لمستخدمي DreamOS بإصدار 23 أو 24 القديم:** شغّل نفس الأمر مرة واحدة. يثبت **1.0.20-dreamos** فوق النسخة القديمة دون حذفها يدويًا، مع الحفاظ على المكتبة والإعدادات. بعدها التحديث من داخل البلجن بمسار DreamOS مستقل، ويتقدم الرقم بالتوازي مع IPK.
 
 [Review the installer](install.sh) · [Download IPK or DreamOS DEB](https://github.com/K3bOra/UltraAudio/releases/latest)
 
