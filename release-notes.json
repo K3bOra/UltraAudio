@@ -1,22 +1,30 @@
 {
   "ipk": {
     "notes": [
-      "Fix online update channel detection on x86-64 OpenPLi-PC when dpkg and opkg coexist.",
-      "Recognize installed UltraAudio package ownership while preserving IPK/DreamOS channel isolation."
+      "Full WQHD support for DreamOS and open-source Enigma2 images.",
+      "New match and playback control cards with an elegant glass design.",
+      "A new theme with a modern, distinctive look.",
+      "Comprehensive plugin improvements, with refined colours and interface layout for a clearer viewing experience."
     ],
     "notes_ar": [
-      "إصلاح اكتشاف مسار التحديث على OpenPLi-PC بمعمارية x86-64 عند وجود dpkg وopkg معًا.",
-      "التعرف على مدير الحزمة المثبتة مع الحفاظ على الفصل بين تحديثات IPK وDreamOS."
+      "دعم كامل لدقة WQHD على أجهزة DreamOS وصور الأوبن سورس.",
+      "تصميم جديد لكارت المباريات وكارت التحكم بلمسة زجاجية أنيقة.",
+      "إضافة ثيم جديد بمظهر عصري ومميز.",
+      "تحسينات شاملة للبلجن، مع ضبط الألوان وتنسيق عناصر الواجهة لتجربة أجمل وأوضح."
     ]
   },
   "dreamos": {
     "notes": [
-      "Fix online update channel detection on x86-64 OpenPLi-PC when dpkg and opkg coexist.",
-      "Recognize installed UltraAudio package ownership while preserving IPK/DreamOS channel isolation."
+      "Full WQHD support for DreamOS and open-source Enigma2 images.",
+      "New match and playback control cards with an elegant glass design.",
+      "A new theme with a modern, distinctive look.",
+      "Comprehensive plugin improvements, with refined colours and interface layout for a clearer viewing experience."
     ],
     "notes_ar": [
-      "إصلاح اكتشاف مسار التحديث على OpenPLi-PC بمعمارية x86-64 عند وجود dpkg وopkg معًا.",
-      "التعرف على مدير الحزمة المثبتة مع الحفاظ على الفصل بين تحديثات IPK وDreamOS."
+      "دعم كامل لدقة WQHD على أجهزة DreamOS وصور الأوبن سورس.",
+      "تصميم جديد لكارت المباريات وكارت التحكم بلمسة زجاجية أنيقة.",
+      "إضافة ثيم جديد بمظهر عصري ومميز.",
+      "تحسينات شاملة للبلجن، مع ضبط الألوان وتنسيق عناصر الواجهة لتجربة أجمل وأوضح."
     ]
   }
 }

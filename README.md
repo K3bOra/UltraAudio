@@ -48,16 +48,17 @@ A shared visual language with Ultra Stalker, with its own Neon theme, organized 
 
 <a name="updates"></a>
 
-## What's new — V1.0.17
-### الجديد في V1.0.17
+## What's new — V1.0.18
+### الجديد في V1.0.18
 
-Release **V1.0.17** includes **IPK 1.0.17** and **DreamOS DEB 1.0.17-dreamos**. The plugin's product name remains **Ultra Audio Final V1**.
+Release **V1.0.18** includes **IPK 1.0.18** and **DreamOS DEB 1.0.18-dreamos**. The plugin's product name remains **Ultra Audio Final V1**.
 
-إصدار **V1.0.17** يجمع **IPK 1.0.17** و**DreamOS DEB 1.0.17-dreamos**، والاسم الرئيسي للبلجن يظل **Ultra Audio Final V1**.
+إصدار **V1.0.18** يجمع **IPK 1.0.18** و**DreamOS DEB 1.0.18-dreamos**، والاسم الرئيسي للبلجن يظل **Ultra Audio Final V1**.
 
-- Fixed online update detection on x86-64 OpenPLi-PC systems with both dpkg and opkg.<br>إصلاح اكتشاف التحديث على أنظمة OpenPLi-PC بمعمارية x86-64 عند وجود dpkg وopkg معًا.
-- The updater and unified installer recognize the installed package manager and the confirmed OpenPLi-PC plugin layout, while keeping IPK and DreamOS channels separate.<br>تعرف المحدث والمثبت الموحّد على مدير الحزمة المثبتة ومسار البلجن المؤكد على OpenPLi-PC، مع استمرار فصل IPK عن DreamOS.
-- Retains the playback card, Turkish interface/radios and goal-scorer improvements from V1.0.16.<br>الاحتفاظ بكارت التشغيل واللغة والراديوهات التركية وتحسينات الهدافين من V1.0.16.
+- Full WQHD support for DreamOS and open-source Enigma2 images.<br>دعم كامل لدقة WQHD على أجهزة DreamOS وصور الأوبن سورس.
+- New match and playback control cards with an elegant glass design.<br>تصميم جديد لكارت المباريات وكارت التحكم بلمسة زجاجية أنيقة.
+- A new theme with a modern, distinctive look.<br>إضافة ثيم جديد بمظهر عصري ومميز.
+- Comprehensive plugin improvements, with refined colours and interface layout for a clearer viewing experience.<br>تحسينات شاملة للبلجن، مع ضبط الألوان وتنسيق عناصر الواجهة لتجربة أجمل وأوضح.
 
 [Full release notes and downloads](https://github.com/K3bOra/UltraAudio/releases/latest) · [Previous releases](https://github.com/K3bOra/UltraAudio/releases)
 
@@ -288,9 +289,9 @@ The installer detects the image package manager and selects IPK for OPKG or DEB 
 
 المثبت يختار IPK لصور OPKG أو DEB لـDreamOS/DPKG، ويتحقق من HTTPS والبصمة والحجم واسم الحزمة ومعماريتها ورقمها قبل التثبيت. جهاز دريم بوكس بصورة OPKG يأخذ IPK؛ الاختيار حسب الصورة وليس اسم الجهاز فقط. لو مدير الحزم غير واضح، أو صورة OPKG تعمل ببايثون 2، يتوقف برسالة واضحة. وبعدها يفحص المكونات المطلوبة من مستودعات الصورة.
 
-**DreamOS migration:** users on the old **1.0.23-dreamos / 1.0.24-dreamos** numbering should run this command once. It installs **1.0.17-dreamos** over the old package without requiring manual removal, preserving the library and settings. Subsequent updates use the dedicated DreamOS online channel and advance to 18 and later alongside IPK.
+**DreamOS migration:** users on the old **1.0.23-dreamos / 1.0.24-dreamos** numbering should run this command once. It installs **1.0.18-dreamos** over the old package without requiring manual removal, preserving the library and settings. Subsequent updates use the dedicated DreamOS online channel and advance alongside IPK.
 
-**لمستخدمي DreamOS بإصدار 23 أو 24 القديم:** شغّل نفس الأمر مرة واحدة. يثبت **1.0.17-dreamos** فوق النسخة القديمة دون حذفها يدويًا، مع الحفاظ على المكتبة والإعدادات. بعدها التحديث من داخل البلجن بمسار DreamOS مستقل، ويتقدم الرقم 18 وما بعده بالتوازي مع IPK.
+**لمستخدمي DreamOS بإصدار 23 أو 24 القديم:** شغّل نفس الأمر مرة واحدة. يثبت **1.0.18-dreamos** فوق النسخة القديمة دون حذفها يدويًا، مع الحفاظ على المكتبة والإعدادات. بعدها التحديث من داخل البلجن بمسار DreamOS مستقل، ويتقدم الرقم بالتوازي مع IPK.
 
 [Review the installer](install.sh) · [Download IPK or DreamOS DEB](https://github.com/K3bOra/UltraAudio/releases/latest)
 
