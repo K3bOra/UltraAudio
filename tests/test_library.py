@@ -25,3 +25,16 @@ with tempfile.TemporaryDirectory() as tmp:
  else:raise AssertionError('invalid backup accepted')
  assert Path(store.LIBRARY_FILE).read_bytes()==prior
  print('PASS M3U import and invalid-backup rejection without touching library')
+
+# Exercise actual Guide.view: Arabic must not refer to comprehension e.
+import types,threading
+cls=next(n for n in ast.parse((r/'guide.py').read_text()).body if isinstance(n,ast.ClassDef) and n.name=='Guide')
+method=next(n for n in cls.body if isinstance(n,ast.FunctionDef) and n.name=='view')
+ns={'channel_key':lambda s:'bein1','to_text':str,'_provider':lambda *a:'bein','monotonic':lambda:100,'MAX_AGE':3600}
+exec(compile(ast.Module(body=[method],type_ignores=[]),'guide.py','exec'),ns)
+for arabic in ('عنوان عربي',''):
+ obj=types.SimpleNamespace(_lock=threading.RLock(),_states={'bein':{'updated':100,'events':{'bein1':(('English title',arabic,900,1100,'description'),)},'busy':False}},_receiver={})
+ for language in ('en','ar'):
+  result=ns['view'](obj,{'name':'beIN SPORTS 1'},language,now=1000)
+  assert result[1][0] == (arabic if language=='ar' and arabic else 'English title'),result
+print('PASS Arabic and English guide titles, including missing Arabic fallback')
