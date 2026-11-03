@@ -1,16 +1,18 @@
 {
-  "version": "1.0.20-dreamos",
+  "version": "1.0.21-dreamos",
   "channel": "dreamos",
   "format": "deb",
-  "sha256": "47da93db546af140bf5673957b67fb4fb29008c883893f10bee31df6fd3231e1",
-  "size": 5793900,
-  "url": "https://github.com/K3bOra/UltraAudio/releases/download/v1.0.20/Ultra_Audio_Final_DreamOS.deb",
+  "sha256": "f88f41dbc2ad8d062c7bb6af59e654d9a4276f9dc48f120107b6e9efa7c2b31c",
+  "size": 5794106,
+  "url": "https://github.com/K3bOra/UltraAudio/releases/download/v1.0.21/Ultra_Audio_Final_DreamOS.deb",
   "notes": [
-    "Fix DreamOS Python 2.7 startup failure (lru_cache) that repeatedly opened Component repair.",
-    "Includes the Arabic guide fix and WQHD improvements."
+    "Restore DreamOS screen lifecycle, legacy pixmap API and supported skin attributes when opening the plugin.",
+    "Restore UTF-8 text conversions and native cursor fallback while retaining the current design and artwork.",
+    "Verify the real opening/layout/navigation/exit path with mocked receiver APIs, including Python 2.7 locally."
   ],
   "notes_ar": [
-    "إصلاح تعذر فتح البلجن على DreamOS ببايثون 2.7 وظهور شاشة إصلاح المكونات بشكل متكرر.",
-    "يشمل إصلاح الدليل العربي وتحسينات WQHD."
+    "إصلاح مسار فتح الواجهة على DreamOS: أحداث الشاشة وواجهة الصور القديمة وخصائص السكن المدعومة.",
+    "استعادة توافق النصوص العربية وحماية المؤشر مع الحفاظ على التصميم والصور الحالية.",
+    "اختبار مسار الفتح والرسم والتنقل والخروج بمحاكاة واجهات الجهاز، مع اختبار محلي على Python 2.7."
   ]
 }
