@@ -26,7 +26,7 @@ class Timer:
 class Widget:
     def __init__(self, text=''):
         self.text, self.visible = text, True
-        self.instance = NS(setPixmap=lambda p: None, resize=MagicMock(), move=MagicMock())
+        self.instance = NS(setPixmap=lambda p: None, resize=MagicMock(), move=MagicMock(), setFont=lambda f: None, calculateSize=lambda: NS(width=lambda: len(self.text)*8, height=lambda: 16))
     def setText(self, text):
         self.text = text
     def show(self):
@@ -81,6 +81,7 @@ controller.engine = NS(lock=threading.Lock(), state='playing', stream={'id': 'st
 store = MagicMock(ASSETS=str(root / 'assets'))
 store.get_settings.return_value = dict(step_video_s=1.0, step_audio_ms=500)
 store.get_stream.return_value = dict(id='station', name='Audio')
+store.get_stream_readonly.return_value = dict(id='station', name='Audio')
 store.stream_display.return_value = ('Audio', '')
 store.stream_icon.return_value = str(root / 'assets/folders/radio.png')
 store.is_radio_stream.return_value = True
@@ -96,66 +97,42 @@ scope = dict(os=os, time=time, escape=escape, Screen=Screen,
              eTimer=Timer, getDesktop=lambda n: NS(size=lambda: NS(width=lambda: 1920, height=lambda: 1080)),
              ctl=NS(get=lambda: controller), guide=guide, store=store, themes=themes,
              native=lambda v: v, log=lambda message: None, T=lambda text, *args: text % args if args else text,
-             lang=lambda: 'en', PlaybackMarker=Marker)
+             lang=lambda: 'en', PlaybackMarker=Marker, gFont=lambda f,s: (f,s),
+             ui_pixmap_path=lambda p,w,h:p, skin_scale_attr=lambda:' scale="1"')
+card_scope={}
+exec((root/'cardlayout.py').read_text(), card_scope)
+scope['guide_lines']=card_scope['guide_lines']
 tree = ast.parse((root / 'playbackbar.py').read_text())
 tree.body = [node for node in tree.body if not isinstance(node, (ast.Import, ast.ImportFrom))]
 exec(compile(tree, '<playbackbar>', 'exec'), scope)
-for width, height in [(1280, 720), (1920, 1080), (3840, 2160)]:
-    x, y, w, h, scale = scope['geometry'](width, height)
-    assert abs(x + w / 2.0 - width / 2.0) <= 0.5
-    assert height - (y + h) == 2
-    xml = ET.fromstring(scope['build_skin'](width, height, theme))
-    assert tuple(map(int, xml.get('position').split(','))) == (x, y)
-    for widget in xml:
-        px, py = map(int, widget.get('position').split(','))
-        pw, ph = map(int, widget.get('size').split(','))
-        assert 0 <= px and 0 <= py and px + pw <= w and py + ph <= h
-    assert xml.find('ePixmap').get('pixmap').endswith('/football_panel.png')
-    # Native skin creates static ePixmaps separately from GUI components.
-    # Explicit layers prevent the panel painting over every dynamic widget.
-    background = xml.find('ePixmap')
-    for widget in list(xml)[1:]:
-        assert int(widget.get('zPosition')) > int(background.get('zPosition'))
-        if widget.tag == 'widget':
-            assert widget.get('transparent') == '1'
-        elif widget.tag == 'ePixmap':
-            with Image.open(widget.get('pixmap')) as image:
-                assert image.size == tuple(map(int, widget.get('size').split(',')))
-                assert image.mode == 'RGBA'
-                assert any(0 < alpha < 255 for alpha in image.getchannel('A').tobytes())
-            assert widget.get('scale') is None  # no 192px -> tiny circle receiver scaling
-    for index in range(8):
-        with Image.open(scope['sized_asset']('eq_%d' % index, int(66 * scale), int(28 * scale))) as image:
-            assert image.size == (int(66 * scale), int(28 * scale))
-    picon = next(w for w in xml if w.get('name') == 'picon')
-    name = next(w for w in xml if w.get('name') == 'name')
-    assert int(picon.get('position').split(',')[0]) < int(name.get('position').split(',')[0])
-    assert name.get('halign') == 'center'
-    guide_widget = next(w for w in xml if w.get('name') == 'guide')
-    assert guide_widget.get('foregroundColor') == theme['pal']['live']
-    time_widget = next(w for w in xml if w.get('name') == 'time')
-    tx = int(time_widget.get('position').split(',')[0])
-    tw = int(time_widget.get('size').split(',')[0])
-    assert time_widget.get('position').split(',')[0] == name.get('position').split(',')[0]
-    assert time_widget.get('size').split(',')[0] == name.get('size').split(',')[0]
-    assert time_widget.get('halign') == name.get('halign') == 'center'
-    marker = next(node for node in xml if node.get('name') == 'marker')
-    mx = int(marker.get('position').split(',')[0])
-    mw = int(marker.get('size').split(',')[0])
-    assert abs(mx + mw / 2.0 - w / 2.0) <= 1
-    for number in [node for node in xml.findall('ePixmap') if '/num_' in node.get('pixmap','')]:
-        nx = int(number.get('position').split(',')[0])
-        nw = int(number.get('size').split(',')[0])
-        assert nx + nw <= mx or nx >= mx + mw
-for source_w, source_h in [(320,176),(176,320),(100,100),(640,352)]:
-    pw, ph = scope['fit_picon'](source_w,source_h,144,84)
-    assert pw <= 144 and ph <= 84
-    assert abs(pw/ph - source_w/source_h) < 0.025
+for width, height in [(1280,720),(1920,1080),(2560,1440),(3840,2160)]:
+    x,y,w,h,scale=scope['geometry'](width,height)
+    assert abs(x+w/2.-width/2.)<=.5 and height-(y+h)==max(2,round(6*scale))
+    xml=ET.fromstring(scope['build_skin'](width,height,theme))
+    widgets={node.get('name'):node for node in xml if node.get('name')}
+    assert 'picon' not in widgets
+    assert widgets['name'].get('halign')=='center'
+    assert widgets['guide'].get('foregroundColor')==theme['pal']['accent']
+    assert widgets['guide_second'].get('foregroundColor')==theme['pal']['accent']
+    assert xml.find('ePixmap').get('pixmap').endswith('/playback_horizontal/panel.png')
+    for node in xml:
+        px,py=map(int,node.get('position').split(','));pw,ph=map(int,node.get('size').split(','))
+        assert 0<=px and 0<=py and px+pw<=w and py+ph<=h
+        if node.tag=='widget':assert int(node.get('zPosition'))>0 and node.get('transparent')=='1'
+    marker=widgets['marker'];second=widgets['marker_second'];guide_second=widgets['guide_second']
+    mx,my=map(int,marker.get('position').split(','));mw,mh=map(int,marker.get('size').split(','))
+    sx,sy=map(int,second.get('position').split(','))
+    gy=int(guide_second.get('position').split(',')[1]);gh=int(guide_second.get('size').split(',')[1])
+    assert abs(my+mh-gy-gh)<=1 and my==sy and sx<=mx+mw
+    for key in ('picture_minus','picture_plus','audio_minus','audio_plus'):
+        widget=widgets[key]
+        with Image.open(widget.get('pixmap')) as image:
+            assert image.size==tuple(map(int,widget.get('size').split(','))) and image.mode=='RGBA'
 Bar = scope['PlaybackBar']
 bar = Bar(NS())
 bar._layout_ready()
 assert bar['picture_value'].text == '7.0 s'  # measured delay, not the 10-second target
-bar['picon'].instance.resize.assert_called_with((144, 79))
+assert 'picon' not in bar
 assert bar['name'].text == 'Audio'
 assert bar['picture_caption'].text == 'Picture'
 assert bar['audio_caption'].text == 'Audio'
@@ -200,7 +177,7 @@ state['state'] = 'playing'
 assert scope['open_bar'](session) == 1
 session.openWithCallback.assert_called_once()
 assert session.openWithCallback.call_args.args[1] is Bar
-print('PASS centered overlay/2px at HD-FHD-4K, original theme asset, picon left, measured delay, batched controls, stale-target guard, hidden timers, 0 toggle and idle fallback')
+print('PASS neutral overlay HD/FHD/WQHD/4K, exact key assets, green two-line guide, lower twin markers, measured delay and controller guards')
 
 # A commentary channel actually receives the guide and start/end times.
 state['state'] = 'playing'
@@ -219,7 +196,7 @@ def summary_method(tree, classname):
     cls = next(node for node in tree.body if isinstance(node, ast.ClassDef) and node.name == classname)
     return next(node for node in cls.body if isinstance(node, ast.FunctionDef) and node.name == 'createSummary')
 assert ast.dump(summary_method(tree, 'PlaybackBar')) == ast.dump(summary_method(main_tree, 'UltraAudioScreen'))
-print('PASS guide uses live red and front display reuses the main plugin summary')
+print('PASS guide uses green and front display reuses the main plugin summary')
 
 # Reproduce the Test5 crash at the actual key-dispatch boundary, before any
 # delay/controller work. A direct bar.adjust() test could never catch this.
@@ -288,8 +265,8 @@ for color, caption in [('yellow','picture_caption'),('blue','audio_caption')]:
     dx,dy = map(int,dash.get('position').split(','));dw,dh = map(int,dash.get('size').split(','))
     lx,ly = map(int,label.get('position').split(','));lw,lh = map(int,label.get('size').split(','))
     assert dx + dw/2 == lx + lw/2
-    assert ly + lh <= dy and dy + dh <= 119
-print('PASS original dashes centered below captions; color reset, pending cancellation and stale/unsupported guards')
+    assert dy + dh <= ly
+print('PASS original dashes centered above captions; colour reset and controller guards')
 
 # Green matches the main screen toggle and quiet-time guard; paused picture
 # stepping starts from the measured paused position, exactly like key_pic.
@@ -314,9 +291,9 @@ xml=ET.fromstring(scope['build_skin'](1920,1080,theme))
 green=next(node for node in xml if 'key_green_' in node.get('pixmap',''))
 freeze=next(node for node in xml if node.get('name')=='freeze_caption')
 marker=next(node for node in xml if node.get('name')=='marker')
-assert green.get('position') == '221,115'
-assert freeze.get('position').split(',')[1] == '98'
-assert int(marker.get('position').split(',')[1]) >= 119
+assert green.get('position') == '682,65'
+assert freeze.get('position').split(',')[1] == '28'
+assert int(marker.get('position').split(',')[1]) == 42
 bar=Bar(NS());bar._layout_ready();bar['actions'].action('ColorActions','red')
 controller.stop.assert_called_once_with()
 assert bar._closed

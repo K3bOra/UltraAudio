@@ -13,53 +13,40 @@ def match():
 
 def game(data):return data['events'][0]['competitions'][0]
 class Feed(unittest.TestCase):
- def test_real_fixture_and_repeated_player(self):
-  d=s.parse_scorers(FIXTURE,match(),f.team_name)
-  self.assertEqual(d['scorers_neutral'],("J. Garner  34'\nH. Hackney  45'",''))
-  self.assertEqual(d['cards'],((1,0),(0,0)))
-  data=copy.deepcopy(FIXTURE);game(data)['details'][1]['athletesInvolved'][0]['shortName']='J. Garner'
-  self.assertEqual(s.parse_scorers(data,match(),f.team_name)['scorers_neutral'][0],"J. Garner  34', 45'")
- def test_identity_score_and_completeness_guards(self):
-  for change in ('wrong-team','wrong-side','wrong-time','wrong-score','partial','shootout','own-goal','cancelled','ambiguous'):
+ def test_real_fixture_and_compact_snapshot(self):
+  with patch.object(s,'monotonic',return_value=1000):
+   compact=s.compact_snapshot(FIXTURE);matches=s.extract_live_matches(compact,f.team_name,f.team_aliases)
+  self.assertEqual(len(matches),1);m=matches[0]
+  self.assertEqual(m['goals'],(2,0));self.assertEqual(m['state'],'in');self.assertEqual(m['clock'],"66'")
+  self.assertEqual(m['lang_data']['en']['home_name'],'Everton')
+  self.assertNotIn('details',compact['events'][0]['competitions'][0])
+ def test_identity_state_and_freshness_guards(self):
+  for change in ('missing-team','duplicate-side','wrong-time','invalid-state','stale'):
    data=copy.deepcopy(FIXTURE);g=game(data)
-   if change=='wrong-team':g['competitors'][0]['team']={'name':'Liverpool'}
-   if change=='wrong-side':g['competitors'][0]['homeAway']='away'
-   if change=='wrong-time':g['date']='2026-10-28T19:45Z'
-   if change=='wrong-score':g['competitors'][0]['score']='3'
-   if change=='partial':g['details'].pop(0)
-   if change=='shootout':g['details'][0]['shootout']=True
-   if change=='own-goal':g['details'][0]['ownGoal']=True
-   if change=='cancelled':g['details'][0]['cancelled']=True
-   if change=='ambiguous':data['events'].append(copy.deepcopy(data['events'][0]))
-   self.assertIsNone(s.parse_scorers(data,match(),f.team_name),change)
- def test_cache_failure_backoff_and_expiry(self):
+   if change=='missing-team':g['competitors'].pop()
+   if change=='duplicate-side':g['competitors'][0]['homeAway']='away'
+   if change=='wrong-time':g['date']='bad';data['events'][0]['date']='bad'
+   if change=='invalid-state':g['status']['type']['state']='cancelled'
+   if change=='stale':g['_observed_at']=1
+   with patch.object(s,'monotonic',return_value=1000):self.assertEqual(s.extract_live_matches(data,f.team_name),[],change)
+ def test_cache_and_failure_backoff(self):
   calls=[]
   def read(url,limit):calls.append(url);return json.dumps(FIXTURE).encode()
   feed=s.ScoreboardScorers(read)
   with patch.object(s,'monotonic',return_value=100):
-   self.assertIsNotNone(feed.get(match(),f.team_name));self.assertIsNotNone(feed.get(match(),f.team_name))
+   self.assertIsNotNone(feed.refresh_day('20261029'));self.assertIsNotNone(feed.refresh_day('20261029'))
   self.assertEqual(len(calls),1)
-  self.assertEqual(s.parse_scorers(s.compact_snapshot(FIXTURE),match(),f.team_name)['scorers_neutral'],("J. Garner  34'\nH. Hackney  45'",''))
   def failed(url,limit):calls.append(url);raise IOError('offline')
   feed.read=failed
-  with patch.object(s,'monotonic',return_value=161):self.assertIsNotNone(feed.get(match(),f.team_name))
-  with patch.object(s,'monotonic',return_value=222):self.assertIsNone(feed.get(match(),f.team_name))
-  with patch.object(s,'monotonic',return_value=223):self.assertIsNone(feed.get(match(),f.team_name))
-  self.assertEqual(len(calls),3)
- def test_worker_to_card_both_interface_directions(self):
-  c=f.Scores();m=match();c._matches=[m];c._updated=999
-  c._scorer_feed=s.ScoreboardScorers(lambda url,limit:json.dumps(FIXTURE).encode())
-  with patch.object(s,'monotonic',return_value=1000),patch.object(f,'monotonic',return_value=1000):
-   with patch.object(f,'_read',side_effect=AssertionError('No HTML requests needed')):c._fetch_details(m)
-  with tempfile.TemporaryDirectory() as folder:
-   paths=[str(Path(folder)/name) for name in ('home','away')]
-   for p in paths:Path(p).write_bytes(b'logo')
-   c._logos=dict(zip(m['teams'],paths))
-   for language,key,other in [('en','left_scorers','right_scorers'),('ar','right_scorers','left_scorers')]:
-    with patch.object(f,'interface_language',return_value=language),patch.object(f.time,'time',return_value=KICKOFF+3600),patch.object(f,'monotonic',return_value=1000):
-     extra=c.view(('Everton vs Newcastle United',KICKOFF-900,KICKOFF+10000))[4]
-     self.assertIn('J. Garner',extra[key]);self.assertIn('H. Hackney',extra[key]);self.assertEqual(extra[other],'')
-  # A new score immediately invalidates old scorer details.
-  m['goals']=(3,0)
-  self.assertNotEqual(c._details[m['id']]['goals'],m['goals'])
+  with patch.object(s,'monotonic',return_value=161):self.assertIsNotNone(feed.refresh_day('20261029'))
+  count=len(calls)
+  with patch.object(s,'monotonic',return_value=162):self.assertIsNotNone(feed.refresh_day('20261029'))
+  self.assertEqual(len(calls),count)
+  with patch.object(s,'monotonic',return_value=1000):self.assertEqual(s.extract_live_matches(feed.cache['20261029'][1],f.team_name),[])
+ def test_current_card_uses_live_result_in_both_directions(self):
+  for language,score,left in [('en','2 - 0','Everton'),('ar','0 - 2','نيوكاسل')]:
+   c=f.Scores();m=match();m.update(state='in',_observed_at=1000);c._matches=[m]
+   with patch.object(f,'interface_language',return_value=language),patch.object(f,'_wall_now',return_value=KICKOFF+3600),patch.object(f,'monotonic',return_value=1000),patch.object(c,'_get_cached_logo',side_effect=lambda t:'/logo/'+t),patch.object(c,'_spawn_logo_downloads',side_effect=AssertionError('No network')):
+    result=c.view(('Everton vs Newcastle United',KICKOFF-900,KICKOFF+10000))
+   self.assertEqual(result[1],score);self.assertEqual(result[4]['left_name'],left)
 if __name__=='__main__':unittest.main()

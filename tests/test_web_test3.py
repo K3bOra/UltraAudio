@@ -24,6 +24,7 @@ guide.view.return_value = ('key', event, False)
 scores = MagicMock()
 scores.is_live.return_value = True
 import re
+scores.is_candidate.side_effect = lambda event: bool(event and not re.search('replay', event[0], re.I))
 scope = dict(store=store, guide=guide, i18n=SimpleNamespace(lang=lambda: 'en'),
              receivertime=SimpleNamespace(guide_notice=lambda: ""), T=lambda s: s,
              shared_icon_url=lambda p: None, time=time, to_text=str, LIVE_SCORES=scores,
