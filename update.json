@@ -1,14 +1,16 @@
 {
-  "version": "1.0.21",
+  "version": "1.0.22",
   "channel": "ipk",
   "format": "ipk",
-  "sha256": "cf42ee7ddb26d2c3906c39a9e235f1345ca416201ecff65fb94272a32380e4a7",
-  "size": 5483754,
-  "url": "https://github.com/K3bOra/UltraAudio/releases/download/v1.0.21/Ultra_Audio_Final_V1.ipk",
+  "sha256": "c72c8762b430ae2d589fb7e31cb39631680dfa1c966692fb5f94c578da70742a",
+  "size": 5485252,
+  "url": "https://github.com/K3bOra/UltraAudio/releases/download/v1.0.22/Ultra_Audio_Final_V1.ipk",
   "notes": [
-    "Keep the IPK and DreamOS release numbers aligned at 1.0.21; Open Source runtime is unchanged."
+    "Show the receiver image name and version in the header.",
+    "Improve club crests with higher quality, larger size and transparent backgrounds."
   ],
   "notes_ar": [
-    "توحيد رقم إصدار النسختين عند 1.0.21؛ نسخة الأوبن سورس تحتفظ بنفس كود التشغيل."
+    "إضافة اسم صورة الجهاز وإصدارها في الواجهة.",
+    "تحسين شعارات الأندية بجودة أعلى وحجم أكبر وخلفية شفافة."
   ]
 }
