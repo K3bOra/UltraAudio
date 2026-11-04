@@ -67,7 +67,7 @@ def inspect_package(path):
     required += ('sayedsaeed.py', 'shaarawi.py', 'assets/menu/panel_480x812.png', 'assets/menu/row_420x66.png', 'assets/menu/row_420x66_selected.png', 'assets/menu/set_brand_260x50.png', 'assets/menu/set_sign_250x58.png', 'assets/themes/neon/select.png', 'assets/themes/neon/panel_list.png')
     if dream:
         required += ('receivertime.py', 'assets/certs/cacert.pem')
-    required += ('receivervolume.py',)
+    required += ('receivervolume.py', 'receiverimage.py')
     present = set()
     with tarfile.open(fileobj=io.BytesIO(parts['data.tar.gz']), mode='r:gz') as archive:
         for item in archive:
