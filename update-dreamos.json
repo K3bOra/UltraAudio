@@ -1,18 +1,16 @@
 {
-  "version": "1.0.21-dreamos",
+  "version": "1.0.22-dreamos",
   "channel": "dreamos",
   "format": "deb",
-  "sha256": "f88f41dbc2ad8d062c7bb6af59e654d9a4276f9dc48f120107b6e9efa7c2b31c",
-  "size": 5794106,
-  "url": "https://github.com/K3bOra/UltraAudio/releases/download/v1.0.21/Ultra_Audio_Final_DreamOS.deb",
+  "sha256": "717847897e713ae1ada593beffc534e274f6ed16f970aa9d2b0fec12a042c97d",
+  "size": 5795284,
+  "url": "https://github.com/K3bOra/UltraAudio/releases/download/v1.0.22/Ultra_Audio_Final_DreamOS.deb",
   "notes": [
-    "Restore DreamOS screen lifecycle, legacy pixmap API and supported skin attributes when opening the plugin.",
-    "Restore UTF-8 text conversions and native cursor fallback while retaining the current design and artwork.",
-    "Verify the real opening/layout/navigation/exit path with mocked receiver APIs, including Python 2.7 locally."
+    "Show the receiver image name and version in the header.",
+    "Improve club crests with higher quality, larger size and transparent backgrounds."
   ],
   "notes_ar": [
-    "إصلاح مسار فتح الواجهة على DreamOS: أحداث الشاشة وواجهة الصور القديمة وخصائص السكن المدعومة.",
-    "استعادة توافق النصوص العربية وحماية المؤشر مع الحفاظ على التصميم والصور الحالية.",
-    "اختبار مسار الفتح والرسم والتنقل والخروج بمحاكاة واجهات الجهاز، مع اختبار محلي على Python 2.7."
+    "إضافة اسم صورة الجهاز وإصدارها في الواجهة.",
+    "تحسين شعارات الأندية بجودة أعلى وحجم أكبر وخلفية شفافة."
   ]
 }
