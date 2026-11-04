@@ -1,22 +1,22 @@
 {
   "ipk": {
     "notes": [
-      "Keep the IPK and DreamOS release numbers aligned at 1.0.21; Open Source runtime is unchanged."
+      "Show the receiver image name and version in the header.",
+      "Improve club crests with higher quality, larger size and transparent backgrounds."
     ],
     "notes_ar": [
-      "توحيد رقم إصدار النسختين عند 1.0.21؛ نسخة الأوبن سورس تحتفظ بنفس كود التشغيل."
+      "إضافة اسم صورة الجهاز وإصدارها في الواجهة.",
+      "تحسين شعارات الأندية بجودة أعلى وحجم أكبر وخلفية شفافة."
     ]
   },
   "dreamos": {
     "notes": [
-      "Restore DreamOS screen lifecycle, legacy pixmap API and supported skin attributes when opening the plugin.",
-      "Restore UTF-8 text conversions and native cursor fallback while retaining the current design and artwork.",
-      "Verify the real opening/layout/navigation/exit path with mocked receiver APIs, including Python 2.7 locally."
+      "Show the receiver image name and version in the header.",
+      "Improve club crests with higher quality, larger size and transparent backgrounds."
     ],
     "notes_ar": [
-      "إصلاح مسار فتح الواجهة على DreamOS: أحداث الشاشة وواجهة الصور القديمة وخصائص السكن المدعومة.",
-      "استعادة توافق النصوص العربية وحماية المؤشر مع الحفاظ على التصميم والصور الحالية.",
-      "اختبار مسار الفتح والرسم والتنقل والخروج بمحاكاة واجهات الجهاز، مع اختبار محلي على Python 2.7."
+      "إضافة اسم صورة الجهاز وإصدارها في الواجهة.",
+      "تحسين شعارات الأندية بجودة أعلى وحجم أكبر وخلفية شفافة."
     ]
   }
 }
