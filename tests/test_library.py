@@ -30,7 +30,7 @@ with tempfile.TemporaryDirectory() as tmp:
 import types,threading
 cls=next(n for n in ast.parse((r/'guide.py').read_text()).body if isinstance(n,ast.ClassDef) and n.name=='Guide')
 method=next(n for n in cls.body if isinstance(n,ast.FunctionDef) and n.name=='view')
-ns={'channel_key':lambda s:'bein1','to_text':str,'_provider':lambda *a:'bein','monotonic':lambda:100,'MAX_AGE':3600}
+ns={'stream_channel_key':lambda s:'bein1','to_text':str,'_provider':lambda *a:'bein','monotonic':lambda:100,'MAX_AGE':3600}
 exec(compile(ast.Module(body=[method],type_ignores=[]),'guide.py','exec'),ns)
 for arabic in ('عنوان عربي',''):
  obj=types.SimpleNamespace(_lock=threading.RLock(),_states={'bein':{'updated':100,'events':{'bein1':(('English title',arabic,900,1100,'description'),)},'busy':False}},_receiver={})
