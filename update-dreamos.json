@@ -1,16 +1,20 @@
 {
-  "version": "1.0.22-dreamos",
+  "version": "1.0.25-dreamos",
   "channel": "dreamos",
   "format": "deb",
-  "sha256": "717847897e713ae1ada593beffc534e274f6ed16f970aa9d2b0fec12a042c97d",
-  "size": 5795284,
-  "url": "https://github.com/K3bOra/UltraAudio/releases/download/v1.0.22/Ultra_Audio_Final_DreamOS.deb",
+  "sha256": "6be4b35af06e823d57310ab7d446c81b334509aec1716d4aa56df22b3f72cf1e",
+  "size": 9407850,
+  "url": "https://github.com/K3bOra/UltraAudio/releases/download/v1.0.25/Ultra_Audio_Final_DreamOS.deb",
   "notes": [
-    "Show the receiver image name and version in the header.",
-    "Improve club crests with higher quality, larger size and transparent backgrounds."
+    "Integrated SatFamily, Orange, and Anis playlist generators directly into Ultra Audio for easier playlist creation and management.",
+    "Added an Upload M3U button to the web interface to import M3U playlists directly.",
+    "Fixed and optimized WQHD interfaces for improved scaling, layout, and display consistency.",
+    "Added Cairo SemiBold as an optional plugin UI font without changing existing users' font preferences."
   ],
   "notes_ar": [
-    "إضافة اسم صورة الجهاز وإصدارها في الواجهة.",
-    "تحسين شعارات الأندية بجودة أعلى وحجم أكبر وخلفية شفافة."
+    "دمج مولدات قوائم الصوتيات SatFamily وOrange وAnis مباشرة داخل Ultra Audio لتسهيل إنشاء القوائم وإدارتها.",
+    "إضافة زر ⤒ رفع ملف M3U (Upload M3U) في واجهة الويب لاستيراد قوائم الصوتيات مباشرة.",
+    "إصلاح وتحسين واجهات WQHD بالكامل لتحسين تحجيم العناصر وتنسيقها وعرضها.",
+    "إضافة خط Cairo SemiBold كخيار اختياري في إعدادات خطوط البلجن دون تغيير اختيار المستخدمين الحاليين."
   ]
 }
