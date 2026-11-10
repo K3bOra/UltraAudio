@@ -9,7 +9,7 @@ EVENT=('Sevilla vs Osasuna',NOW-3600,NOW+3600)
 def match():
  return {'id':'match123','teams':('home123','away123'),'names':({'sevilla'},{'osasuna'}),'competition':'League','kickoff':NOW-3600,'goals':(3,0),'clock':"70'",'minute':70,'lang_data':{'en':{'home_name':'Sevilla','away_name':'Osasuna'},'ar':{'home_name':'إشبيلية','away_name':'أوساسونا'}}}
 class Details(unittest.TestCase):
- def _sample(self, state='in', seen=1000):
+ def _sample(self,state='in',seen=1000):
   m=match();m.update(state=state,_observed_at=seen);return m
  def _view(self,m,event=EVENT,language='en'):
   c=f.Scores();c._matches=[m]
@@ -30,11 +30,11 @@ class MatchCard(unittest.TestCase):
  def test_fixed_card_geometry_all_resolutions(self):
   import xml.etree.ElementTree as ET
   from types import SimpleNamespace as NS
-  scope=dict(os=os,store=NS(ASSETS=str(ROOT/'assets')),themes=NS(face=lambda n:'Regular'),ui_pixmap_path=lambda p,w,h:p,skin_scale_attr=lambda:' scale="1"')
+  scope=dict(os=os,store=NS(ASSETS=str(ROOT/'assets')),themes=NS(face=lambda n:'Regular',pic=lambda th,n:str(ROOT/'assets/ui'/n),LIVE_RED='#FF0000'),ui_pixmap_path=lambda p,w,h:p,skin_scale_attr=lambda:' scale="1"')
   tree=ast.parse((ROOT/'footballcard.py').read_text());tree.body=[n for n in tree.body if not isinstance(n,(ast.Import,ast.ImportFrom))]
   exec(compile(tree,'footballcard','exec'),scope)
   for k in (2./3,1.,4./3,2.):
-   xml=ET.fromstring('<screen>'+scope['skin_parts'](k,{})+'</screen>');widgets={n.get('name'):n for n in xml}
+   xml=ET.fromstring('<screen>'+scope['skin_parts'](k,{'pal':{'accent':'#00DA7F'}})+'</screen>');widgets={n.get('name'):n for n in xml}
    p=widgets['football_panel'];x,y=map(int,p.get('position').split(','));w,h=map(int,p.get('size').split(','))
    self.assertLessEqual(abs(x+w/2.-1260*k),1);self.assertEqual(y,round(74*k))
    self.assertEqual(widgets['football_live'].get('foregroundColor'),'#FF0000')
@@ -43,10 +43,10 @@ class MatchCard(unittest.TestCase):
     self.assertGreaterEqual(nx,x);self.assertGreaterEqual(ny,y);self.assertLessEqual(nx+nw,x+w+1);self.assertLessEqual(ny+nh,y+h+1)
  def test_live_only_visibility_gate(self):
   tree=ast.parse((ROOT/'footballcard.py').read_text());cls=next(n for n in tree.body if isinstance(n,ast.ClassDef));method=next(n for n in cls.body if isinstance(n,ast.FunctionDef) and n.name=='_refresh_card')
-  scope=dict(monotonic=lambda:100,lang=lambda:'en',SCORES=types.SimpleNamespace(_rev=1,is_live=lambda e:bool(e and e[0]=='live'),is_candidate=lambda e:False,view=lambda e:('id','1 - 0','46',('',''))),log=lambda s:None)
+  scope=dict(monotonic=lambda:100,lang=lambda:'en',SCORES=types.SimpleNamespace(ensure_page=lambda *args:None,_rev=1,is_live=lambda e:bool(e and e[0]=='live'),is_candidate=lambda e:False,view=lambda e:('id','1 - 0','46',('',''))),log=lambda s:None)
   exec(compile(ast.Module(body=[method],type_ignores=[]),'card','exec'),scope)
   for event in (None,('recorded',0,100),('live',0,100)):
-   calls=[];screen=types.SimpleNamespace(_index=lambda:0,entries=[dict(event=event,payload=('stream','x'))],cwd='',_shown=None)
+   calls=[];screen=types.SimpleNamespace(_index=lambda:0,entries=[dict(event=event,payload=('stream','x'))],cwd='',_shown=None,refresh_match_rows=lambda *a:None)
    card=types.SimpleNamespace(screen=screen,_badges=None,_last_ensure_key=None,_last_ensure_at=0,_hide_widgets=lambda:calls.append('hide'),_render=lambda *a:calls.append('show'))
    scope['_refresh_card'](card);self.assertEqual(calls,['show' if event and event[0]=='live' else 'hide'])
 if __name__=='__main__':unittest.main()
