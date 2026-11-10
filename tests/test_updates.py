@@ -256,24 +256,41 @@ class InstallTests(unittest.TestCase):
         self.assertFalse(m._is_update('1.0.23-dreamos', '1.0.13-dreamos'))
         self.assertFalse(m._is_update('1.0.13-dreamos', '1.0.13-dreamos'))
 
-    def test_installer_rebases_only_known_legacy_dreamos(self):
-        for old, parallel, permitted in [('1.0.23-dreamos', False, True), ('1.0.24-dreamos', False, True),
-                                          ('1.0.23-dreamos', True, False), ('1.0.25-dreamos', False, False)]:
-            ns = installer(); calls = []
-            def read(url, limit, progress=None):
-                return payload('dreamos') if progress else json.dumps(metadata('dreamos')).encode()
-            status = ('Package: test\nVersion: %s\nStatus: install ok installed\n' % old).encode()
-            with patch.dict(ns, _detect_channel=lambda: 'dreamos', _read_https=read,
-                            _command_available=lambda n: True, _installed_parallel_dreamos=lambda: parallel), \
-                 patch('os.geteuid', return_value=0), patch('subprocess.check_output', return_value=status), \
-                 patch('subprocess.call', side_effect=lambda args, **kw: calls.append(args) or 0):
-                if permitted:
-                    ns['installer_main']([])
-                    self.assertEqual(calls[1][:3], ['dpkg', '--force-downgrade', '-i'])
-                    self.assertFalse(Path(calls[1][-1]).exists())
-                else:
-                    with self.assertRaises(ValueError): ns['installer_main']([])
-                    self.assertEqual(calls, [])
+    def test_installer_current_dreamos_release_uses_normal_version_order(self):
+        # Forced downgrade to 1.0.13-1.0.22 is already covered separately in
+        # test_known_legacy_dreamos_rebase_only. For 1.0.25+ use normal upgrades.
+        target = metadata('dreamos')['version']
+        parts = tuple(int(piece) for piece in target.split('-')[0].split('.'))
+        self.assertGreater(parts, (1, 0, 24))
+        newer = '%d.%d.%d-dreamos' % (parts[0], parts[1], parts[2] + 1)
+        cases = [
+            ('1.0.23-dreamos', False, 'upgrade'),
+            ('1.0.24-dreamos', False, 'upgrade'),
+            ('1.0.23-dreamos', True, 'upgrade'),
+            (target, False, 'already_installed'),
+            (newer, False, 'reject_downgrade'),
+        ]
+        for old, parallel, expected in cases:
+            with self.subTest(installed=old, parallel=parallel, expected=expected):
+                ns = installer(); calls = []
+                def read(url, limit, progress=None):
+                    return payload('dreamos') if progress else json.dumps(metadata('dreamos')).encode()
+                status = ('Package: test\nVersion: %s\nStatus: install ok installed\n' % old).encode()
+                with patch.dict(ns, _detect_channel=lambda: 'dreamos', _read_https=read,
+                                _command_available=lambda n: True, _installed_parallel_dreamos=lambda: parallel), \
+                     patch('os.geteuid', return_value=0), patch('subprocess.check_output', return_value=status), \
+                     patch('subprocess.call', side_effect=lambda args, **kw: calls.append(args) or 0):
+                    if expected == 'reject_downgrade':
+                        with self.assertRaises(ValueError):
+                            ns['installer_main']([])
+                        self.assertEqual(calls, [])
+                    elif expected == 'already_installed':
+                        ns['installer_main']([])
+                        self.assertEqual(calls, [])
+                    else:
+                        ns['installer_main']([])
+                        self.assertEqual(calls[1][:3], ['dpkg', '--refuse-downgrade', '-i'])
+                        self.assertFalse(Path(calls[1][-1]).exists())
 
 
 if __name__ == '__main__':
