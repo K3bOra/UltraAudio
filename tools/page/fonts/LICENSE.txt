@@ -1,0 +1,2 @@
+Cairo-SemiBold.ttf: Cairo (c) The Cairo Project Authors, SIL Open Font License 1.1 (see OFL-Cairo.txt).
+The same font is used on the pages of every Ultra plugin.

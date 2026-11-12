@@ -1,0 +1,16 @@
+<!doctype html><html lang="ar"><head><meta charset="utf-8"><meta name="size" content="1600x150">
+<link rel="stylesheet" href="../base.css">
+<style>:root{--w:1600px;--h:150px}body{background:transparent}
+.pill{position:absolute;left:500px;top:24px;width:600px;height:102px;border-radius:51px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.a{font:600 38px/1.25 Cairo;color:var(--ivory)}.e{font:600 19px/1.2 Cairo;color:#9fe0bd}
+.l,.r{position:absolute;top:74px;height:3px;border-radius:3px}
+.l{left:60px;width:380px;background:linear-gradient(90deg,transparent,var(--crimson))}
+.r{right:60px;width:380px;background:linear-gradient(90deg,var(--emerald),transparent)}
+.bars{position:absolute;top:58px;height:36px;width:44px;display:flex;align-items:center;gap:4px}.bars i{display:block;width:5px;border-radius:3px;background:var(--c);box-shadow:0 0 10px var(--c)}
+</style></head><body>
+<div class="l"></div><div class="r"></div>
+<div class="bars" style="left:442px;--c:var(--crimson)"><i style="height:10px"></i><i style="height:22px"></i><i style="height:34px"></i><i style="height:18px"></i><i style="height:26px"></i></div>
+<div class="bars" style="right:442px;--c:var(--emerald)"><i style="height:26px"></i><i style="height:18px"></i><i style="height:34px"></i><i style="height:22px"></i><i style="height:10px"></i></div>
+<div class="pill glass"><div class="a ar" id="a"></div><div class="e" id="e"></div></div>
+<script>const q=new URLSearchParams(location.search);a.textContent=q.get('ar');e.textContent=q.get('en');</script>
+</body></html>

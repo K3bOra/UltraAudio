@@ -1,0 +1,16 @@
+<!doctype html><html lang="ar"><head><meta charset="utf-8"><meta name="size" content="1600x370">
+<link rel="stylesheet" href="../base.css">
+<style>:root{--w:1600px;--h:370px}
+.row{position:absolute;left:70px;right:70px;top:58px;bottom:58px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;direction:rtl}
+.s{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 24px}
+.n{width:74px;height:74px;border-radius:50%;display:flex;align-items:center;justify-content:center;font:600 34px/1 Cairo;color:#fff;
+  background:linear-gradient(135deg,#7a1828,#13201f 55%,#0f4a36);box-shadow:inset 0 0 0 2px rgba(255,255,255,.15),0 0 26px rgba(212,82,99,.25)}
+.h{font:600 31px/1.35 Cairo;margin-top:12px}.a{font:600 21px/1.5 Cairo;color:#d6e4dd}.e{font:600 17px/1.4 Cairo;color:var(--green);direction:ltr;margin-top:2px}
+code{font:600 19px Cairo;color:#fff;background:rgba(0,0,0,.4);border:1px solid rgba(100,214,159,.45);border-radius:6px;padding:0 8px;direction:ltr;display:inline-block}
+</style></head><body><div class="ground"></div><div class="edge"></div><div class="row" id="r"></div>
+<script>
+const S=[['1','افتح الرسيفر','ادخل بـ Telnet أو SSH بحساب <code>root</code>','Open Telnet or SSH as root'],
+['2','الصق أمر التثبيت','بيختار حزمة جهازك ويتأكد منها','It picks and verifies the right package'],
+['3','اختار صوتيتك','الواجهة بتعيد التشغيل، وبعدها افتح البلجن','Enigma2 restarts; open Ultra Audio']];
+r.innerHTML=S.map(([n,h,a,e])=>`<div class="s glass"><div class="n">${n}</div><div class="h">${h}</div><div class="a">${a}</div><div class="e">${e}</div></div>`).join('');
+</script></body></html>

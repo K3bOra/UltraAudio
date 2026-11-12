@@ -1,125 +1,124 @@
 <div align="center">
 
-[![Ultra Audio — receiver and mobile / الترا أوديو على الرسيفر والموبايل](screenshots/ua-hero-neon.png)](screenshots/ua-hero-neon.png)
+<a href="#overview"><img src="screenshots/page/ultraaudio-hero.jpg" width="100%" alt="Ultra Audio — receiver and mobile / الترا أوديو على الرسيفر والموبايل" /></a>
 
-### Your picture. Your commentary. Your timing.
-### صورتك… تعليقك… والتوقيت على مزاجك.
+<br />
 
-Internet audio, independent picture/audio timing and control from your receiver or phone — built for Enigma2.
+[![Release](https://img.shields.io/github/v/release/K3bOra/UltraAudio?style=for-the-badge&label=release&labelColor=10251C&color=7DE3A0)](https://github.com/K3bOra/UltraAudio/releases/latest)
+[![Enigma2 & DreamOS](https://img.shields.io/badge/Enigma2-DreamOS-7DE3A0?style=for-the-badge&labelColor=10251C)](#compatibility)
+[![Python](https://img.shields.io/badge/python-2.7.9+%20%7C%203.5+-7DE3A0?style=for-the-badge&labelColor=10251C)](#compatibility)
+[![Downloads](https://img.shields.io/github/downloads/K3bOra/UltraAudio/total?style=for-the-badge&label=downloads&labelColor=10251C&color=E47C8B)](https://github.com/K3bOra/UltraAudio/releases)
 
-صوتيات الإنترنت، وضبط توقيت الصورة والصوتية بشكل مستقل، والتحكم من الرسيفر أو الموبايل — على أجهزة Enigma2.
+<a href="#install"><img src="screenshots/page/button-install.png" width="300" alt="ثبّت الترا أوديو / Install Ultra Audio" /></a>
+<a href="https://github.com/K3bOra/UltraAudio/releases"><img src="screenshots/page/button-releases.png" width="300" alt="الإصدارات الرسمية / Official releases" /></a>
 
-[![Release / الإصدار](https://img.shields.io/github/v/release/K3bOra/UltraAudio?style=for-the-badge&label=RELEASE&labelColor=10251C&color=7DE3A0)](https://github.com/K3bOra/UltraAudio/releases/latest)
-[![Platform / المنصة](https://img.shields.io/badge/PLATFORM-Enigma2-7DE3A0?style=for-the-badge&labelColor=10251C)](#compatibility)
-[![Python / بايثون](https://img.shields.io/badge/PYTHON-2.7.9+%20%2F%203.5+-7DE3A0?style=for-the-badge&labelColor=10251C)](#compatibility)
-[![Downloads / التنزيلات](https://img.shields.io/github/downloads/K3bOra/UltraAudio/total?style=for-the-badge&label=DOWNLOADS&labelColor=10251C&color=E47C8B)](https://github.com/K3bOra/UltraAudio/releases)
+<p dir="rtl"><b>صورتك… تعليقك… والتوقيت على مزاجك.</b></p>
 
-Platform: Enigma2 / DreamOS · IPK: Python 3.5+ · DreamOS DEB: Python 2.7.9+ / 3.5+.
+**Your picture. Your commentary. Your timing.** Internet audio, independent picture/audio timing and control from your receiver or phone — built for Enigma2.
 
-المنصة: Enigma2 وDreamOS · حزمة IPK لبايثون 3.5 فأحدث · حزمة DreamOS DEB لبايثون 2.7.9 فأحدث أو 3.5 فأحدث.
-
-[![Install Ultra Audio / تثبيت الترا أوديو](screenshots/ua-action-install.svg)](#install)
-[![Official releases / الإصدارات الرسمية](screenshots/ua-action-releases.svg)](https://github.com/K3bOra/UltraAudio/releases)
-
-**[التثبيت الرسمي](#install) · [تحميل الإصدارات الرسمية](https://github.com/K3bOra/UltraAudio/releases)**
+<p dir="rtl"><a href="#updates">الجديد</a> · <a href="#experience">الصور</a> · <a href="#mobile">الموبايل</a> · <a href="#sync">التزامن</a> · <a href="#features">المميزات</a> · <a href="#install">التثبيت</a> · <a href="#faq">الأسئلة</a></p>
 
 [What's new](#updates) · [Screenshots](#experience) · [Mobile control](#mobile) · [Timing](#sync) · [Features](#features) · [Install](#install) · [FAQ](#faq)
 
-[الجديد](#updates) · [الصور](#experience) · [التحكم بالموبايل](#mobile) · [التزامن](#sync) · [المميزات](#features) · [التثبيت](#install) · [الأسئلة الشائعة](#faq)
-
 </div>
-
----
 
 <a name="overview"></a>
 
-## Meet Ultra Audio
-### تعرّف على الترا أوديو
+<p align="center"><img src="screenshots/page/heading-overview.png" width="100%" alt="تعرّف على الترا أوديو / Meet Ultra Audio" /></p>
+
+<p dir="rtl">شغّل صوتية من الإنترنت مع قناة التلفزيون اللي بتشاهدها على رسيفر Enigma2. اختار تعليقك، واضبط تأخير الصورة والصوتية كل واحدة لوحدها، وتحكم من الريموت أو الموبايل على نفس الشبكة.</p>
 
 Play internet audio alongside the TV channel you are watching on your Enigma2 receiver. Choose your commentary, adjust picture and audio delays independently, and control playback from the remote or a phone on the same network.
 
-شغّل صوتية من الإنترنت مع قناة التلفزيون اللي بتشاهدها على رسيفر Enigma2. اختار تعليقك، واضبط تأخير الصورة والصوتية كل واحدة لوحدها، وتحكم من الريموت أو الموبايل على نفس الشبكة.
+<p dir="rtl">نفس روح التصميم مع عيلة Ultra، بثيمات Ultra Audio الخاصة ومكتبة منظمة وأدوات مخصصة للتحكم في الصوت.</p>
 
-A shared visual language with Ultra Stalker, with its own Neon theme, organized library and dedicated audio controls.
-
-نفس روح التصميم مع الترا ستالكر، مع ثيم Neon الخاص بأوديو ومكتبة منظمة وأدوات مخصصة للتحكم في الصوت.
-
----
+A shared visual language with the Ultra family, with Ultra Audio's own themes, an organized library and dedicated audio controls.
 
 <a name="updates"></a>
 
-## What's new — V1.0.22
-### الجديد في V1.0.22
+<p align="center"><img src="screenshots/page/heading-whats-new.png" width="100%" alt="الجديد / What's new" /></p>
 
-Release **V1.0.22** includes **IPK 1.0.22** and **DreamOS DEB 1.0.22-dreamos**. The plugin's product name remains **Ultra Audio Final V1**.
+<div align="center">
 
-إصدار **V1.0.22** يجمع **IPK 1.0.22** و**DreamOS DEB 1.0.22-dreamos**، والاسم الرئيسي للبلجن يظل **Ultra Audio Final V1**.
+### Ultra Audio V1.0.25
 
-- Show the receiver image name and version in the header.<br>إضافة اسم صورة الجهاز وإصدارها في الواجهة.
-- Improve club crests with higher quality, larger size and transparent backgrounds.<br>تحسين شعارات الأندية بجودة أعلى وحجم أكبر وخلفية شفافة.
+</div>
+
+<p dir="rtl">إصدار <b>V1.0.25</b> يجمع <b>IPK 1.0.25</b> و<b>DreamOS DEB 1.0.25-dreamos</b>، والاسم الرئيسي للبلجن يظل <b>Ultra Audio Final V1</b>.</p>
+
+Release **V1.0.25** includes **IPK 1.0.25** and **DreamOS DEB 1.0.25-dreamos**. The plugin's product name remains **Ultra Audio Final V1**.
+
+<ul dir="rtl">
+<li>دمج مولدات قوائم الصوتيات SatFamily وOrange وAnis مباشرة داخل Ultra Audio لتسهيل إنشاء القوائم وإدارتها.</li>
+<li>إضافة زر ⤒ رفع ملف M3U (Upload M3U) في واجهة الويب لاستيراد قوائم الصوتيات مباشرة.</li>
+<li>إصلاح وتحسين واجهات WQHD بالكامل لتحسين تحجيم العناصر وتنسيقها وعرضها.</li>
+<li>إضافة خط Cairo SemiBold كخيار اختياري في إعدادات خطوط البلجن دون تغيير اختيار المستخدمين الحاليين.</li>
+</ul>
+
+- Integrated SatFamily, Orange, and Anis playlist generators directly into Ultra Audio for easier playlist creation and management.
+- Added an Upload M3U button to the web interface to import M3U playlists directly.
+- Fixed and optimized WQHD interfaces for improved scaling, layout, and display consistency.
+- Added Cairo SemiBold as an optional plugin UI font without changing existing users' font preferences.
 
 [Full release notes and downloads](https://github.com/K3bOra/UltraAudio/releases/latest) · [Previous releases](https://github.com/K3bOra/UltraAudio/releases)
 
-[تفاصيل الإصدار والتحميل](https://github.com/K3bOra/UltraAudio/releases/latest) · [الإصدارات السابقة](https://github.com/K3bOra/UltraAudio/releases)
-
----
-
 <a name="experience"></a>
 
-## The experience
-### جولة داخل البلجن
+<p align="center"><img src="screenshots/page/heading-tour.png" width="100%" alt="جولة داخل البلجن / A tour of the plugin" /></p>
 
-### Familiar picture. Your choice of sound.
-#### نفس الصورة… بصوت تختاره أنت.
+<p align="center"><a href="screenshots/ua-tv-library-neon.jpg"><img src="screenshots/framed/ua-tv-library-neon.jpg" width="100%" alt="مكتبة الصوتيات والراديو بثيم Neon / Neon TV library" /></a></p>
 
-Choose from your audio and radio library while keeping the TV channel on screen. Browse folders, select a source and adjust playback from the plugin.
+<p dir="rtl" align="center"><b>نفس الصورة… بصوت تختاره أنت.</b> اختار من مكتبة الصوتيات والراديو مع استمرار عرض قناة التلفزيون، وتصفح المجلدات واضبط التشغيل من داخل البلجن.</p>
+<p align="center"><b>Familiar picture. Your choice of sound.</b> Choose from your audio and radio library while the TV channel stays on screen; browse folders, pick a source and adjust playback.</p>
 
-اختار من مكتبة الصوتيات والراديو مع استمرار عرض قناة التلفزيون. تصفح المجلدات، واختار المصدر واضبط التشغيل من داخل البلجن.
+<a name="themes"></a>
 
-[![Neon TV library / مكتبة الصوتيات والراديو بثيم Neon](screenshots/ua-tv-library-neon.jpg)](screenshots/ua-tv-library-neon.jpg)
+<p align="center"><img src="screenshots/page/heading-themes.png" width="100%" alt="أربع ثيمات / Four themes" /></p>
+
+<table>
+<tr><td align="center" width="50%"><a href="screenshots/ua-tv-theme-neon.jpg"><img src="screenshots/framed/ua-tv-theme-neon.jpg" alt="Neon / Rose & mint" /></a><br /><b>Neon</b><br /><sub>Rose & mint</sub></td><td align="center" width="50%"><a href="screenshots/ua-tv-theme-ruby.jpg"><img src="screenshots/framed/ua-tv-theme-ruby.jpg" alt="الياقوتي / Ruby & emerald" /></a><br /><b>الياقوتي</b><br /><sub>Ruby & emerald</sub></td></tr>
+<tr><td align="center" width="50%"><a href="screenshots/ua-tv-theme-blue.jpg"><img src="screenshots/framed/ua-tv-theme-blue.jpg" alt="الأزرق / Blue" /></a><br /><b>الأزرق</b><br /><sub>Blue</sub></td><td align="center" width="50%"><a href="screenshots/ua-tv-theme-purple.jpg"><img src="screenshots/framed/ua-tv-theme-purple.jpg" alt="البنفسجي / Purple" /></a><br /><b>البنفسجي</b><br /><sub>Purple</sub></td></tr>
+</table>
+
+<p dir="rtl" align="center">نفس الشاشة بأربع ثيمات: المكتبة، والنتيجة المباشرة، والتحديث أونلاين، والإعدادات.</p>
+<p align="center">The same screen in four themes: the library, the live score, online update and settings.</p>
 
 <details>
-<summary><b>Settings & online updates<br>الإعدادات والتحديث أونلاين</b></summary>
+<summary><b>الإعدادات والتحديث أونلاين / Settings & online updates</b></summary>
 
-[![Neon settings and online update / الإعدادات والتحديث أونلاين بثيم Neon](screenshots/ua-tv-updates-neon.jpg)](screenshots/ua-tv-updates-neon.jpg)
+<br />
+
+<p align="center"><a href="screenshots/ua-tv-updates-neon.jpg"><img src="screenshots/framed/ua-tv-updates-neon.jpg" width="100%" alt="الإعدادات والتحديث أونلاين بثيم Neon / Neon settings and online update" /></a></p>
 
 </details>
 
----
-
 <a name="mobile"></a>
 
-## One experience. Two screens.
-### تجربة واحدة… على شاشتين.
+<p align="center"><img src="screenshots/page/heading-mobile.png" width="100%" alt="تحكم من الموبايل / One experience, two screens" /></p>
+
+<p dir="rtl">كارت التشغيل بيعرض قناة التلفزيون الحالية وبايكونها والصوتية المختارة. اضبط مستوى الصوت والتزامن، ونظم المجلدات واستورد المصادر واعمل نسخة احتياطية للمكتبة من المتصفح.</p>
 
 The playback card shows the current TV channel, its picon and the selected audio source. Adjust volume and timing, organize folders, import sources and back up your library from your browser.
 
-كارت التشغيل بيعرض قناة التلفزيون الحالية وبايكونها والصوتية المختارة. اضبط مستوى الصوت والتزامن، ونظم المجلدات واستورد المصادر واعمل نسخة احتياطية للمكتبة من المتصفح.
+<p align="center"><a href="screenshots/ua-mobile-showcase.jpg"><img src="screenshots/ua-mobile-showcase.jpg" width="100%" alt="التحكم في التشغيل والمكتبة من الموبايل / Mobile playback and library" /></a></p>
 
-[![Mobile playback and library / التحكم في التشغيل والمكتبة من الموبايل](screenshots/ua-mobile-showcase.jpg)](screenshots/ua-mobile-showcase.jpg)
+<p align="center"><a href="screenshots/ua-mobile-control.jpg">Full control screen · شاشة التحكم كاملة</a> · <a href="screenshots/ua-mobile-library.jpg">Full library screen · شاشة المكتبة كاملة</a></p>
 
-[Full control screen](screenshots/ua-mobile-control.jpg) · [Full library screen](screenshots/ua-mobile-library.jpg)
-
-[شاشة التحكم كاملة](screenshots/ua-mobile-control.jpg) · [شاشة المكتبة كاملة](screenshots/ua-mobile-library.jpg)
+<p dir="rtl">من جهاز متصل <b>بنفس شبكة الرسيفر</b>، افتح العنوان ده واستبدل <code dir="ltr">RECEIVER-IP</code> بعنوان الرسيفر المحلي:</p>
 
 On a device connected to the **same network as your receiver**, open this address and replace `RECEIVER-IP` with the receiver's local IP:
-
-من جهاز متصل **بنفس شبكة الرسيفر**، افتح العنوان ده واستبدل `RECEIVER-IP` بعنوان الرسيفر المحلي:
 
 ```text
 http://RECEIVER-IP:9990
 ```
 
+<p dir="rtl">المنفذ الافتراضي <b>9990</b> ويمكن تغييره من الإعدادات. تقدر تضيف الصفحة للشاشة الرئيسية للموبايل للوصول السريع.</p>
+
 The default port is **9990** and can be changed in Settings. Add the page to your phone's home screen for quicker access.
-
-المنفذ الافتراضي **9990** ويمكن تغييره من الإعدادات. تقدر تضيف الصفحة للشاشة الرئيسية للموبايل للوصول السريع.
-
----
 
 <a name="sync"></a>
 
-## Find your perfect timing
-### كل تفصيلة في توقيتها
+<p align="center"><img src="screenshots/page/heading-sync.png" width="100%" alt="كل تفصيلة في توقيتها / Find your perfect timing" /></p>
 
 Adjust the picture and internet audio separately until they match the timing you want.
 
@@ -153,14 +152,12 @@ Picture delay requires working timeshift and suitable storage on the receiver.
 | **Yellow / 0**<br>الأصفر / 0 | Return the picture to live and close timeshift.<br>إرجاع الصورة لايف وإغلاق التايم شيفت. |
 | **CH+ / CH−** | Move between Settings pages.<br>التنقل بين صفحات الإعدادات. |
 
----
 
 <a name="features"></a>
 
-## More control. Less effort.
-### تحكم أكتر… بخطوات أبسط.
+<p align="center"><img src="screenshots/page/heading-features.png" width="100%" alt="المميزات / Features" /></p>
 
-[![UltraAudio feature cards / كروت المميزات](screenshots/premium-features-audio.svg)](screenshots/premium-features-audio.svg)
+<p align="center"><img src="screenshots/page/features.jpg" width="100%" alt="صوتية على القناة، مكتبة منظمة، قوائم M3U، تحكم من الموبايل، التوقيت المظبوط، نسخ احتياطي، ثيمات وخطوط، تحديث رسمي" /></p>
 
 <details>
 <summary><b>Full feature descriptions<br>تفاصيل المميزات كاملة</b></summary>
@@ -247,12 +244,10 @@ Background checks, release notes and package verification before installation.
 
 </details>
 
----
 
 <a name="compatibility"></a>
 
-## Compatibility
-### التوافق والمتطلبات
+<p align="center"><img src="screenshots/page/heading-compatibility.png" width="100%" alt="التوافق والمتطلبات / Compatibility" /></p>
 
 | Requirement<br>المتطلب | Details<br>التفاصيل |
 |:---|:---|
@@ -268,16 +263,12 @@ These are the published requirements, not confirmation that every receiver and i
 
 دي المتطلبات المنشورة، وليست تأكيدًا إن كل جهاز وصورة تشغيل تم اختبارهم عمليًا.
 
----
 
 <a name="install"></a>
 
-## Official installation
-### التثبيت الرسمي
+<p align="center"><img src="screenshots/page/heading-install.png" width="100%" alt="التثبيت / Installation" /></p>
 
-Open Telnet or SSH on a compatible receiver as **root**, then run:
-
-افتح Telnet أو SSH على رسيفر متوافق بحساب **root**، ثم نفّذ:
+<p align="center"><img src="screenshots/page/install-steps.jpg" width="100%" alt="1 افتح الرسيفر بحساب root  2 الصق أمر التثبيت  3 اختار صوتيتك" /></p>
 
 ```sh
 wget -qO- https://raw.githubusercontent.com/K3bOra/UltraAudio/main/install.sh | /bin/sh
@@ -307,12 +298,10 @@ The installer detects the image package manager and selects IPK for OPKG or DEB 
 3. Adjust picture and audio timing from the remote or web page.<br>اضبط توقيت الصورة والصوتية من الريموت أو صفحة الويب.
 4. Return to the channel and enjoy your chosen commentary.<br>ارجع للقناة واستمتع بالتعليق اللي اخترته.
 
----
 
 <a name="faq"></a>
 
-## Troubleshooting & FAQ
-### حل المشاكل والأسئلة الشائعة
+<p align="center"><img src="screenshots/page/heading-faq.png" width="100%" alt="أسئلة شائعة / Questions & troubleshooting" /></p>
 
 <details>
 <summary><b>The mobile page will not open.<br>صفحة الموبايل مش بتفتح.</b></summary>
@@ -359,64 +348,34 @@ Updates are designed to preserve the library and settings. Use Backup before mak
 
 </details>
 
----
 
 <a name="ultra-family"></a>
 
-## The Ultra family
-### عيلة Ultra
-
-Two plugins. One family. Explore media with Ultra Stalker, and choose your commentary and timing with Ultra Audio.
-
-بلجنين من عيلة واحدة: اكتشف المحتوى مع الترا ستالكر، واختار الصوتية والتوقيت المناسب مع الترا أوديو.
+<p align="center"><img src="screenshots/page/heading-family.png" width="100%" alt="عيلة Ultra / The Ultra family" /></p>
 
 <p align="center">
-<a href="https://github.com/K3bOra/UltraStalker"><img src="screenshots/ultra-family-stalker.svg" width="100%" alt="Ultra Stalker — Live TV, movies, series and local media / البث المباشر والأفلام والمسلسلات والمحتوى المحلي" /></a>
+<a href="https://github.com/K3bOra/UltraQuran"><img src="screenshots/page/family-quran.png" width="32%" alt="Ultra Quran — الترا قرآن" /></a>
+<a href="https://github.com/K3bOra/UltraStalker"><img src="screenshots/page/family-stalker.png" width="32%" alt="Ultra Stalker — الترا ستالكر" /></a>
+<a href="https://github.com/K3bOra/UltraAudio"><img src="screenshots/page/family-audio.png" width="32%" alt="Ultra Audio — الترا أوديو" /></a>
 </p>
 
-<p align="center">
-<a href="https://github.com/K3bOra/UltraAudio"><img src="screenshots/ultra-family-audio.svg" width="100%" alt="Ultra Audio — Internet audio, timing and mobile control / صوتيات الإنترنت والتزامن والتحكم بالموبايل" /></a>
-</p>
-
-Each plugin has its own installation command and official updates.
-
-لكل بلجن أمر تثبيت وتحديثات رسمية خاصة به.
-
----
-
+<p dir="rtl" align="center">تلات بلجنات من عيلة واحدة، ولكل واحد أمر تثبيت وتحديثات رسمية خاصة بيه.</p>
+<p align="center">Three plugins, one family. Each has its own install command and official updates.</p>
 
 <a name="resources"></a>
 
-## Updates & resources
-### التحديثات والروابط المهمة
+<p align="center"><img src="screenshots/page/heading-resources.png" width="100%" alt="التحديثات والروابط / Updates & resources" /></p>
 
 - [Official releases and history](https://github.com/K3bOra/UltraAudio/releases)<br>[الإصدارات الرسمية وسجل التحديثات](https://github.com/K3bOra/UltraAudio/releases)
 - [Latest release manifest](https://github.com/K3bOra/UltraAudio/releases/latest/download/update.json)<br>[ملف بيانات أحدث إصدار](https://github.com/K3bOra/UltraAudio/releases/latest/download/update.json)
 - [Repository manifest](update.json)<br>[نسخة بيانات التحديث في المستودع](update.json)
 - [Publishing guide](RELEASING.md)<br>[دليل نشر الإصدارات](RELEASING.md)
 
----
 
-## License
-### الترخيص
+<p dir="rtl">المشروع منشور بترخيص <a href="LICENSE">MIT</a>.</p>
 
 Released under the [MIT License](LICENSE).
 
-المشروع منشور بترخيص [MIT](LICENSE).
+<br />
 
----
-
-<div align="center">
-
-**ULTRA AUDIO** · Your picture. Your commentary. Your timing.
-
-**الترا أوديو** · صورتك… تعليقك… والتوقيت على مزاجك.
-
-Developed and maintained by **Ahmed L-HadarY**
-
-تطوير وصيانة **Ahmed L-HadarY**
-
-[GitHub Repository](https://github.com/K3bOra/UltraAudio)<br>
-[المستودع الرسمي على GitHub](https://github.com/K3bOra/UltraAudio)
-
-</div>
+<p align="center"><img src="screenshots/page/colophon.jpg" width="100%" alt="ULTRA AUDIO — تطوير وصيانة Ahmed L-HadarY" /></p>

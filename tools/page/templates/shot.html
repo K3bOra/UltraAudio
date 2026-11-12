@@ -1,0 +1,9 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="size" content="1600x940">
+<link rel="stylesheet" href="../base.css">
+<style>:root{--w:1600px;--h:940px}
+.scr{position:absolute;left:70px;top:58px;width:1460px;height:821px;border-radius:16px;overflow:hidden;box-shadow:0 30px 70px rgba(0,0,0,.7)}
+.scr img{width:100%;height:100%;object-fit:cover;display:block}
+.scr::after{content:"";position:absolute;inset:0;border-radius:inherit;padding:3px;background:linear-gradient(90deg,var(--crimson),rgba(80,90,90,.5) 50%,var(--emerald));
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
+</style></head><body><div class="ground"></div><div class="scr"><img id="i"></div>
+<script>i.src=new URLSearchParams(location.search).get('src');</script></body></html>

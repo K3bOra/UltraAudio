@@ -1,0 +1,24 @@
+<!doctype html><html lang="ar"><head><meta charset="utf-8"><meta name="size" content="620x440">
+<link rel="stylesheet" href="../base.css"><script src="../ornament.js"></script>
+<style>:root{--w:620px;--h:440px}body{background:transparent}
+.card{position:absolute;inset:8px;border-radius:26px;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 34px}
+.k{font:600 21px/1 Cairo;opacity:.9}
+.n{font:600 56px/1.15 Cairo;margin-top:12px}
+.a{font:600 36px/1.35 Cairo;margin-top:2px}
+.l{font:600 24px/1.45 Cairo;margin-top:10px}
+.b{margin-top:22px;font:600 22px/1 Cairo;border-radius:999px;padding:12px 30px}
+</style></head><body><div id="card" class="card"></div>
+<script>
+const p=new URLSearchParams(location.search).get('p');
+const C={
+ quran:{bg:'linear-gradient(160deg,#14463a,#081f19 60%,#05150f)',edge:'0 0 0 2px #c99a43,inset 0 0 0 6px #081f19,inset 0 0 0 7px rgba(214,178,94,.45)',
+   name:'ULTRA QURAN',ar:'الترا قرآن',line:'القرآن والمصحف والعلماء والمكتبة',k:'#a8c4b6',nc:'#f2ead3',ac:'gilt',lc:'#e6e0cc',btn:['أنت هنا','#7f1d2e','#f6e2a6','1px solid #d6b25e']},
+ stalker:{bg:'linear-gradient(135deg,#171b24,#101e20 52%,#0d2821)',edge:'0 0 0 2px #62d99c,inset 0 0 0 1px rgba(188,106,126,.5)',
+   name:'ULTRA STALKER',ar:'الترا ستالكر',line:'البث المباشر والأفلام والمسلسلات',k:'#98b9aa',nc:'#e8f3ee',ac:'',acol:'#9be5b8',lc:'#cfdfd7',btn:['اكتشف البلجن','#163e2e','#ecfff3','1px solid #3a7758']},
+ audio:{bg:'linear-gradient(135deg,#241b25,#0c3025)',edge:'0 0 0 2px #7de3a0,inset 0 0 0 1px rgba(185,103,125,.5)',
+   name:'ULTRA AUDIO',ar:'الترا أوديو',line:'صوتيات الإنترنت والتزامن والموبايل',k:'#9fc7b2',nc:'#edf6ef',ac:'',acol:'#e47c8b',lc:'#d4e6dc',btn:['اكتشف البلجن','#10251c','#7de3a0','1px solid #7de3a0']}}[p];
+const el=document.getElementById('card'); el.style.background=C.bg; el.style.boxShadow=C.edge;
+el.innerHTML=`<div class="k" style="color:${C.k}">The Ultra family</div><div class="n" style="color:${C.nc}">${C.name}</div>
+<div class="a ${C.ac}" style="${C.acol?'color:'+C.acol:''}">${C.ar}</div><div class="l" style="color:${C.lc}">${C.line}</div>
+<div class="b" style="background:${C.btn[1]};color:${C.btn[2]};border:${C.btn[3]}">${C.btn[0]}</div>`;
+</script></body></html>
