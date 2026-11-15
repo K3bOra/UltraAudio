@@ -1,30 +1,20 @@
 {
   "ipk": {
     "notes": [
-      "Integrated SatFamily, Orange, and Anis playlist generators directly into Ultra Audio for easier playlist creation and management.",
-      "Added an Upload M3U button to the web interface to import M3U playlists directly.",
-      "Fixed and optimized WQHD interfaces for improved scaling, layout, and display consistency.",
-      "Added Cairo SemiBold as an optional plugin UI font without changing existing users' font preferences."
+      "Added the Royal Obsidian theme."
     ],
     "notes_ar": [
-      "دمج مولدات قوائم الصوتيات SatFamily وOrange وAnis مباشرة داخل Ultra Audio لتسهيل إنشاء القوائم وإدارتها.",
-      "إضافة زر ⤒ رفع ملف M3U (Upload M3U) في واجهة الويب لاستيراد قوائم الصوتيات مباشرة.",
-      "إصلاح وتحسين واجهات WQHD بالكامل لتحسين تحجيم العناصر وتنسيقها وعرضها.",
-      "إضافة خط Cairo SemiBold كخيار اختياري في إعدادات خطوط البلجن دون تغيير اختيار المستخدمين الحاليين."
+      "إضافة ثيم Royal Obsidian الجديد."
     ]
   },
   "dreamos": {
     "notes": [
-      "Integrated SatFamily, Orange, and Anis playlist generators directly into Ultra Audio for easier playlist creation and management.",
-      "Added an Upload M3U button to the web interface to import M3U playlists directly.",
-      "Fixed and optimized WQHD interfaces for improved scaling, layout, and display consistency.",
-      "Added Cairo SemiBold as an optional plugin UI font without changing existing users' font preferences."
+      "Added the Royal Obsidian theme.",
+      "Fixed compatibility issues on Dreambox One and Dreambox Two."
     ],
     "notes_ar": [
-      "دمج مولدات قوائم الصوتيات SatFamily وOrange وAnis مباشرة داخل Ultra Audio لتسهيل إنشاء القوائم وإدارتها.",
-      "إضافة زر ⤒ رفع ملف M3U (Upload M3U) في واجهة الويب لاستيراد قوائم الصوتيات مباشرة.",
-      "إصلاح وتحسين واجهات WQHD بالكامل لتحسين تحجيم العناصر وتنسيقها وعرضها.",
-      "إضافة خط Cairo SemiBold كخيار اختياري في إعدادات خطوط البلجن دون تغيير اختيار المستخدمين الحاليين."
+      "إضافة ثيم Royal Obsidian الجديد.",
+      "إصلاح مشاكل التوافق على أجهزة Dreambox One وDreambox Two."
     ]
   }
 }
