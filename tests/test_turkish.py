@@ -37,7 +37,7 @@ with tempfile.TemporaryDirectory() as directory:
     bundle = i18n.web_bundle()
     assert bundle['lang'] == 'tr' and bundle['dir'] == 'ltr'
     assert bundle['strings']['Save sync'] == 'Eşitlemeyi kaydet'
-    assert [v[0] for v in bundle['languages']] == ['en', 'ar', 'tr']
+    assert [v[0] for v in bundle['languages']] == ['en', 'ar', 'tr', 'fr']
     assert store.display_folder_name({'preset': 'radio_quran', 'name': 'Quran'}, 'tr') == 'Kur’an'
     assert store.display_folder_name({'preset': 'radio_ar', 'name': 'Arabic'}, 'tr') == 'Arapça'
     assert store.display_folder_name({'name': 'My folder'}, 'tr') == 'My folder'
