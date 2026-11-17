@@ -1,3 +1,13 @@
+## Four isolated update variants (1.0.28 onwards)
+
+Publish all four entries in `scripts/release_variants.py` together. Preserve each supplied source family. One/Two IPK and DEB must never be built from the ordinary receiver source tree. All versions advance together; DEB appends `-dreamos`.
+
+The updater is pinned to both image package manager and receiver family. The unified installer detects One/Two model names independently of the package manager. Missing special manifests fail without falling back to ordinary packages. Control metadata includes `X-UltraAudio-Family` and is checked before installation.
+
+Run `scripts/render_installer.py`, `scripts/prepare_release.py`, `scripts/unpack_sources.py` (fresh checkout), `tests/test_updates.py`, `tests/test_e2pc_updates.py`, and `tests/test_release_families.py`. The release workflow verifies all four public downloads before refreshing bootstrap manifests.
+
+The 1.0.28 input packages were user-supplied. Only version metadata and updater routing were changed; audio, timeshift, UI and assets were preserved. See `packages/release28-verification.json`.
+
 <div dir="rtl">
 
 # نشر تحديثات Ultra Audio
