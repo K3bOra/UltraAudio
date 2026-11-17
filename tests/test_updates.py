@@ -275,7 +275,7 @@ class InstallTests(unittest.TestCase):
                 ns = installer(); calls = []
                 def read(url, limit, progress=None):
                     return payload('dreamos') if progress else json.dumps(metadata('dreamos')).encode()
-                status = ('Package: test\nVersion: %s\nStatus: install ok installed\n' % old).encode()
+                status = ('Package: test\nVersion: %s\nStatus: install ok installed\nX-UltraAudio-Family: standard\n' % old).encode()
                 with patch.dict(ns, _detect_channel=lambda: 'dreamos', _read_https=read,
                                 _command_available=lambda n: True, _installed_parallel_dreamos=lambda: parallel), \
                      patch('os.geteuid', return_value=0), patch('subprocess.check_output', return_value=status), \
