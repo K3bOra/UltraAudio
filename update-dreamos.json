@@ -1,16 +1,17 @@
 {
-  "version": "1.0.26-dreamos",
+  "family": "standard",
+  "version": "1.0.28-dreamos",
   "channel": "dreamos",
   "format": "deb",
-  "sha256": "a5c17a5e81a00372a8016896295fce0890e1d87bf5a17d32c87b0db479fdc966",
-  "size": 10052686,
-  "url": "https://github.com/K3bOra/UltraAudio/releases/download/v1.0.26/Ultra_Audio_Final_DreamOS.deb",
+  "sha256": "3d5388d594d6e62fcceb4f5e1300db7b62cbd21d2f4a72301aceea0a640cc7ba",
+  "size": 10641722,
+  "url": "https://github.com/K3bOra/UltraAudio/releases/download/v1.0.28/Ultra_Audio_Final_DreamOS.deb",
   "notes": [
-    "Added the Royal Obsidian theme.",
-    "Fixed compatibility issues on Dreambox One and Dreambox Two."
+    "Parallel release 1.0.28-dreamos. Original supplied DreamOS package contents are preserved except version metadata and isolated updater routing.",
+    "Dreambox One/Two updates remain separate from ordinary DreamOS receivers such as DM900/DM920."
   ],
   "notes_ar": [
-    "إضافة ثيم Royal Obsidian الجديد.",
-    "إصلاح مشاكل التوافق على أجهزة Dreambox One وDreambox Two."
+    "إصدار DreamOS المتوازي 1.0.28-dreamos؛ التعديل مقتصر على بيانات الإصدار وتوجيه التحديث المستقل.",
+    "تحديثات Dreambox One وTwo منفصلة عن نسخ DreamOS العادية مثل DM900 وDM920."
   ]
 }
