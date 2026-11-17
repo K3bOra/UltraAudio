@@ -1,0 +1,17 @@
+{
+  "family": "dreambox-one-two",
+  "version": "1.0.28-dreamos",
+  "channel": "dreamos",
+  "format": "deb",
+  "sha256": "82ccba380a0947ef27d2e09f5b4ab6acd90f9a1adc508b6d5328a6be681b17e6",
+  "size": 8909772,
+  "url": "https://github.com/K3bOra/UltraAudio/releases/download/v1.0.28/Ultra_Audio_Dreambox_One_Two.deb",
+  "notes": [
+    "Parallel release 1.0.28-dreamos. Original supplied DreamOS package contents are preserved except version metadata and isolated updater routing.",
+    "Dreambox One/Two updates remain separate from ordinary DreamOS receivers such as DM900/DM920."
+  ],
+  "notes_ar": [
+    "إصدار DreamOS المتوازي 1.0.28-dreamos؛ التعديل مقتصر على بيانات الإصدار وتوجيه التحديث المستقل.",
+    "تحديثات Dreambox One وTwo منفصلة عن نسخ DreamOS العادية مثل DM900 وDM920."
+  ]
+}
