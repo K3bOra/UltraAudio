@@ -29,7 +29,8 @@ class ReleaseFamilies(unittest.TestCase):
             with self.subTest(package=package):
                 meta = inspect_package(BASE / 'packages' / package)
                 self.assertEqual(meta['family'], family)
-                self.assertEqual(meta['version'], '1.0.28-dreamos' if channel == 'dreamos' else '1.0.28')
+                version = json.loads((BASE / 'dist/release-info.json').read_text())['version']
+                self.assertEqual(meta['version'], version + '-dreamos' if channel == 'dreamos' else version)
 
     def test_matrix_rejects_other_three_variants(self):
         for family, channel, package, manifest in VARIANTS:
