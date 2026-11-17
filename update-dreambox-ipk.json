@@ -1,0 +1,17 @@
+{
+  "family": "dreambox-one-two",
+  "version": "1.0.28",
+  "channel": "ipk",
+  "format": "ipk",
+  "sha256": "978f7f91860d161aca0a853b5e2bffb5681bae7e4e5f09c338a898f4556464e6",
+  "size": 11590432,
+  "url": "https://github.com/K3bOra/UltraAudio/releases/download/v1.0.28/Ultra_Audio_Dreambox_One_Two.ipk",
+  "notes": [
+    "Release 1.0.28 from the four supplied final packages. UI, audio and timeshift files are preserved.",
+    "Dreambox One/Two use dedicated IPK/DEB update channels. The unified installer detects receiver model and image package manager; the updater rejects a different family or format."
+  ],
+  "notes_ar": [
+    "الإصدار 1.0.28 من الحزم النهائية الأربع المرفقة، مع الحفاظ على ملفات الواجهة والصوت والتايم شيفت.",
+    "نسخ Dreambox One وTwo لها مسارات تحديث مستقلة للـIPK والـDEB. أمر التثبيت يختار حسب موديل الجهاز ومدير حزم الصورة، والتحديث يرفض أي حزمة من عائلة أو صيغة مختلفة."
+  ]
+}
