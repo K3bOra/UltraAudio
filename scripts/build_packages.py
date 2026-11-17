@@ -4,6 +4,7 @@ import gzip
 import io
 from pathlib import Path
 import tarfile
+from release_variants import VARIANTS
 
 BASE = Path(__file__).resolve().parents[1]
 PLUGIN = 'data/usr/lib/enigma2/python/Plugins/Extensions/UltraAudio'
@@ -35,10 +36,10 @@ def build():
     template = (BASE / 'scripts/updater_template.py').read_text(encoding='utf-8')
     packages = BASE / 'packages'
     packages.mkdir(exist_ok=True)
-    for channel, tree, name in [('ipk', 'ipk-source', 'Ultra_Audio_Final_V1.ipk'),
-                                ('dreamos', 'deb-source', 'Ultra_Audio_Final_DreamOS.deb')]:
+    for family, channel, name, manifest in VARIANTS:
+        tree = ('dreambox-' if family == 'dreambox-one-two' else '') + ('deb-source' if channel == 'dreamos' else 'ipk-source')
         root = BASE / tree
-        (root / PLUGIN / 'updater.py').write_text(template.replace("'__CHANNEL__'", repr(channel)), encoding='utf-8')
+        (root / PLUGIN / 'updater.py').write_text(template.replace("'__CHANNEL__'", repr(channel)).replace("'__FAMILY__'", repr(family)), encoding='utf-8')
         output = io.BytesIO()
         output.write(b'!<arch>\n')
         for member, data in [('debian-binary', b'2.0\n'), ('control.tar.gz', tar_gz(root / 'control')), ('data.tar.gz', tar_gz(root / 'data'))]:

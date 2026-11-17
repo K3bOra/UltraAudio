@@ -10,6 +10,7 @@ from pathlib import Path
 import re
 import shutil
 import tarfile
+from release_variants import VARIANTS
 
 REPO = 'K3bOra/UltraAudio'
 PACKAGE_NAME = 'enigma2-plugin-extensions-ultraaudio'
@@ -36,7 +37,7 @@ def members(payload):
         if len(result[name]) != size:
             raise ValueError('Truncated IPK')
         offset += size + size % 2
-    if set(result) != {'debian-binary', 'control.tar.gz', 'data.tar.gz'} or result['debian-binary'] != b'2.0\n':
+    if len(result) != 3 or result.get('debian-binary') != b'2.0\n' or len([x for x in result if x in ('control.tar.gz', 'control.tar.xz')]) != 1 or len([x for x in result if x in ('data.tar.gz', 'data.tar.xz')]) != 1:
         raise ValueError('Unexpected archive layout')
     return result
 
@@ -46,7 +47,7 @@ def inspect_package(path):
     if not 0 < len(payload) <= 32 * 1024 * 1024:
         raise ValueError('Package size outside limits')
     parts = members(payload)
-    with tarfile.open(fileobj=io.BytesIO(parts['control.tar.gz']), mode='r:gz') as archive:
+    with tarfile.open(fileobj=io.BytesIO(parts[next(x for x in parts if x.startswith('control.tar.'))]), mode='r:*') as archive:
         control = archive.extractfile('./control').read().decode('utf-8')
     def field(name):
         return re.search(r'^' + name + r':\s*(\S+)', control, re.M).group(1)
@@ -57,9 +58,9 @@ def inspect_package(path):
     if not re.fullmatch(r'\d+\.\d+\.\d+-dreamos' if dream else r'\d+\.\d+\.\d+', installed_version):
         raise ValueError('Expected a stable Final V1 version')
     version = installed_version
-    expected_name = 'Ultra_Audio_Final_DreamOS.deb' if dream else 'Ultra_Audio_Final_V1.ipk'
-    if path.name != expected_name:
-        raise ValueError('Filename does not match package version')
+    variant = next((v for v in VARIANTS if v[2] == path.name), None)
+    if not variant or field('X-UltraAudio-Family') != variant[0]:
+        raise ValueError('Filename or package family does not match release variant')
     # Assets intentionally removed in test3 must not make a complete plugin
     # fail a historical file-count threshold. Check the runtime contract.
     prefix = 'usr/lib/enigma2/python/Plugins/Extensions/UltraAudio/'
@@ -69,7 +70,7 @@ def inspect_package(path):
         required += ('receivertime.py', 'assets/certs/cacert.pem')
     required += ('receivervolume.py', 'receiverimage.py')
     present = set()
-    with tarfile.open(fileobj=io.BytesIO(parts['data.tar.gz']), mode='r:gz') as archive:
+    with tarfile.open(fileobj=io.BytesIO(parts[next(x for x in parts if x.startswith('data.tar.'))]), mode='r:*') as archive:
         for item in archive:
             if item.name.startswith('/') or '..' in Path(item.name).parts or item.issym() or item.islnk():
                 raise ValueError('Unsafe package path')
@@ -84,7 +85,7 @@ def inspect_package(path):
                     source = archive.extractfile(item).read().decode('utf-8')
                     tree = ast.parse(source, feature_version=(3, 5))
                     if normalized == prefix + 'updater.py':
-                        expected_updater = (BASE / 'scripts/updater_template.py').read_text(encoding='utf-8').replace("'__CHANNEL__'", repr('dreamos' if dream else 'ipk'))
+                        expected_updater = (BASE / 'scripts/updater_template.py').read_text(encoding='utf-8').replace("'__CHANNEL__'", repr(variant[1])).replace("'__FAMILY__'", repr(variant[0]))
                         if source != expected_updater:
                             raise ValueError('Packaged updater differs from the tested channel template')
                     if normalized == prefix + '__init__.py':
@@ -98,8 +99,12 @@ def inspect_package(path):
     missing = sorted(prefix + name for name in required if prefix + name not in present)
     if missing:
         raise ValueError('Plugin files are incomplete: ' + ', '.join(missing))
-    return {'version': version, 'channel': 'dreamos' if dream else 'ipk', 'format': 'deb' if dream else 'ipk',
+    return {'family': variant[0], 'version': version, 'channel': 'dreamos' if dream else 'ipk', 'format': 'deb' if dream else 'ipk',
             'sha256': hashlib.sha256(payload).hexdigest(), 'size': len(payload)}
+
+
+def asset_names():
+    return [v[2] for v in VARIANTS] + [v[3] for v in VARIANTS] + ['update.json', 'install.sh', 'SHA256SUMS']
 
 
 def prepare():
@@ -108,61 +113,52 @@ def prepare():
     from render_installer import render
     if (BASE / 'install.sh').read_text(encoding='utf-8') != render():
         raise ValueError('Installer is stale: run scripts/render_installer.py')
-    packages = sorted(p for p in (BASE / 'packages').iterdir() if p.suffix in ('.ipk', '.deb'))
-    if sorted(p.name for p in packages) != ['Ultra_Audio_Final_DreamOS.deb', 'Ultra_Audio_Final_V1.ipk']:
-        raise ValueError('Keep exactly the current IPK and DreamOS DEB in packages/')
-    details = {p.suffix[1:]: (p, inspect_package(p)) for p in packages}
-    # Both package versions advance together; their update channels stay separate.
-    ipk_version = details['ipk'][1]['version']
-    dream_version = details['deb'][1]['version'].replace('-dreamos', '')
-    if dream_version != ipk_version:
-        raise ValueError('IPK and DreamOS must use the same parallel release number')
-    tag = 'v' + ipk_version
+    packages = sorted(p.name for p in (BASE / 'packages').iterdir() if p.suffix in ('.ipk', '.deb'))
+    if packages != sorted(v[2] for v in VARIANTS):
+        raise ValueError('Expected exactly the four ordinary and Dreambox One/Two packages')
+    details = [(v, inspect_package(BASE / 'packages' / v[2])) for v in VARIANTS]
+    versions = set(meta['version'].replace('-dreamos', '') for v, meta in details)
+    if len(versions) != 1:
+        raise ValueError('All four variants must share the same release number')
+    version = versions.pop()
+    tag = 'v' + version
     destination = BASE / 'dist'
     destination.mkdir(exist_ok=True)
-    expected = {'Ultra_Audio_Final_V1.ipk', 'Ultra_Audio_Final_DreamOS.deb', 'update-ipk.json', 'update-dreamos.json', 'update.json', 'install.sh', 'SHA256SUMS', 'release-info.json', 'notes.md'}
-    for old in destination.iterdir():
-        if old.is_file() and old.name in expected:
-            old.unlink()
     notes = json.loads((BASE / 'release-notes.json').read_text(encoding='utf-8'))
     all_notes = []
-    for kind in ('ipk', 'deb'):
-        package, meta = details[kind]
-        meta['url'] = 'https://github.com/' + REPO + '/releases/download/' + tag + '/' + package.name
+    for variant, meta in details:
+        family, channel, package, manifest = variant
+        meta['url'] = 'https://github.com/' + REPO + '/releases/download/' + tag + '/' + package
         for key in ('notes', 'notes_ar'):
-            value = notes[meta['channel']].get(key)
+            value = notes[channel].get(key)
             if not isinstance(value, list) or not value or not all(isinstance(x, str) and x.strip() for x in value):
                 raise ValueError('Missing release notes: ' + key)
             meta[key] = value
-        shutil.copyfile(str(package), str(destination / package.name))
-        manifest = 'update-dreamos.json' if kind == 'deb' else 'update-ipk.json'
+        shutil.copyfile(str(BASE / 'packages' / package), str(destination / package))
         content = json.dumps(meta, ensure_ascii=False, indent=2) + '\n'
         (destination / manifest).write_text(content, encoding='utf-8')
-        if kind == 'ipk':
-            # Old Python3 installations still read update.json. Never point
-            # this legacy endpoint at a DreamOS package.
+        if family == 'standard' and channel == 'ipk':
             (destination / 'update.json').write_text(content, encoding='utf-8')
-        all_notes += [meta['channel'] + ' ' + meta['version'], ''] + ['- ' + x for x in meta['notes'] + meta['notes_ar']] + ['']
+        all_notes += [family + ' / ' + channel + ' / ' + meta['version'], '']
     shutil.copyfile(str(BASE / 'install.sh'), str(destination / 'install.sh'))
-    assets = sorted(destination / name for name in expected if name not in ('SHA256SUMS', 'release-info.json', 'notes.md'))
-    sums = ''.join(hashlib.sha256(p.read_bytes()).hexdigest() + '  ' + p.name + '\n' for p in assets)
-    (destination / 'SHA256SUMS').write_text(sums, encoding='utf-8')
-    info = {'tag': tag, 'version': ipk_version, 'dreamos_version': details['deb'][1]['version'], 'title': 'Ultra Audio Final V1 - Enigma2 & DreamOS'}
+    assets = [destination / name for name in asset_names() if name != 'SHA256SUMS']
+    (destination / 'SHA256SUMS').write_text(''.join(hashlib.sha256(p.read_bytes()).hexdigest() + '  ' + p.name + '\n' for p in sorted(assets)), encoding='utf-8')
+    info = {'tag': tag, 'version': version, 'dreamos_version': version + '-dreamos', 'title': 'Ultra Audio ' + version + ' - Enigma2, DreamOS & Dreambox One/Two'}
     (destination / 'release-info.json').write_text(json.dumps(info, indent=2) + '\n', encoding='utf-8')
-    (destination / 'notes.md').write_text('Ultra Audio Final V1\n\n' + '\n'.join(all_notes), encoding='utf-8')
-    print('Prepared paired release ' + tag)
+    (destination / 'notes.md').write_text('Ultra Audio ' + version + '\n\n' + '\n'.join(all_notes) + '\n' + '\n'.join(notes['ipk']['notes_ar'] + notes['ipk']['notes']) + '\n', encoding='utf-8')
+    print('Prepared four isolated release variants: ' + tag)
 
 
 def verify(directory):
-    for name in ('Ultra_Audio_Final_V1.ipk', 'Ultra_Audio_Final_DreamOS.deb', 'update-ipk.json', 'update-dreamos.json', 'update.json', 'install.sh', 'SHA256SUMS'):
+    for name in asset_names():
         if (directory / name).read_bytes() != (BASE / 'dist' / name).read_bytes():
             raise ValueError('Downloaded release asset differs: ' + name)
-    for kind, package, manifest in [('ipk', 'Ultra_Audio_Final_V1.ipk', 'update-ipk.json'), ('deb', 'Ultra_Audio_Final_DreamOS.deb', 'update-dreamos.json')]:
+    for family, channel, package, manifest in VARIANTS:
         actual = json.loads((directory / manifest).read_text(encoding='utf-8'))
         info = inspect_package(directory / package)
         if any(actual.get(key) != value for key, value in info.items()):
-            raise ValueError('Package differs from platform manifest: ' + kind)
-    print('Both downloaded platform packages and manifests verified')
+            raise ValueError('Package differs from its isolated manifest: ' + package)
+    print('All four downloaded packages and isolated manifests verified')
 
 
 if __name__ == '__main__':

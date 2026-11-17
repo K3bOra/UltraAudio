@@ -8,6 +8,7 @@ def render():
     template = (BASE / 'scripts/updater_template.py').read_text(encoding='utf-8')
     template = template[:template.index("if __name__ == '__main__':")]
     template = template.replace("BUILD_CHANNEL = '__CHANNEL__'", 'BUILD_CHANNEL = None')
+    template = template.replace("BUILD_FAMILY = '__FAMILY__'", 'BUILD_FAMILY = None')
     main = (BASE / 'scripts/installer_main.py').read_text(encoding='utf-8')
     # ASCII wrapper: Python 2 reads the coding declaration from the heredoc.
     wrapper = '''#!/bin/sh

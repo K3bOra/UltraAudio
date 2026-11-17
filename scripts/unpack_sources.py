@@ -4,19 +4,21 @@ import io
 from pathlib import Path
 import tarfile
 from prepare_release import BASE, inspect_package, members
+from release_variants import VARIANTS
 
 
 def unpack():
-    for filename, folder in [('Ultra_Audio_Final_V1.ipk', 'ipk-source'),
-                             ('Ultra_Audio_Final_DreamOS.deb', 'deb-source')]:
+    for family, channel, filename, manifest in VARIANTS:
+        folder = ('dreambox-' if family == 'dreambox-one-two' else '') + ('deb-source' if channel == 'dreamos' else 'ipk-source')
         package = BASE / 'packages' / filename
         inspect_package(package)
         target = BASE / folder
         if target.exists():
             raise ValueError('Source directory already exists; use a fresh checkout: ' + folder)
         parts = members(package.read_bytes())
-        for member_name, subtree in [('control.tar.gz', 'control'), ('data.tar.gz', 'data')]:
-            with tarfile.open(fileobj=io.BytesIO(parts[member_name]), mode='r:gz') as archive:
+        for subtree in ('control', 'data'):
+            member_name = next(x for x in parts if x.startswith(subtree + '.tar.'))
+            with tarfile.open(fileobj=io.BytesIO(parts[member_name]), mode='r:*') as archive:
                 for item in archive:
                     relative = Path(item.name)
                     if relative.is_absolute() or '..' in relative.parts or not (item.isfile() or item.isdir()):
