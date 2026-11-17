@@ -10,6 +10,7 @@ from pathlib import Path
 import re
 import shutil
 import tarfile
+import subprocess
 from release_variants import VARIANTS
 
 REPO = 'K3bOra/UltraAudio'
@@ -42,6 +43,15 @@ def members(payload):
     return result
 
 
+def validate_control(control):
+    # Debian control is one RFC822 paragraph. Blank lines start a second entry.
+    if re.search(r'\n[ \t]*\n', control.strip('\r\n')):
+        raise ValueError('Package control must contain exactly one paragraph')
+    for name in ('Package', 'Version', 'Architecture', 'X-UltraAudio-Family'):
+        if len(re.findall(r'^' + name + r':', control, re.M)) != 1:
+            raise ValueError('Missing or duplicate package control field: ' + name)
+
+
 def inspect_package(path):
     payload = path.read_bytes()
     if not 0 < len(payload) <= 32 * 1024 * 1024:
@@ -49,6 +59,13 @@ def inspect_package(path):
     parts = members(payload)
     with tarfile.open(fileobj=io.BytesIO(parts[next(x for x in parts if x.startswith('control.tar.'))]), mode='r:*') as archive:
         control = archive.extractfile('./control').read().decode('utf-8')
+    validate_control(control)
+    # Use the native package parser, not only our own regular expressions.
+    native = subprocess.run(['dpkg-deb', '--field', str(path), 'Package', 'Version',
+                             'Architecture', 'X-UltraAudio-Family'],
+                            stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    if native.returncode:
+        raise ValueError('Native package control validation failed: ' + native.stderr.decode('utf-8', 'replace'))
     def field(name):
         return re.search(r'^' + name + r':\s*(\S+)', control, re.M).group(1)
     if field('Package') != PACKAGE_NAME or field('Architecture') != 'all':
