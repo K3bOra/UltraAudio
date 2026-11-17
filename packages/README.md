@@ -1,6 +1,6 @@
 # Official packages
 
-The four supplied final builds use release 1.0.28 (DEB: 1.0.28-dreamos).
+The four supplied final builds use release 1.0.29 (DEB: 1.0.29-dreamos).
 
 | Receiver | OPKG image | DPKG image |
 | --- | --- | --- |
