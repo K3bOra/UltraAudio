@@ -1,0 +1,50 @@
+[
+  {
+    "file": "Ultra_Audio_Final_V1.ipk",
+    "version": "1.0.28",
+    "sha256": "b1b0daa4bbac7d9a5eb2577d1f77398f4b2a0bd8418d61964271aedf8973ebe9",
+    "size": 10646000,
+    "changed_files": [
+      "./control",
+      "./usr/lib/enigma2/python/Plugins/Extensions/UltraAudio/__init__.py",
+      "./usr/lib/enigma2/python/Plugins/Extensions/UltraAudio/updater.py",
+      "./usr/lib/enigma2/python/Plugins/Extensions/UltraAudio/RELEASE-NOTES.txt"
+    ]
+  },
+  {
+    "file": "Ultra_Audio_Final_DreamOS.deb",
+    "version": "1.0.28-dreamos",
+    "sha256": "3d5388d594d6e62fcceb4f5e1300db7b62cbd21d2f4a72301aceea0a640cc7ba",
+    "size": 10641722,
+    "changed_files": [
+      "./control",
+      "./usr/lib/enigma2/python/Plugins/Extensions/UltraAudio/__init__.py",
+      "./usr/lib/enigma2/python/Plugins/Extensions/UltraAudio/updater.py",
+      "./usr/lib/enigma2/python/Plugins/Extensions/UltraAudio/RELEASE-NOTES.txt"
+    ]
+  },
+  {
+    "file": "Ultra_Audio_Dreambox_One_Two.ipk",
+    "version": "1.0.28",
+    "sha256": "978f7f91860d161aca0a853b5e2bffb5681bae7e4e5f09c338a898f4556464e6",
+    "size": 11590432,
+    "changed_files": [
+      "./control",
+      "./usr/lib/enigma2/python/Plugins/Extensions/UltraAudio/__init__.py",
+      "./usr/lib/enigma2/python/Plugins/Extensions/UltraAudio/updater.py",
+      "./usr/lib/enigma2/python/Plugins/Extensions/UltraAudio/RELEASE-NOTES.txt"
+    ]
+  },
+  {
+    "file": "Ultra_Audio_Dreambox_One_Two.deb",
+    "version": "1.0.28-dreamos",
+    "sha256": "82ccba380a0947ef27d2e09f5b4ab6acd90f9a1adc508b6d5328a6be681b17e6",
+    "size": 8909772,
+    "changed_files": [
+      "./control",
+      "./usr/lib/enigma2/python/Plugins/Extensions/UltraAudio/__init__.py",
+      "./usr/lib/enigma2/python/Plugins/Extensions/UltraAudio/updater.py",
+      "./usr/lib/enigma2/python/Plugins/Extensions/UltraAudio/RELEASE-NOTES.txt"
+    ]
+  }
+]
