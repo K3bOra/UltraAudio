@@ -1,17 +1,17 @@
 {
   "family": "standard",
-  "version": "1.0.28-dreamos",
+  "version": "1.0.29-dreamos",
   "channel": "dreamos",
   "format": "deb",
-  "sha256": "3d5388d594d6e62fcceb4f5e1300db7b62cbd21d2f4a72301aceea0a640cc7ba",
+  "sha256": "d98c65b2affff88447d12fb278ef9d5c848a2a84720c240c95b6b4e8d3241745",
   "size": 10641722,
-  "url": "https://github.com/K3bOra/UltraAudio/releases/download/v1.0.28/Ultra_Audio_Final_DreamOS.deb",
+  "url": "https://github.com/K3bOra/UltraAudio/releases/download/v1.0.29/Ultra_Audio_Final_DreamOS.deb",
   "notes": [
-    "Parallel release 1.0.28-dreamos. Original supplied DreamOS package contents are preserved except version metadata and isolated updater routing.",
-    "Dreambox One/Two updates remain separate from ordinary DreamOS receivers such as DM900/DM920."
+    "Release 1.0.29 fixes the package control paragraph that caused dpkg to reject 1.0.28 before installation.",
+    "All four packages are now checked using the native dpkg-deb parser. Both DEB packages also pass isolated dpkg dry-run unpack checks. UI, audio and timeshift are unchanged. Dreambox One/Two update channels remain isolated."
   ],
   "notes_ar": [
-    "إصدار DreamOS المتوازي 1.0.28-dreamos؛ التعديل مقتصر على بيانات الإصدار وتوجيه التحديث المستقل.",
-    "تحديثات Dreambox One وTwo منفصلة عن نسخ DreamOS العادية مثل DM900 وDM920."
+    "تصحيح 1.0.29 يصلح تنسيق بيانات الحزمة الذي تسبب في رفض تثبيت الإصدار 1.0.28 برسالة several package info entries found.",
+    "فحص الحزم الأربع بمحلل dpkg-deb الأصلي، ومحاكاة فك الحزمتين DEB باستخدام dpkg دون تثبيت. الواجهة والصوت والتايم شيفت كما هي، وتحديثات Dreambox One وTwo تظل منفصلة عن النسخ العادية."
   ]
 }
