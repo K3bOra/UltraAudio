@@ -55,6 +55,8 @@ except ImportError:
     from urllib2 import HTTPSHandler
 
 BUILD_CHANNEL = None
+BUILD_FAMILY = None
+_VERIFY_FAMILY = None
 _VERIFY_CHANNEL = None
 PACKAGE_NAME = 'enigma2-plugin-extensions-ultraaudio'
 
@@ -146,6 +148,63 @@ def _channel():
     if BUILD_CHANNEL is not None and detected != BUILD_CHANNEL:
         raise ValueError('Installed plugin channel does not match this image; run the unified installer')
     return detected
+
+
+def _model_values():
+    values = []
+    for path in ('/proc/stb/info/model', '/proc/stb/info/boxtype',
+                 '/proc/device-tree/model', '/sys/firmware/devicetree/base/model'):
+        try:
+            with open(path, 'rb') as handle:
+                value = handle.read(1024).decode('utf-8', 'replace')
+            value = re.sub(r'[^a-z0-9]', '', value.lower())
+            if value:
+                values.append(value)
+        except EnvironmentError:
+            pass
+    return values
+
+
+def _detect_family():
+    values = _model_values()
+    aliases = ('one', 'two', 'dreamone', 'dreamtwo', 'dreamboxone', 'dreamboxtwo',
+               'dreamboxoneuhd', 'dreamboxtwouhd', 'dreamoneuhd', 'dreamtwouhd')
+    if any(value in aliases for value in values):
+        return 'dreambox-one-two'
+    if values:
+        return 'standard'
+    if BUILD_FAMILY is not None:
+        return BUILD_FAMILY
+    if os.uname()[4].lower() in ('aarch64', 'arm64'):
+        raise RuntimeError('Cannot identify this receiver model; no package was selected')
+    return 'standard'
+
+
+def _family():
+    detected = _VERIFY_FAMILY or _detect_family()
+    if detected not in ('standard', 'dreambox-one-two'):
+        raise ValueError('Unknown receiver family')
+    if BUILD_FAMILY is not None and detected != BUILD_FAMILY:
+        raise ValueError('Installed plugin family does not match this receiver; run the unified installer')
+    return detected
+
+
+def _manifest_name():
+    if _family() == 'dreambox-one-two':
+        return 'update-dreambox-deb.json' if _channel() == 'dreamos' else 'update-dreambox-ipk.json'
+    return 'update-dreamos.json' if _channel() == 'dreamos' else 'update-ipk.json'
+
+
+def _package_name():
+    if _family() == 'dreambox-one-two':
+        return 'Ultra_Audio_Dreambox_One_Two.' + ('deb' if _channel() == 'dreamos' else 'ipk')
+    return 'Ultra_Audio_Final_DreamOS.deb' if _channel() == 'dreamos' else 'Ultra_Audio_Final_V1.ipk'
+
+
+def _verify_package_family(control):
+    found = re.search(r'^X-UltraAudio-Family:\s*(\S+)', control, re.M)
+    if not found or found.group(1) != _family():
+        raise ValueError('Downloaded package belongs to a different receiver family')
 
 
 def _certificate_error(exc):
@@ -311,6 +370,9 @@ def _verify_meta(repo, meta):
     if not isinstance(meta, dict):
         raise ValueError('Invalid update.json')
     channel = _channel()
+    family = _family()
+    if meta.get('family') != family:
+        raise ValueError('Update family does not match this receiver')
     expected_format = 'deb' if channel == 'dreamos' else 'ipk'
     if meta.get('channel') != channel or meta.get('format') != expected_format:
         raise ValueError('Update channel/package format does not match this receiver')
@@ -330,7 +392,7 @@ def _verify_meta(repo, meta):
     relative = path[len(prefix):].split('/')
     if len(relative) != 2 or not _fullmatch(r'[A-Za-z0-9][A-Za-z0-9_.-]*', relative[0]) or '..' in relative[0]:
         raise ValueError('Invalid release tag')
-    if not _fullmatch(r'Ultra_?Audio[-_A-Za-z0-9.]*\.' + expected_format, fname, re.I):
+    if fname != _package_name():
         raise ValueError('Unexpected update package name')
     if not isinstance(meta.get('size'), _int_types) or isinstance(meta.get('size'), bool) or not 0 < meta['size'] <= _MAX_PACKAGE:
         raise ValueError('Invalid package size')
@@ -343,13 +405,13 @@ def _verify_meta(repo, meta):
             raise ValueError('Invalid release notes')
         return value.replace('\r\n', '\n').replace('\r', '\n')
 
-    return {'channel': channel, 'format': expected_format, 'version': str(version), 'url': str(url), 'sha256': str(sha).lower(), 'size': meta.get('size'), 'repo': repo,
+    return {'family': family, 'channel': channel, 'format': expected_format, 'version': str(version), 'url': str(url), 'sha256': str(sha).lower(), 'size': meta.get('size'), 'repo': repo,
             'notes': notes('notes'), 'notes_ar': notes('notes_ar')}
 
 
 def check(repo=DEFAULT_REPO):
     repo = normalize_repo(repo)
-    filename = 'update-dreamos.json' if _channel() == 'dreamos' else 'update-ipk.json'
+    filename = _manifest_name()
     manifest = 'https://github.com/%s/releases/latest/download/%s' % (repo, filename)
     try:
         data = _read_https(manifest, _MAX_MANIFEST)
@@ -491,6 +553,7 @@ def _install_verified(meta, progress):
     if hashlib.sha256(payload).hexdigest() != meta['sha256']:
         raise ValueError('SHA256 verification failed')
     control = _ipk_control(payload)
+    _verify_package_family(control)
     pkg = re.search(r'^Package:\s*(\S+)', control, re.M)
     version = re.search(r'^Version:\s*(\S+)', control, re.M)
     if not pkg or pkg.group(1) != 'enigma2-plugin-extensions-ultraaudio':
@@ -582,24 +645,31 @@ def _receiver_python_major():
 
 
 def installer_main(argv):
-    global _VERIFY_CHANNEL
+    global _VERIFY_CHANNEL, _VERIFY_FAMILY
     verify = '--verify-only' in argv
+    families = [arg for arg in argv if arg.startswith('--family=')]
     options = [arg for arg in argv if arg.startswith('--platform=')]
-    if (len(options) > 1 or any(arg != '--verify-only' and arg not in options for arg in argv)
-            or (options and not verify) or argv.count('--verify-only') > 1):
-        raise ValueError('Supported options: --verify-only [--platform=ipk|dreamos]')
+    if (len(options) > 1 or len(families) > 1 or any(arg != '--verify-only' and arg not in options + families for arg in argv)
+            or ((options or families) and not verify) or argv.count('--verify-only') > 1):
+        raise ValueError('Supported options: --verify-only [--platform=ipk|dreamos] [--family=standard|dreambox-one-two]')
     if options:
         _VERIFY_CHANNEL = options[0].split('=', 1)[1]
         if _VERIFY_CHANNEL not in ('ipk', 'dreamos'):
             raise ValueError('Unknown verification platform')
+    if families:
+        _VERIFY_FAMILY = families[0].split('=', 1)[1]
+        if _VERIFY_FAMILY not in ('standard', 'dreambox-one-two'):
+            raise ValueError('Unknown verification family')
     channel = _channel()
+    family = _family()
     if sys.version_info < (2, 7) or (sys.version_info[0] == 3 and sys.version_info < (3, 5)):
         raise RuntimeError('Python 2.7.9+ (DreamOS) or Python 3.5+ is required')
     if channel == 'ipk' and _receiver_python_major() < 3:
         raise RuntimeError('The IPK requires a Python 3 Enigma2 image; no package was installed')
     print('\nUltra Audio Final V1 - Ahmed L-HadarY')
     print('[PLATFORM] ' + ('DreamOS / DEB' if channel == 'dreamos' else 'Enigma2 / IPK'))
-    filename = 'update-dreamos.json' if channel == 'dreamos' else 'update-ipk.json'
+    print('[FAMILY] ' + family)
+    filename = _manifest_name()
     print('[1/4] Reading verified platform metadata...')
     url = 'https://github.com/%s/releases/latest/download/%s' % (DEFAULT_REPO, filename)
     meta = _verify_meta(DEFAULT_REPO, json.loads(_read_https(url, _MAX_MANIFEST).decode('utf-8')))
@@ -616,6 +686,7 @@ def installer_main(argv):
     if len(payload) != meta['size'] or hashlib.sha256(payload).hexdigest() != meta['sha256']:
         raise ValueError('Package size or SHA256 verification failed')
     control = _ipk_control(payload)
+    _verify_package_family(control)
     for key, value in [('Package', PACKAGE_NAME), ('Version', meta['version']), ('Architecture', 'all')]:
         found = re.search(r'^' + key + r':\s*(\S+)', control, re.M)
         if not found or found.group(1) != value:
@@ -639,7 +710,7 @@ def installer_main(argv):
     if installed and not rebase and not _legacy_transition(installed, meta['version']):
         if _version_tuple(installed) == (0, 0, 0) or _version_revision(installed) > _version_revision(meta['version']):
             raise ValueError('Newer or unrecognized installed version; downgrade refused')
-    if installed == meta['version'] and re.search(r'^Status:.* installed\s*$', status, re.M):
+    if installed == meta['version'] and ('X-UltraAudio-Family: ' + family) in status and re.search(r'^Status:.* installed\s*$', status, re.M):
         print('[OK] This version is already installed.')
         return
     print('[3/4] Refreshing image package lists...')
@@ -653,6 +724,8 @@ def installer_main(argv):
         with os.fdopen(fd, 'wb') as handle:
             handle.write(payload)
         args = ['dpkg', '--force-downgrade' if rebase else '--refuse-downgrade', '-i', path] if channel == 'dreamos' else ['opkg', 'install', path]
+        if channel == 'ipk' and installed == meta['version']:
+            args.insert(2, '--force-reinstall')
         if rebase:
             print('[MIGRATION] Moving legacy DreamOS numbering to parallel version ' + meta['version'] + '.')
         if channel == 'ipk' and _legacy_transition(installed, meta['version']):
