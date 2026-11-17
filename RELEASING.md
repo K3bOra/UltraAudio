@@ -1,3 +1,9 @@
+## Package control validation (1.0.29)
+
+Control fields must be in exactly one paragraph. Insert X-UltraAudio-Family before the terminal newline; never add a blank separator before it. The 1.0.28 release contained that separator and dpkg rejected it as multiple package entries. Release 1.0.29 corrects the metadata without changing UI, audio or timeshift.
+
+`prepare_release.py` now checks paragraph/field uniqueness and invokes `dpkg-deb --field` on all four packages. `tests/test_control_metadata.py` reproduces the malformed metadata, tests the native parser, and runs `dpkg --no-act --unpack` with isolated databases for both DEB variants. These checks are required before publication.
+
 ## Four isolated update variants (1.0.28 onwards)
 
 Publish all four entries in `scripts/release_variants.py` together. Preserve each supplied source family. One/Two IPK and DEB must never be built from the ordinary receiver source tree. All versions advance together; DEB appends `-dreamos`.

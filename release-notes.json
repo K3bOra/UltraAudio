@@ -1,10 +1,22 @@
 {
   "ipk": {
-    "notes": ["Release 1.0.28 from the four supplied final packages. UI, audio and timeshift files are preserved.", "Dreambox One/Two use dedicated IPK/DEB update channels. The unified installer detects receiver model and image package manager; the updater rejects a different family or format."],
-    "notes_ar": ["الإصدار 1.0.28 من الحزم النهائية الأربع المرفقة، مع الحفاظ على ملفات الواجهة والصوت والتايم شيفت.", "نسخ Dreambox One وTwo لها مسارات تحديث مستقلة للـIPK والـDEB. أمر التثبيت يختار حسب موديل الجهاز ومدير حزم الصورة، والتحديث يرفض أي حزمة من عائلة أو صيغة مختلفة."]
+    "notes": [
+      "Release 1.0.29 fixes the package control paragraph that caused dpkg to reject 1.0.28 before installation.",
+      "All four packages are now checked using the native dpkg-deb parser. Both DEB packages also pass isolated dpkg dry-run unpack checks. UI, audio and timeshift are unchanged. Dreambox One/Two update channels remain isolated."
+    ],
+    "notes_ar": [
+      "تصحيح 1.0.29 يصلح تنسيق بيانات الحزمة الذي تسبب في رفض تثبيت الإصدار 1.0.28 برسالة several package info entries found.",
+      "فحص الحزم الأربع بمحلل dpkg-deb الأصلي، ومحاكاة فك الحزمتين DEB باستخدام dpkg دون تثبيت. الواجهة والصوت والتايم شيفت كما هي، وتحديثات Dreambox One وTwo تظل منفصلة عن النسخ العادية."
+    ]
   },
   "dreamos": {
-    "notes": ["Parallel release 1.0.28-dreamos. Original supplied DreamOS package contents are preserved except version metadata and isolated updater routing.", "Dreambox One/Two updates remain separate from ordinary DreamOS receivers such as DM900/DM920."],
-    "notes_ar": ["إصدار DreamOS المتوازي 1.0.28-dreamos؛ التعديل مقتصر على بيانات الإصدار وتوجيه التحديث المستقل.", "تحديثات Dreambox One وTwo منفصلة عن نسخ DreamOS العادية مثل DM900 وDM920."]
+    "notes": [
+      "Release 1.0.29 fixes the package control paragraph that caused dpkg to reject 1.0.28 before installation.",
+      "All four packages are now checked using the native dpkg-deb parser. Both DEB packages also pass isolated dpkg dry-run unpack checks. UI, audio and timeshift are unchanged. Dreambox One/Two update channels remain isolated."
+    ],
+    "notes_ar": [
+      "تصحيح 1.0.29 يصلح تنسيق بيانات الحزمة الذي تسبب في رفض تثبيت الإصدار 1.0.28 برسالة several package info entries found.",
+      "فحص الحزم الأربع بمحلل dpkg-deb الأصلي، ومحاكاة فك الحزمتين DEB باستخدام dpkg دون تثبيت. الواجهة والصوت والتايم شيفت كما هي، وتحديثات Dreambox One وTwo تظل منفصلة عن النسخ العادية."
+    ]
   }
 }
